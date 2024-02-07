@@ -1,30 +1,36 @@
 {
 	"schemaVersion": 1,
-	"id": "template",
+	"id": "desolatedpastels",
 	"version": "${version}",
-	"name": "Template mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Desolated Pastels",
+	"description": "A rethinking of the discontinued Pastel Wonderland",
 	"authors": [
 		"devOS: Sanity Edition",
 		"Team Nautical"
 	],
 	"contact": {
 		"homepage": "https://devos.one/",
-		"sources": "https://github.com/devOS-Sanity-Edition/fabric-nautical-template"
+		"sources": "https://github.com/devOS-Sanity-Edition/DesolatedPastels"
 	},
 	"license": "MIT",
 	"icon": "assets/template/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"one.devos.nautical.template.TemplateMod"
+			{
+				"adapter": "kotlin",
+				"value": "one.devos.nautical.desolatedpastels.DesolatedPastels"
+			}
 		],
 		"client": [
-			"one.devos.nautical.template.client.TemplateModClient"
+			{
+				"adapter": "kotlin",
+				"value": "one.devos.nautical.desolatedpastels.client.DesolatedPastelsClient"
+			}
 		]
 	},
 	"mixins": [
-		"template.mixins.json"
+		"desolatedpastels.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.21",

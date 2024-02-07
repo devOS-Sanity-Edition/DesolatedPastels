@@ -1,2 +1,7 @@
-# Fabric Nautical Template
-Team Nautical's take on the Fabric Example Mod
+# Desolated Pastels
+A rethinking of Pastel Wonderland, written in Kotlin and with more love.
+
+###### todo: work on readme
+
+## License
+This project is under the [MIT license](LICENSE).

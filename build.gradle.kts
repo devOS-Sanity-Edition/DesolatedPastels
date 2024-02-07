@@ -15,6 +15,8 @@ repositories {
 	maven { url = uri("https://api.modrinth.com/maven") }
 	maven { url = uri("https://maven.terraformersmc.com/") }
 	maven { url = uri("https://maven.parchmentmc.org") }
+	maven { url = uri("https://mvn.devos.one/snapshots") }
+	maven { url = uri("https://ueaj.dev/maven") }
 }
 
 //All dependencies and their versions are in ./gradle/libs.versions.toml
@@ -24,16 +26,19 @@ dependencies {
 
 	mappings(loom.layered {
 		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-1.20.1:2023.06.26@zip")
+		parchment("org.parchmentmc.data:parchment-1.20.3:2023.12.31@zip")
 	})
 
 	//Fabric
 	modImplementation(libs.fabric.loader)
 	modImplementation(libs.fabric.api)
+	modImplementation(libs.fabric.language.kotlin)
 
 	//Mods
 	modImplementation(libs.bundles.dependencies)
 	modLocalRuntime(libs.bundles.dev.mods)
+
+	include(modImplementation("gay.asoji:fmw:1.0.0+build.6")!!)
 }
 
 // Write the version to the fabric.mod.json
