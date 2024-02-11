@@ -92,7 +92,7 @@ sourceSets {
 loom {
 	runs {
 		create("datagen") {
-			server()
+			client()
 			name("Data Generation")
 			vmArgs(
 					"-Dfabric-api.datagen",
