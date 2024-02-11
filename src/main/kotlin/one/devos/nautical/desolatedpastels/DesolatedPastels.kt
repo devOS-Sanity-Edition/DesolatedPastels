@@ -16,7 +16,7 @@ class DesolatedPastels : ModInitializer {
         // This logger is used to write text to the console and the log file.
         // It is considered best practice to use your mod id as the logger's name.
         // That way, it's clear which mod wrote info, warnings, and errors.
-        val LOGGER: Logger = LoggerFactory.getLogger("desolatedpastels")
+        val LOGGER: Logger = LoggerFactory.getLogger(MOD_ID)
     }
 
     override fun onInitialize() {
@@ -24,6 +24,6 @@ class DesolatedPastels : ModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
 
-        LOGGER.info("${MOD_NAME} loaded! Versions ${MOD_VERSION}")
+        LOGGER.info("${MOD_NAME} loaded! ${MOD_NAME} Version ${MOD_VERSION}, paired with ${FMW.getName("softerpastels")} Version ${FMW.getVersionString("softerpastels")}.")
     }
 }

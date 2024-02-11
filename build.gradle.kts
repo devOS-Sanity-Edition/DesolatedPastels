@@ -81,6 +81,29 @@ task("buildOrPublish") {
 	}
 }
 
+sourceSets {
+	main {
+		resources {
+			srcDirs += setOf(file("src/main/generated"))
+		}
+	}
+}
+
+loom {
+	runs {
+		create("datagen") {
+			server()
+			name("Data Generation")
+			vmArgs(
+					"-Dfabric-api.datagen",
+					"-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}",
+					"-Dfabric-api.datagen.modid=${project.property("archives_base_name")}"
+			)
+			runDir("build/datagen")
+		}
+	}
+}
+
 // TODO: Uncomment for a non template mod!
 publishing {
 //	publications {
