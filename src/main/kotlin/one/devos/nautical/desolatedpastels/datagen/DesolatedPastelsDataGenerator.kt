@@ -19,6 +19,6 @@ class DesolatedPastelsDataGenerator : DataGeneratorEntrypoint {
     override fun onInitializeDataGenerator(generator: FabricDataGenerator) {
         val pack = generator.createPack()
 
-        pack.addProvider(::ItemTagProvider)
+        pack.addProvider(::DesolatedPastelsItemTagProvider)
     }
 }
