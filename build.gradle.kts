@@ -84,7 +84,8 @@ task("buildOrPublish") {
 sourceSets {
 	main {
 		resources {
-			srcDirs += setOf(file("src/main/generated"))
+			srcDir("src/main/generated")
+			exclude("src/main/generated/.cache")
 		}
 	}
 }

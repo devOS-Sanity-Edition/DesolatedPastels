@@ -16,6 +16,12 @@
 	"icon": "assets/template/icon.png",
 	"environment": "*",
 	"entrypoints": {
+		"fabric-datagen": [
+			{
+				"adapter": "kotlin",
+				"value": "one.devos.nautical.desolatedpastels.datagen.DesolatedPastelsDataGenerator"
+			}
+		],
 		"main": [
 			{
 				"adapter": "kotlin",
