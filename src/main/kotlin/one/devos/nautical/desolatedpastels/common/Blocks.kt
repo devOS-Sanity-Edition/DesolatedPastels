@@ -7,7 +7,6 @@ import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
 import one.devos.nautical.desolatedpastels.DesolatedPastels.Companion.MOD_ID
-import one.devos.nautical.desolatedpastels.utils.BlockUtils
 import one.devos.nautical.desolatedpastels.utils.BlockUtils.Logs
 
 

@@ -2,8 +2,6 @@ package one.devos.nautical.desolatedpastels
 
 import gay.asoji.fmw.FMW
 import net.fabricmc.api.ModInitializer
-import net.fabricmc.loader.api.FabricLoader
-import net.fabricmc.loader.api.metadata.ModDependency
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 

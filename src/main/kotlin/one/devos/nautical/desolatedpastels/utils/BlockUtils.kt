@@ -1,7 +1,5 @@
 package one.devos.nautical.desolatedpastels.utils
 
-import net.fabricmc.api.EnvType
-import net.fabricmc.api.Environment
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
