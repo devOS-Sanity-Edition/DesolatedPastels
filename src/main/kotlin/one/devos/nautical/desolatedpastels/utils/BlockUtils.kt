@@ -9,10 +9,11 @@ import net.minecraft.world.level.block.RotatedPillarBlock
 object BlockUtils {
     fun Leaves(): LeavesBlock {
         return LeavesBlock(
-                FabricBlockSettings.copyOf(Blocks.OAK_LEAVES)
-                        .nonOpaque()
-                        .blockVision(Blocks::never)
-                        .suffocates(Blocks::never))
+            FabricBlockSettings.copyOf(Blocks.OAK_LEAVES)
+                .nonOpaque()
+                .blockVision(Blocks::never)
+                .suffocates(Blocks::never)
+        )
     }
 
     fun Logs(): Block {

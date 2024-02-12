@@ -11,12 +11,16 @@ import one.devos.nautical.SofterPastels.SofterPastels
 import one.devos.nautical.desolatedpastels.common.Items
 import java.util.concurrent.CompletableFuture
 
-class DesolatedPastelsItemTagProvider(output: FabricDataOutput, completableFuture: CompletableFuture<HolderLookup.Provider>) : FabricTagProvider.ItemTagProvider(output, completableFuture) {
+class DesolatedPastelsItemTagProvider(
+    output: FabricDataOutput,
+    completableFuture: CompletableFuture<HolderLookup.Provider>
+) : FabricTagProvider.ItemTagProvider(output, completableFuture) {
     companion object {
         val TESTTAG: TagKey<Item> = TagKey.create(Registries.ITEM, ResourceLocation(SofterPastels.MOD_ID, "testtag"))
     }
+
     override fun addTags(arg: HolderLookup.Provider) {
         getOrCreateTagBuilder(TESTTAG)
-            .add(Items.ITEM_TEST)
+            .add(Items.TEST_ITEM)
     }
 }

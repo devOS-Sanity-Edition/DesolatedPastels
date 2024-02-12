@@ -13,6 +13,7 @@ import one.devos.nautical.desolatedpastels.utils.BlockUtils.Logs
 object Blocks {
     @JvmField
     val LOG = registerBlock("log", Logs())
+
     fun registerBlock(name: String?, block: Block): Block? {
         Registry.register(BuiltInRegistries.ITEM, ResourceLocation(MOD_ID, name), BlockItem(block, Item.Properties()))
         return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation(MOD_ID, name), block)
