@@ -15,4 +15,6 @@ object Items {
             BuiltInRegistries.ITEM, ResourceLocation(DesolatedPastels.MOD_ID, name), item
         )
     }
+
+    fun init() { }
 }

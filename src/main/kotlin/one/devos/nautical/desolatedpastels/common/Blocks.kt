@@ -18,4 +18,6 @@ object Blocks {
         Registry.register(BuiltInRegistries.ITEM, ResourceLocation(MOD_ID, name), BlockItem(block, Item.Properties()))
         return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation(MOD_ID, name), block)
     }
+
+    fun init() { }
 }
