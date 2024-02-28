@@ -12,6 +12,7 @@ version = getModVersion()
 group = project.property("maven_group")!!
 
 repositories {
+	mavenLocal()
 	maven { url = uri("https://api.modrinth.com/maven") }
 	maven { url = uri("https://maven.terraformersmc.com/") }
 	maven { url = uri("https://maven.parchmentmc.org") }
@@ -38,7 +39,8 @@ dependencies {
 	modImplementation(libs.bundles.dependencies)
 	modLocalRuntime(libs.bundles.dev.mods)
 
-	include(modImplementation("gay.asoji:fmw:1.0.0+build.6")!!)
+	include(modImplementation("gay.asoji:innerpastels:1.0.2+build.25")!!)
+	include(modImplementation("gay.asoji:fmw:1.0.0+build.8")!!)
 }
 
 // Write the version to the fabric.mod.json
@@ -84,8 +86,8 @@ task("buildOrPublish") {
 sourceSets {
 	main {
 		resources {
-			srcDir("src/main/generated")
-			exclude("src/main/generated/.cache")
+			srcDir("src/generated/resources")
+			exclude("src/generated/resources/.cache")
 		}
 	}
 }

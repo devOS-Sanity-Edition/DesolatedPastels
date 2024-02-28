@@ -8,6 +8,8 @@ class DesolatedPastelsDataGenerator : DataGeneratorEntrypoint {
     override fun onInitializeDataGenerator(generator: FabricDataGenerator) {
         val pack = generator.createPack()
 
+        pack.addProvider(::DesolatedPastelsEnglishLanguageProvider)
         pack.addProvider(::DesolatedPastelsItemTagProvider)
+        pack.addProvider(::DesolatedPastelsModelProvider)
     }
 }

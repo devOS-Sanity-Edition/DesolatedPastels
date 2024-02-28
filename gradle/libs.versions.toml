@@ -6,7 +6,7 @@ fabric-loader = "0.15.6"
 fabric-api = "0.95.4+1.20.4"
 fabric_language_kotlin = "1.10.17+kotlin.1.9.22"
 
-softer_pastels = "0.5.0-rev.19755f8"
+softer_pastels = "0.6.1-rev.74fa71b"
 
 sodium_version = "mc1.20.4-0.5.8"
 mod_menu_version = "9.0.0"
@@ -19,7 +19,7 @@ fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-l
 fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
 fabric_language_kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric_language_kotlin" }
 
-softer_pastels = { module = "one.devos.nautical:SofterPastels", version.ref = "softer_pastels" }
+softer_pastels = { module = "one.devos.nautical:softerpastels", version.ref = "softer_pastels" }
 
 sodium = { module = "maven.modrinth:sodium", version.ref = "sodium_version" }
 joml = { module = "org.joml:joml", version.ref = "joml_version" }
