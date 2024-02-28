@@ -1,7 +1,5 @@
 package one.devos.nautical.desolatedpastels.utils
 
-import net.fabricmc.api.EnvType
-import net.fabricmc.api.Environment
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
@@ -11,10 +9,11 @@ import net.minecraft.world.level.block.RotatedPillarBlock
 object BlockUtils {
     fun Leaves(): LeavesBlock {
         return LeavesBlock(
-                FabricBlockSettings.copyOf(Blocks.OAK_LEAVES)
-                        .nonOpaque()
-                        .blockVision(Blocks::never)
-                        .suffocates(Blocks::never))
+            FabricBlockSettings.copyOf(Blocks.OAK_LEAVES)
+                .nonOpaque()
+                .blockVision(Blocks::never)
+                .suffocates(Blocks::never)
+        )
     }
 
     fun Logs(): Block {
