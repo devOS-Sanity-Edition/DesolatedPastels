@@ -21,7 +21,7 @@ object DesolatedPastelsBlocks {
     val LIGHT_GREEN_LEAVES: Block = registerTempBlock("light_green_leaves", Properties.PastelLeaves())
 
     fun registerTempBlock(name: String, block: Block): Block {
-        LOGGER.debug("$this is registered as a Temp Block, please make a dedicated register for this block eventually!")
+        LOGGER.warn("${name.replace("_", " ").replaceFirstChar(Char::uppercaseChar) } is registered as a Temp Block, please make a dedicated register for this block eventually!")
         Registry.register(BuiltInRegistries.ITEM, ResourceLocation(MOD_ID, name), BlockItem(block, Item.Properties()))
         return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation(MOD_ID, name), block)
 

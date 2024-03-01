@@ -83,11 +83,12 @@ class MallardEntity(entityType: EntityType<out MallardEntity?>?, level: Level?) 
 
     init {
         this.health = 6f
+
     }
 
     companion object {
         private var VARIANT: EntityDataAccessor<Int> = SynchedEntityData.defineId(MallardEntity::class.java, EntityDataSerializers.INT)
-        private val FOOD_ITEMS: Ingredient = Ingredient.of(*arrayOf<ItemLike>(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.EMERALD))
+        private val FOOD_ITEMS: Ingredient = Ingredient.of(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.EMERALD)
         private val AVOID_PLAYERS: Predicate<Entity>? = null
 
         fun createAttributes(): AttributeSupplier.Builder {
