@@ -1,5 +1,6 @@
 package one.devos.nautical.desolatedpastels.datagen
 
+import gay.asoji.innerpastels.datagen.CustomModelTemplates.createCustomItemModel
 import gay.asoji.innerpastels.datagen.ModelGenerators
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
@@ -10,6 +11,7 @@ import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.data.models.model.TexturedModel
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.RotatedPillarBlock
+import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import java.util.*
@@ -22,29 +24,6 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
     }
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerators) {
-        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM, createCustomItemModel("template_spawn_egg"))
+        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM, createCustomItemModel(DesolatedPastels.MOD_ID, "template_spawn_egg"))
     }
-
-    // TODO: Move all of this to Inner Pastels later under the Datagen packages, prob as `CustomModels.kt`
-    private fun createCustomBlockModel(string: String, textureSlots: TextureSlot): ModelTemplate {
-        return ModelTemplate(Optional.of(ResourceLocation("block/$string")), Optional.empty(), textureSlots)
-    }
-
-    private fun createCustomBlockModel(string: String, suffix: String, textureSlots: TextureSlot): ModelTemplate {
-        return ModelTemplate(Optional.of(ResourceLocation("block/$string")), Optional.of(suffix), textureSlots)
-    }
-
-    private fun createCustomItemModel(string: String, textureSlots: TextureSlot): ModelTemplate {
-        return ModelTemplate(Optional.of(ResourceLocation("item/$string")), Optional.empty(), textureSlots)
-    }
-
-    private fun createCustomItemModel(string: String, suffix: String, textureSlots: TextureSlot): ModelTemplate {
-        return ModelTemplate(Optional.of(ResourceLocation("item/$string")), Optional.of(suffix), textureSlots)
-    }
-
-    // maybe have `template_spawn_egg` or some shit for the string belong be a string enum? idk lol
-    private fun createCustomItemModel(string: String): ModelTemplate {
-        return ModelTemplate(Optional.of(ResourceLocation("item/$string")), Optional.empty())
-    }
-
 }

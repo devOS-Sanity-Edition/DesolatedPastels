@@ -39,7 +39,7 @@ dependencies {
 	modImplementation(libs.bundles.dependencies)
 	modLocalRuntime(libs.bundles.dev.mods)
 
-	include(modImplementation("gay.asoji:innerpastels:1.0.2+build.25")!!)
+	include(modImplementation("gay.asoji:innerpastels:1.0.2+build.27")!!)
 	include(modImplementation("gay.asoji:fmw:1.0.0+build.8")!!)
 }
 

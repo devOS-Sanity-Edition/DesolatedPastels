@@ -1,6 +1,8 @@
 package one.devos.nautical.desolatedpastels.common
 
+import gay.asoji.innerpastels.InnerPastels
 import gay.asoji.innerpastels.blocks.Properties
+import gay.asoji.innerpastels.blocks.registerBlockWithItem
 import gay.asoji.innerpastels.blocks.registerLogBlock
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
@@ -8,17 +10,22 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.block.LeavesBlock
+import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.material.MapColor
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.DesolatedPastels.LOGGER
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks.registerLeavesBlock
 
 
 object DesolatedPastelsBlocks {
     @JvmField
     val LIGHT_GREEN_LOG = MapColor.COLOR_LIGHT_GREEN.registerLogBlock(MOD_ID, "light_green_log")
 
-    val LIGHT_GREEN_LEAVES: Block = registerTempBlock("light_green_leaves", Properties.PastelLeaves())
+    val LIGHT_GREEN_LEAVES: Block = MapColor.COLOR_LIGHT_GREEN.registerLeavesBlock(MOD_ID, "light_green_leaves")
+
+    fun MapColor.registerLeavesBlock(modID: String, name: String): Block = Block(Properties.PastelLeaves().mapColor(this)).registerBlockWithItem(modID, name)
 
     fun registerTempBlock(name: String, block: Block): Block {
         LOGGER.warn("${name.replace("_", " ").replaceFirstChar(Char::uppercaseChar)} is registered as a Temp Block, please make a dedicated register for this block eventually!")

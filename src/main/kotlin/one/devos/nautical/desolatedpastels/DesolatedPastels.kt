@@ -17,11 +17,11 @@ import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsTab
-import one.devos.nautical.desolatedpastels.entities.MallardEntity
+import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-
 
 object DesolatedPastels : ModInitializer {
     val MOD_ID: String = "desolatedpastels"
@@ -55,6 +55,7 @@ object DesolatedPastels : ModInitializer {
 
         DesolatedPastelsItems.init()
         DesolatedPastelsBlocks.init()
+        DesolatedPastelsSoundEvents.init()
 
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation("main"), DP_ITEM_GROUP)
         FabricDefaultAttributeRegistry.register(MALLARD_ENTITY, MallardEntity.createAttributes())

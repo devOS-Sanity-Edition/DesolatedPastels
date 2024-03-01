@@ -1,4 +1,4 @@
-package one.devos.nautical.desolatedpastels.entities
+package one.devos.nautical.desolatedpastels.common.entities.mallard
 
 import net.minecraft.client.model.EntityModel
 import net.minecraft.client.renderer.entity.EntityRendererProvider

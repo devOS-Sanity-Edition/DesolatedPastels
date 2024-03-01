@@ -1,10 +1,12 @@
-package one.devos.nautical.desolatedpastels.entities
+package one.devos.nautical.desolatedpastels.common.entities.mallard
 
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.syncher.EntityDataAccessor
 import net.minecraft.network.syncher.EntityDataSerializers
 import net.minecraft.network.syncher.SynchedEntityData
 import net.minecraft.server.level.ServerLevel
+import net.minecraft.sounds.SoundEvent
+import net.minecraft.sounds.SoundEvents
 import net.minecraft.util.Mth
 import net.minecraft.world.damagesource.DamageSource
 import net.minecraft.world.entity.*
@@ -18,6 +20,7 @@ import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.Level
 import one.devos.nautical.desolatedpastels.DesolatedPastels
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
 import java.util.function.Predicate
 
 
@@ -64,7 +67,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
 
     override fun defineSynchedData() {
         super.defineSynchedData()
-        if (this.commandSenderWorld.dimension().location().path != "pastelwonderland") {
+        if (this.commandSenderWorld.dimension().location().path != "desolatedpastels") {
             entityData.define(VARIANT, if (Math.random() <= 0.5) 0 else 1)
         } else {
             entityData.define(VARIANT, if (Math.random() <= 0.5) 3 else 4)
@@ -90,6 +93,32 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
     // DIDNT KNOW THIS WAS FUCKING NEEDED TOO WHY AM I GENUINELY SO STUPID
     override fun isFood(stack: ItemStack): Boolean {
         return FOOD_ITEMS.test(stack)
+    }
+
+    // temp
+    // prob will make dedicated sound events eventually for the mallards, or just all mobs
+    override fun getDeathSound(): SoundEvent {
+        return DesolatedPastelsSoundEvents.MALLARD_DEATH
+    }
+
+    override fun getHurtSound(damageSource: DamageSource): SoundEvent {
+        return SoundEvents.PLAYER_HURT
+    }
+
+    override fun getAmbientSound(): SoundEvent {
+        return DesolatedPastelsSoundEvents.MALLARD_QUACKS
+    }
+
+    override fun getSwimSound(): SoundEvent {
+        return SoundEvents.PLAYER_SWIM
+    }
+
+    override fun getSwimSplashSound(): SoundEvent {
+        return SoundEvents.PLAYER_SPLASH
+    }
+
+    override fun getSwimHighSpeedSplashSound(): SoundEvent {
+        return SoundEvents.PLAYER_SPLASH_HIGH_SPEED
     }
 
     companion object {

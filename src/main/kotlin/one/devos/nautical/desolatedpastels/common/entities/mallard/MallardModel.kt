@@ -1,4 +1,4 @@
-package one.devos.nautical.desolatedpastels.entities
+package one.devos.nautical.desolatedpastels.common.entities.mallard
 
 import com.google.common.collect.ImmutableList
 import net.minecraft.client.model.AgeableListModel

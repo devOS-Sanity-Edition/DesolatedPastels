@@ -1,4 +1,7 @@
 {
   "block.desolatedpastels.light_green_leaves": "Light Green Pastel Leaves",
-  "block.desolatedpastels.light_green_log": "Light Green Pastel Log"
+  "block.desolatedpastels.light_green_log": "Light Green Pastel Log",
+  "entity.desolatedpastels.mallard": "Mallard",
+  "item.desolatedpastels.mallard_spawn_egg": "Mallard Spawn Egg",
+  "itemGroup.desolatedpastels": "Desolated Pastels"
 }
