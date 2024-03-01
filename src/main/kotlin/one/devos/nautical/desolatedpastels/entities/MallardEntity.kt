@@ -14,6 +14,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.entity.ai.goal.*
 import net.minecraft.world.entity.animal.Animal
 import net.minecraft.world.entity.player.Player
+import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.ItemLike
@@ -22,7 +23,12 @@ import one.devos.nautical.desolatedpastels.DesolatedPastels
 import java.util.function.Predicate
 
 
-class MallardEntity(entityType: EntityType<out MallardEntity?>?, level: Level?) : Animal(entityType, level) {
+class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : Animal(entityType, level) {
+    init {
+        this.health = 6f
+    }
+
+
     override fun causeFallDamage(f: Float, g: Float, damageSource: DamageSource): Boolean {
         return false
     }
@@ -31,7 +37,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity?>?, level: Level?) 
         goalSelector.addGoal(0, FloatGoal(this))
         goalSelector.addGoal(1, PanicGoal(this, 1.4))
         goalSelector.addGoal(2, BreedGoal(this, 1.0))
-        goalSelector.addGoal(3, TemptGoal(this, 1.0, FOOD_ITEMS, false))
+        goalSelector.addGoal(3, TemptGoal(this, 1.25, FOOD_ITEMS, false))
         goalSelector.addGoal(4, FollowParentGoal(this, 1.1))
         goalSelector.addGoal(6, LookAtPlayerGoal(this, Player::class.java, 6.0f))
         goalSelector.addGoal(7, RandomLookAroundGoal(this))
@@ -39,7 +45,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity?>?, level: Level?) 
 
     }
 
-    override fun getStandingEyeHeight(pose: Pose?, entityDimensions: EntityDimensions): Float {
+    override fun getStandingEyeHeight(pose: Pose, entityDimensions: EntityDimensions): Float {
 //        return this.isBaby() ? entityDimensions.height * 0.92F : entityDimensions.height * 0.92F;
         return entityDimensions.height
     }
@@ -81,9 +87,11 @@ class MallardEntity(entityType: EntityType<out MallardEntity?>?, level: Level?) 
         return DesolatedPastels.MALLARD_ENTITY.create(serverLevel)
     }
 
-    init {
-        this.health = 6f
-
+    // IS THIS SERIOUSLY WHAT GETS THEM TO BREED?????? IM FUCKING STUPID THEN
+    // GENUINELY I DIDNT KNOW IT WAS THIS, I ALWAYS THOUGHT IT WAS THE GETBREEDOFFSPRING SHIT AND GIVING IT VALID ITEMS IS ALL
+    // DIDNT KNOW THIS WAS FUCKING NEEDED TOO WHY AM I GENUINELY SO STUPID
+    override fun isFood(stack: ItemStack): Boolean {
+        return FOOD_ITEMS.test(stack)
     }
 
     companion object {
