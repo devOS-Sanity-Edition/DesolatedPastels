@@ -9,9 +9,7 @@ class DesolatedPastelsItemTagProvider(
     output: FabricDataOutput,
     completableFuture: CompletableFuture<HolderLookup.Provider>
 ) : FabricTagProvider.ItemTagProvider(output, completableFuture) {
-    companion object {
-
-    }
+    companion object;
 
     override fun addTags(arg: HolderLookup.Provider) {
 

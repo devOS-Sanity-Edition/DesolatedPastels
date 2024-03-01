@@ -1,9 +1,6 @@
 package one.devos.nautical.desolatedpastels.common
 
 import gay.asoji.innerpastels.items.RegisterItems.registerItem
-import net.minecraft.core.Registry
-import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.SpawnEggItem
 import one.devos.nautical.desolatedpastels.DesolatedPastels

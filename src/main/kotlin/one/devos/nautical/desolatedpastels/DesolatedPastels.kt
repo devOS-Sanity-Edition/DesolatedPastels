@@ -15,7 +15,6 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.MobCategory
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack
-import net.minecraft.world.level.Level
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsTab
@@ -40,7 +39,8 @@ object DesolatedPastels : ModInitializer {
             ResourceLocation(MOD_ID, "mallard"),
             FabricEntityTypeBuilder.create(MobCategory.MONSTER, ::MallardEntity)
                 .dimensions(EntityDimensions.scalable(0.65f, 0.65f))
-                .build())
+                .build()
+        )
 
     val DP_ITEM_GROUP: CreativeModeTab = FabricItemGroup.builder()
         .icon { ItemStack(DesolatedPastelsBlocks.LIGHT_GREEN_LEAVES) }

@@ -5,7 +5,7 @@ import net.minecraft.world.item.CreativeModeTab.Output
 import net.minecraft.world.level.ItemLike
 
 object DesolatedPastelsTab {
-    fun build(params: CreativeModeTab.ItemDisplayParameters, output: CreativeModeTab.Output) {
+    fun build(params: CreativeModeTab.ItemDisplayParameters, output: Output) {
         addBlocks(output)
         addDecorations(output)
     }

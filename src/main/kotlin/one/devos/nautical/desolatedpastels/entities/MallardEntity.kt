@@ -1,6 +1,5 @@
 package one.devos.nautical.desolatedpastels.entities
 
-import net.minecraft.client.renderer.block.model.ItemOverride
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.syncher.EntityDataAccessor
 import net.minecraft.network.syncher.EntityDataSerializers
@@ -17,7 +16,6 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
-import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.Level
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import java.util.function.Predicate
