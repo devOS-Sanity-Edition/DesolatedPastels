@@ -1,4 +1,4 @@
-package one.devos.nautical.desolatedpastels.common.client
+package one.devos.nautical.desolatedpastels.client
 
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
 import net.minecraft.client.renderer.RenderType

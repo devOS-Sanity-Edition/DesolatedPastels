@@ -1,6 +1,8 @@
-package one.devos.nautical.desolatedpastels.common.entities.mallard
+package one.devos.nautical.desolatedpastels.client.entities.mallard
 
 import com.google.common.collect.ImmutableList
+import net.fabricmc.api.EnvType
+import net.fabricmc.api.Environment
 import net.minecraft.client.model.AgeableListModel
 import net.minecraft.client.model.geom.ModelLayerLocation
 import net.minecraft.client.model.geom.ModelPart
@@ -14,7 +16,7 @@ import net.minecraft.util.Mth
 import net.minecraft.world.entity.LivingEntity
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 
-
+@Environment(EnvType.CLIENT)
 class MallardModel<T : LivingEntity?>(root: ModelPart) : AgeableListModel<T>() {
     private val body: ModelPart = root.getChild("body")
     private val rear: ModelPart = root.getChild("body").getChild("rear")
@@ -37,6 +39,7 @@ class MallardModel<T : LivingEntity?>(root: ModelPart) : AgeableListModel<T>() {
     }
 
     override fun setupAnim(entity: T, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, netHeadYaw: Float, headPitch: Float) {
+
         head.xRot = headPitch * 0.017453292f
         head.yRot = netHeadYaw * 0.017453292f
         right_leg.xRot = Mth.cos(limbSwing * 0.6662f) * 1.4f * limbSwingAmount
@@ -62,6 +65,7 @@ class MallardModel<T : LivingEntity?>(root: ModelPart) : AgeableListModel<T>() {
                 left_wing.zRot = 0.0f
             }
         }
+
         //        if (entity.isAggressive) { // this was already commented out
 //            this.right_wing.yRot = 1.309F + Mth.cos(limbSwing * 5F) * 1.4F * limbSwingAmount;
 //            this.left_wing.yRot = -1.309F - Mth.cos(limbSwing * 5F) * 1.4F * limbSwingAmount;
@@ -70,6 +74,7 @@ class MallardModel<T : LivingEntity?>(root: ModelPart) : AgeableListModel<T>() {
 //        Re-enable all of the following animations to engage animations for mallard attack mode.
 //        Replace `limbSwingAmount` with a scaler from 0.0 to 1.0, after attack mode is implemented.
 //        -Zenith
+//
 //        rear.xRot = ((Mth.DEG_TO_RAD * 5.0) + (Mth.DEG_TO_RAD * -90.0) * limbSwingAmount).toFloat()
 //        front.xRot = ((Mth.DEG_TO_RAD * -5.0) + (Mth.DEG_TO_RAD * -30.0) * limbSwingAmount).toFloat()
 //        body.y = (21 - 4 * limbSwingAmount).toFloat()
