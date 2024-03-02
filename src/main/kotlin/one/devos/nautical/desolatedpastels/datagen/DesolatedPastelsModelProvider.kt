@@ -24,6 +24,6 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
     }
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerators) {
-        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM, createCustomItemModel(DesolatedPastels.MOD_ID, "template_spawn_egg"))
+        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM, createCustomItemModel("minecraft", "template_spawn_egg"))
     }
 }
