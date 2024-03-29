@@ -2,33 +2,36 @@
 # The latest versions are available at https://fabricmc.net/develop
 minecraft = "1.20.4"
 fabric-loader = "0.15.6"
-
 fabric-api = "0.95.4+1.20.4"
 fabric_language_kotlin = "1.10.17+kotlin.1.9.22"
-
 softer_pastels = "0.6.1-rev.74fa71b"
-
 sodium_version = "mc1.20.4-0.5.8"
+indium_version = "1.0.30+mc1.20.4"
+continuity_version = "3.0.0-beta.4+1.20.2"
 mod_menu_version = "9.0.0"
 joml_version = "1.10.5"
+imgui_version = "1.89.7-1"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
 fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
-
 fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
 fabric_language_kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric_language_kotlin" }
-
 softer_pastels = { module = "one.devos.nautical:softerpastels", version.ref = "softer_pastels" }
-
 sodium = { module = "maven.modrinth:sodium", version.ref = "sodium_version" }
+indium = { module = "maven.modrinth:indium", version.ref = "indium_version" }
+continuity = { module = "maven.modrinth:continuity", version.ref = "continuity_version" }
 joml = { module = "org.joml:joml", version.ref = "joml_version" }
 mod_menu = { module = "com.terraformersmc:modmenu", version.ref = "mod_menu_version" }
+imgui_core = { module = "com.github.kotlin-graphics:imgui-core", version.ref = "imgui_version" }
+imgui_gl = { module = "com.github.kotlin-graphics:imgui-gl", version.ref = "imgui_version" }
+imgui_glfw = { module = "com.github.kotlin-graphics:imgui-glfw", version.ref = "imgui_version" }
 
 # If you have multiple similar dependencies, you can declare a dependency bundle and reference it on the build script with "libs.bundles.example".
 [bundles]
-dev_mods = [ "joml", "sodium" ]
-dependencies = [ "mod_menu", "softer_pastels" ]
+dev_mods = [ "joml", "sodium", "indium" ]
+dependencies = [ "mod_menu", "indium", "softer_pastels", "continuity" ]
+imgui = [ "imgui_core", "imgui_gl", "imgui_glfw" ]
 
 [plugins]
 grgit = { id = "org.ajoberstar.grgit", version = "5.2.1"}

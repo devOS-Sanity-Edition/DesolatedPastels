@@ -2,13 +2,15 @@ package one.devos.nautical.desolatedpastels.client
 
 import gay.asoji.innerpastels.misc.DevDisclaimer
 import net.fabricmc.api.ClientModInitializer
+import net.fabricmc.api.EnvType
+import net.fabricmc.api.Environment
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardModel
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardRenderer
 
-
+@Environment(EnvType.CLIENT)
 class DesolatedPastelsClient : ClientModInitializer {
     override fun onInitializeClient() {
         // This entrypoint is suitable for setting up client-specific logic, such as rendering.

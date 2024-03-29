@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "desolatedpastels:white_log",
+    "desolatedpastels:light_red_log",
+    "desolatedpastels:red_log",
+    "desolatedpastels:orange_log",
+    "desolatedpastels:yellow_log",
+    "desolatedpastels:light_green_log",
+    "desolatedpastels:green_log",
+    "desolatedpastels:light_blue_log",
+    "desolatedpastels:blue_log",
+    "desolatedpastels:purple_log",
+    "desolatedpastels:magenta_log",
+    "desolatedpastels:brown_log",
+    "desolatedpastels:light_gray_log",
+    "desolatedpastels:gray_log",
+    "desolatedpastels:black_log"
+  ]
+}

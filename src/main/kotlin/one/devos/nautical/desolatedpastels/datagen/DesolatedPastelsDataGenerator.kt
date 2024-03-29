@@ -9,6 +9,7 @@ class DesolatedPastelsDataGenerator : DataGeneratorEntrypoint {
         val pack = generator.createPack()
 
         pack.addProvider(::DesolatedPastelsEnglishLanguageProvider)
+        pack.addProvider(::DesolatedPastelsBlockTagProvider)
         pack.addProvider(::DesolatedPastelsItemTagProvider)
         pack.addProvider(::DesolatedPastelsModelProvider)
     }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "desolatedpastels:block/light_red_log_top",
+    "side": "desolatedpastels:block/light_red_log"
+  }
+}

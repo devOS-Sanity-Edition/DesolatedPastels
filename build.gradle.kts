@@ -1,10 +1,10 @@
 plugins {
-	kotlin("jvm") version "1.9.0"
-	`maven-publish`
-	java
+    kotlin("jvm") version "1.9.0"
+    `maven-publish`
+    java
 
-	alias(libs.plugins.grgit)
-	alias(libs.plugins.fabric.loom)
+    alias(libs.plugins.grgit)
+    alias(libs.plugins.fabric.loom)
 }
 
 val archivesBaseName = "${project.property("archives_base_name").toString()}+mc${libs.versions.minecraft.get()}"
@@ -12,99 +12,123 @@ version = getModVersion()
 group = project.property("maven_group")!!
 
 repositories {
-	mavenLocal()
-	maven { url = uri("https://api.modrinth.com/maven") }
-	maven { url = uri("https://maven.terraformersmc.com/") }
-	maven { url = uri("https://maven.parchmentmc.org") }
-	maven { url = uri("https://mvn.devos.one/snapshots") }
-	maven { url = uri("https://ueaj.dev/maven") }
+    mavenLocal()
+    maven { url = uri("https://api.modrinth.com/maven") }
+    maven { url = uri("https://maven.terraformersmc.com/") }
+    maven { url = uri("https://maven.parchmentmc.org") }
+    maven { url = uri("https://mvn.devos.one/snapshots") }
+    maven { url = uri("https://ueaj.dev/maven") }
+    maven { url = uri("https://jitpack.io") }
+    maven { url = uri("https://raw.githubusercontent.com/kotlin-graphics/mary/master") }
 }
+
 
 //All dependencies and their versions are in ./gradle/libs.versions.toml
 dependencies {
 
-	minecraft(libs.minecraft)
+    minecraft(libs.minecraft)
 
-	mappings(loom.layered {
-		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-1.20.3:2023.12.31@zip")
-	})
+    mappings(loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-1.20.3:2023.12.31@zip")
+    })
 
-	//Fabric
-	modImplementation(libs.fabric.loader)
-	modImplementation(libs.fabric.api)
-	modImplementation(libs.fabric.language.kotlin)
+    //Fabric
+    modImplementation(libs.fabric.loader)
+    modImplementation(libs.fabric.api)
+    modImplementation(libs.fabric.language.kotlin)
 
-	//Mods
-	modImplementation(libs.bundles.dependencies)
-	modLocalRuntime(libs.bundles.dev.mods)
+    //Mods
+    modImplementation(libs.bundles.dependencies)
+    modLocalRuntime(libs.bundles.dev.mods)
 
-	include(modImplementation("gay.asoji:innerpastels:1.0.2+build.27")!!)
-	include(modImplementation("gay.asoji:fmw:1.0.0+build.8")!!)
+    // for some FUCKING REASON, using this would NOT import the libraries, but the one below using explicit does????? GRADLEEEEEEEEEE FOR FUCK SAKES
+//    implementation(libs.bundles.imgui) {
+//        exclude(group = "org.lwjgl")
+//    }
+
+    implementation("kotlin.graphics:imgui-core:1.89.7-1") {
+        exclude(group = "org.lwjgl")
+    }
+    implementation("kotlin.graphics:imgui-gl:1.89.7-1") {
+        exclude(group = "org.lwjgl")
+    }
+    implementation("kotlin.graphics:imgui-glfw:1.89.7-1") {
+        exclude(group = "org.lwjgl")
+    }
+    implementation("kotlin.graphics:uno-core:0.7.21") {
+        exclude(group = "org.lwjgl")
+    }
+    implementation("kotlin.graphics:glm:0.9.9.1-build-11") {
+        exclude(group = "org.lwjgl")
+    }
+
+    include(modImplementation("gay.asoji:innerpastels:1.0.2+build.29")!!)
+    include(modImplementation("gay.asoji:fmw:1.0.0+build.8")!!)
 }
 
 // Write the version to the fabric.mod.json
 tasks.processResources {
-	inputs.property("version", project.version)
+    inputs.property("version", project.version)
 
-	filesMatching("fabric.mod.json") {
-		expand(mutableMapOf("version" to project.version))
-	}
+    filesMatching("fabric.mod.json") {
+        expand(mutableMapOf("version" to project.version))
+    }
 }
 
 tasks.withType<JavaCompile>().configureEach {
-	options.release.set(17)
+    options.release.set(17)
 }
 
 java {
-	withSourcesJar()
+    withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 tasks.jar {
-	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
-	}
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
 }
 
 // This will attempt to publish the mod to the devOS Maven, otherwise it will build the mod locally
 // This is auto run by GitHub Actions
 task("buildOrPublish") {
-	group = "build"
-	var mavenUser = System.getenv().get("MAVEN_USER")
-	if (!mavenUser.isNullOrEmpty()) {
-		dependsOn(tasks.getByName("publish"))
-		println("prepared for publish")
-	} else {
-		dependsOn(tasks.getByName("build"))
-		println("prepared for build")
-	}
+    group = "build"
+    var mavenUser = System.getenv().get("MAVEN_USER")
+    if (!mavenUser.isNullOrEmpty()) {
+        dependsOn(tasks.getByName("publish"))
+        println("prepared for publish")
+    } else {
+        dependsOn(tasks.getByName("build"))
+        println("prepared for build")
+    }
 }
 
 sourceSets {
-	main {
-		resources {
-			srcDir("src/generated/resources")
-			exclude("src/generated/resources/.cache")
-		}
-	}
+    main {
+        resources {
+            srcDir("src/generated/resources")
+            exclude("src/generated/resources/.cache")
+        }
+    }
 }
 
 loom {
-	runs {
-		create("datagen") {
-			client()
-			name("Data Generation")
-			vmArgs(
-					"-Dfabric-api.datagen",
-					"-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}",
-					"-Dfabric-api.datagen.modid=${project.property("archives_base_name")}"
-			)
-			runDir("build/datagen")
-		}
-	}
+    runs {
+        create("datagen") {
+            client()
+            name("Data Generation")
+            vmArgs(
+                "-Dfabric-api.datagen",
+                "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}",
+                "-Dfabric-api.datagen.modid=${project.property("archives_base_name")}"
+            )
+            runDir("build/datagen")
+        }
+    }
 }
 
 // TODO: Uncomment for a non template mod!
@@ -131,29 +155,29 @@ publishing {
 }
 
 fun getModVersion(): String {
-	val modVersion = project.property("mod_version")
-	val buildId = System.getenv("GITHUB_RUN_NUMBER")
+    val modVersion = project.property("mod_version")
+    val buildId = System.getenv("GITHUB_RUN_NUMBER")
 
-	// CI builds only
-	if (buildId != null) {
-		return "${modVersion}+build.${buildId}"
-	}
+    // CI builds only
+    if (buildId != null) {
+        return "${modVersion}+build.${buildId}"
+    }
 
-	// If a git repo can't be found, grgit won't work, this non-null check exists so you don't run grgit stuff without a git repo
-	if (grgit != null) {
-		val head = grgit.head()
-		var id = head.abbreviatedId
+    // If a git repo can't be found, grgit won't work, this non-null check exists so you don't run grgit stuff without a git repo
+    if (grgit != null) {
+        val head = grgit.head()
+        var id = head.abbreviatedId
 
-		// Flag the build if the build tree is not clean
-		// (aka you have uncommitted changes)
-		if (!grgit.status().isClean()) {
-			id += "-dirty"
-		}
-		// ex: 1.0.0+rev.91949fa or 1.0.0+rev.91949fa-dirty
-		return "${modVersion}+rev.${id}"
-	}
+        // Flag the build if the build tree is not clean
+        // (aka you have uncommitted changes)
+        if (!grgit.status().isClean()) {
+            id += "-dirty"
+        }
+        // ex: 1.0.0+rev.91949fa or 1.0.0+rev.91949fa-dirty
+        return "${modVersion}+rev.${id}"
+    }
 
-	// No tracking information could be found about the build
-	return "${modVersion}+unknown"
+    // No tracking information could be found about the build
+    return "${modVersion}+unknown"
 
 }

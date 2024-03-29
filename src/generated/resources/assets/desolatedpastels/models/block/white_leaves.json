@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "desolatedpastels:block/white_leaves"
+  }
+}

@@ -1,11 +1,17 @@
 package one.devos.nautical.desolatedpastels
 
+import com.mojang.blaze3d.platform.InputConstants
 import gay.asoji.fmw.FMW
 import gay.asoji.innerpastels.InnerPastels
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
+import net.fabricmc.loader.api.FabricLoader
+import net.minecraft.client.KeyMapping
+import net.minecraft.client.Minecraft
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.network.chat.Component
@@ -15,11 +21,13 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.MobCategory
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack
+import one.devos.nautical.desolatedpastels.client.screens.DesolatedPastelsImGuiScreen
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsTab
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
+import org.lwjgl.glfw.GLFW
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -48,10 +56,34 @@ object DesolatedPastels : ModInitializer {
         .displayItems(DesolatedPastelsTab::build)
         .build()
 
+    val DEVELOPER_GUI = KeyMapping(
+        "key.desolatedpastels.developergui",
+        InputConstants.Type.KEYSYM,
+        GLFW.GLFW_KEY_M,
+        "category.desolatedpastels.developer")
+
+    fun InitializeDevKeybinds() {
+        val toggleImGuiKeybind = KeyBindingHelper.registerKeyBinding(DEVELOPER_GUI)
+
+        ClientTickEvents.END_CLIENT_TICK.register(::onTick)
+    }
+
+    fun onTick(client: Minecraft) {
+        while (DEVELOPER_GUI.consumeClick()) {
+            if (Minecraft.getInstance().player != null && Minecraft.getInstance().screen == null) {
+                Minecraft.getInstance().setScreen(DesolatedPastelsImGuiScreen())
+            }
+        }
+    }
+
     override fun onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
+
+        if (FabricLoader.getInstance().isDevelopmentEnvironment) {
+            InitializeDevKeybinds()
+        }
 
         DesolatedPastelsItems.init()
         DesolatedPastelsBlocks.init()
