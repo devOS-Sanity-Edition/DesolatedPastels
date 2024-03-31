@@ -29,8 +29,8 @@ class DesolatedPastelsImGuiScreen : Screen(Component.literal("ImguiScreen")) {
 
     // Tells imgui to enter a character, when typing on a textbox or similar.
     override fun charTyped(chr: Char, keyCode: Int): Boolean {
-        if (ImGuiIO!!.wantTextInput) {
-            ImGuiIO!!.addInputCharacter(chr)
+        if (imgui.io.wantTextInput) {
+            imgui.io.addInputCharacter(chr)
         }
 
         super.charTyped(chr, keyCode)
@@ -39,8 +39,8 @@ class DesolatedPastelsImGuiScreen : Screen(Component.literal("ImguiScreen")) {
 
     // Passes mouse scrolling to imgui.
     override fun mouseScrolled(mouseX: Double, mouseY: Double, scrollX: Double, scrollY: Double): Boolean {
-        if (ImGuiIO!!.wantCaptureMouse) {
-            ImGuiIO!!.mouseWheel = scrollY.toFloat()
+        if (imgui.io.wantCaptureMouse) {
+            imgui.io.mouseWheel = scrollY.toFloat()
         }
 
         super.mouseScrolled(mouseX, mouseY, scrollX, scrollY)
@@ -49,8 +49,8 @@ class DesolatedPastelsImGuiScreen : Screen(Component.literal("ImguiScreen")) {
 
     // Passes keypresses for imgui to handle.
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
-        if (ImGuiIO!!.wantCaptureKeyboard) {
-            ImGuiIO!!.keysData[keyCode].down = true
+        if (imgui.io.wantCaptureKeyboard) {
+            imgui.io.keysData[keyCode].down = true
             keyBuffer.add(keyCode)
         }
 
@@ -91,6 +91,7 @@ class DesolatedPastelsImGuiScreen : Screen(Component.literal("ImguiScreen")) {
         imgui.newFrame()
 
         ImGuiDevPanel.invoke(booleanArrayOf(true))
+        ImGui.showDemoWindow(booleanArrayOf(true))
 
         imgui.render()
         implGl3.renderDrawData(Objects.requireNonNull<DrawData>(ImGui.drawData))
