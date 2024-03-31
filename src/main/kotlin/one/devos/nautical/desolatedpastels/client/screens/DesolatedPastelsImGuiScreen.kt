@@ -3,10 +3,11 @@ package one.devos.nautical.desolatedpastels.client.screens
 import gln.cap.Caps
 import imgui.ImGui
 import imgui.MINECRAFT_BEHAVIORS
+import imgui.MouseButton
 import imgui.classes.Context
-import imgui.classes.IO
 import imgui.impl.gl.ImplGL3
 import imgui.impl.glfw.ImplGlfw
+import imgui.impl.glfw.ImplGlfw.Companion.imguiKey
 import imgui.internal.DrawData
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
@@ -14,6 +15,7 @@ import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiGraphics
 import net.minecraft.client.gui.screens.Screen
 import net.minecraft.network.chat.Component
+import org.lwjgl.glfw.GLFW
 import uno.gl.GlWindow
 import uno.glfw.GlfwWindow
 import java.util.*
@@ -26,66 +28,73 @@ class DesolatedPastelsImGuiScreen : Screen(Component.literal("ImguiScreen")) {
         return false
     }
 
-
-    // Tells imgui to enter a character, when typing on a textbox or similar.
-    override fun charTyped(chr: Char, keyCode: Int): Boolean {
-        if (imgui.io.wantTextInput) {
-            imgui.io.addInputCharacter(chr)
+    override fun mouseReleased(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (imgui.io.wantCaptureMouse) {
+            imgui.io.addMouseButtonEvent(MouseButton.of(button), false)
         }
 
-        super.charTyped(chr, keyCode)
-        return true
+        return super.mouseReleased(mouseX, mouseY, button)
     }
 
-    // Passes mouse scrolling to imgui.
     override fun mouseScrolled(mouseX: Double, mouseY: Double, scrollX: Double, scrollY: Double): Boolean {
         if (imgui.io.wantCaptureMouse) {
+            imgui.io.mouseWheelH = scrollX.toFloat()
             imgui.io.mouseWheel = scrollY.toFloat()
         }
 
-        super.mouseScrolled(mouseX, mouseY, scrollX, scrollY)
-        return true
+        return super.mouseScrolled(mouseX, mouseY, scrollX, scrollY)
     }
 
-    // Passes keypresses for imgui to handle.
+    override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (imgui.io.wantCaptureMouse) {
+            imgui.io.addMouseButtonEvent(MouseButton.of(button), true)
+        }
+
+        return super.mouseClicked(mouseX, mouseY, button)
+    }
+
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
-        if (imgui.io.wantCaptureKeyboard) {
-            imgui.io.keysData[keyCode].down = true
-            keyBuffer.add(keyCode)
-        }
+        val key = uno.glfw.Key.of(keyCode).imguiKey
 
-        // Skip handling of the ESC key, because Minecraft uses it to close the screen.
-        if (keyCode == 256) {
-            imgui.io.keysData.get(256).down = false
-        }
+        imgui.io.keyCtrl = modifiers and GLFW.GLFW_MOD_CONTROL != 0
+        imgui.io.keyShift = modifiers and GLFW.GLFW_MOD_SHIFT != 0
+        imgui.io.keyAlt = modifiers and GLFW.GLFW_MOD_ALT != 0
+        imgui.io.keySuper = modifiers and GLFW.GLFW_MOD_SUPER != 0
 
-        super.keyPressed(keyCode, scanCode, modifiers)
-        return true
+        imgui.io.addKeyEvent(key, true)
+        imgui.io.keysData[key.index].down = true
+        imgui.io.setKeyEventNativeData(key, key.i, scanCode)
+
+        return super.keyPressed(keyCode, scanCode, modifiers)
     }
 
-    // Tells imgui the keys pressed have been released.
     override fun keyReleased(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
-        imgui.io.keysData[keyCode].down = false
-        keyBuffer.remove(keyCode)
+        val key = uno.glfw.Key.of(keyCode).imguiKey
 
-        super.keyReleased(keyCode, scanCode, modifiers)
-        return true
+        imgui.io.keyCtrl = modifiers and GLFW.GLFW_MOD_CONTROL != 0
+        imgui.io.keyShift = modifiers and GLFW.GLFW_MOD_SHIFT != 0
+        imgui.io.keyAlt = modifiers and GLFW.GLFW_MOD_ALT != 0
+        imgui.io.keySuper = modifiers and GLFW.GLFW_MOD_SUPER != 0
+
+        imgui.io.addKeyEvent(key, false)
+        imgui.io.keysData[key.index].down = false
+        imgui.io.setKeyEventNativeData(key, key.i, scanCode)
+
+        return super.keyReleased(keyCode, scanCode, modifiers)
     }
 
-    override fun onClose() {
-        // When Minecraft closes the screen, clear the key buffer.
-        for (keyCode in keyBuffer) {
-            imgui.io.keysData[keyCode]
-            imgui.io.keysData[keyCode].down = false
-        }
-        keyBuffer.clear()
+    override fun charTyped(codePoint: Char, modifiers: Int): Boolean {
+        imgui.io.keyCtrl = modifiers and GLFW.GLFW_MOD_CONTROL != 0
+        imgui.io.keyShift = modifiers and GLFW.GLFW_MOD_SHIFT != 0
+        imgui.io.keyAlt = modifiers and GLFW.GLFW_MOD_ALT != 0
+        imgui.io.keySuper = modifiers and GLFW.GLFW_MOD_SUPER != 0
 
-        super.onClose()
+        imgui.io.addInputCharacter(codePoint)
+
+        return super.charTyped(codePoint, modifiers)
     }
 
     override fun render(guiGraphics: GuiGraphics, x: Int, y: Int, partialTicks: Float) {
-        ImGuiIO = imgui.io
-
         implGl3.newFrame()
         implGlfw.newFrame()
         imgui.newFrame()
@@ -103,15 +112,12 @@ class DesolatedPastelsImGuiScreen : Screen(Component.literal("ImguiScreen")) {
         var implGl3: ImplGL3
         var implGlfw: ImplGlfw
 
-        var ImGuiIO: IO? = null
-        val keyBuffer = HashSet<Int>()
-
         // Initialization for imgui.
         init {
             MINECRAFT_BEHAVIORS = true
 
             val glfwWindow = GlfwWindow(Minecraft.getInstance().window.window)
-            val window = GlWindow(glfwWindow, Caps.Profile.COMPATIBILITY, true)
+            val window = GlWindow(glfwWindow, Caps.Profile.CORE, true)
 
             window.makeCurrent(true)
             Context().setCurrent()
