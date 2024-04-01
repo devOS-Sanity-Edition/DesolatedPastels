@@ -22,7 +22,7 @@ import java.util.*
 
 
 @Environment(EnvType.CLIENT)
-class DesolatedPastelsImGuiScreen : Screen(Component.literal("ImguiScreen")) {
+class ImGuiScreen() : Screen(Component.literal("ImguiScreen")) {
     // Prevents Minecraft from pausing the game whenever we open the GUI.
     override fun isPauseScreen(): Boolean {
         return false
@@ -99,8 +99,8 @@ class DesolatedPastelsImGuiScreen : Screen(Component.literal("ImguiScreen")) {
         implGlfw.newFrame()
         imgui.newFrame()
 
-        ImGuiDevPanel.invoke(booleanArrayOf(true))
         ImGui.showDemoWindow(booleanArrayOf(true))
+        ImGuiDevPanel.invoke(booleanArrayOf(true))
 
         imgui.render()
         implGl3.renderDrawData(Objects.requireNonNull<DrawData>(ImGui.drawData))

@@ -1,14 +1,13 @@
 {
-	"required": true,
-	"package": "one.devos.nautical.desolatedpastels.mixins",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-
-	],
-	"client": [
-		"client.DevEnvDebugScreenOverlayMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "one.devos.nautical.desolatedpastels.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "client.DevEnvDebugScreenOverlayMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

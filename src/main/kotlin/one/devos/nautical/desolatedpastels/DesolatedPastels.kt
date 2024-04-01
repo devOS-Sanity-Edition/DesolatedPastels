@@ -21,7 +21,8 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.MobCategory
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack
-import one.devos.nautical.desolatedpastels.client.screens.DesolatedPastelsImGuiScreen
+import one.devos.nautical.desolatedpastels.client.screens.ImGuiDevPanel
+import one.devos.nautical.desolatedpastels.client.screens.ImGuiScreen
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
@@ -70,8 +71,8 @@ object DesolatedPastels : ModInitializer {
 
     fun onTick(client: Minecraft) {
         while (DEVELOPER_GUI.consumeClick()) {
-            if (Minecraft.getInstance().player != null && Minecraft.getInstance().screen == null) {
-                Minecraft.getInstance().setScreen(DesolatedPastelsImGuiScreen())
+            if (client.player != null && Minecraft.getInstance().screen == null) {
+                client.setScreen(ImGuiScreen())
             }
         }
     }
