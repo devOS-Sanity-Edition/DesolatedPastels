@@ -67,7 +67,7 @@ object ImGuiDevPanel {
         input3("Co-ordinates", Vec3(clientCamera.x.toFloat(), clientCamera.y.toFloat(), clientCamera.z.toFloat()))
         input3("Block Position: Global", Vec3(clientCamera.blockPosition().x, clientCamera.blockPosition().y, clientCamera.blockPosition().z))
         input3("Block Position: Relative", Vec3((clientCamera.blockPosition().x and 15), (clientCamera.blockPosition().y and 15), (clientCamera.blockPosition().z and 15)))
-        
+
         when (hit?.type) {
             HitResult.Type.MISS -> { }
             HitResult.Type.BLOCK -> {
@@ -82,18 +82,18 @@ object ImGuiDevPanel {
                 blockPosHitResultZ = blockPos.z
                 // todo: get tags blockstate text here once i figure out lists
             }
-            HitResult.Type.ENTITY -> {
-                val entityHit = hit as EntityHitResult
-                val entity: Entity = entityHit.entity
-
-                entityPosHitResultType = entity.type.toShortString()
-
-                entityPosHitResultX = entity.x
-                entityPosHitResultY = entity.y
-                entityPosHitResultZ = entity.z
-
-            }
+            HitResult.Type.ENTITY -> { }
             null -> { }
+        }
+
+        if (client.crosshairPickEntity != null) {
+            val entity: Entity? = client.crosshairPickEntity
+
+            entityPosHitResultType = entity?.type.toString()
+
+            entityPosHitResultX = entity!!.x
+            entityPosHitResultY = entity.y
+            entityPosHitResultZ = entity.z
         }
 
         text("Targetted Block: $blockPosHitResultName")
