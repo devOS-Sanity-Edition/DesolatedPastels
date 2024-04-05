@@ -13,6 +13,8 @@ import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.Blocks.never
 import net.minecraft.world.level.block.LeavesBlock
 import net.minecraft.world.level.block.RotatedPillarBlock
 import net.minecraft.world.level.block.state.BlockBehaviour
@@ -41,37 +43,43 @@ object DesolatedPastelsBlocks {
     val GRAY_LOG = MapColor.COLOR_GRAY.registerLogBlock(MOD_ID, "gray_log")
     val BLACK_LOG = MapColor.COLOR_BLACK.registerLogBlock(MOD_ID, "black_log")
 
-    val WHITE_LEAVES: Block = DyeColor.WHITE.registerLeavesBlock(MOD_ID, "white_leaves")
-    val LIGHT_RED_LEAVES: Block = MapColor.COLOR_PINK.registerLeavesBlock(MOD_ID, "light_red_leaves")
-    val RED_LEAVES: Block = MapColor.COLOR_RED.registerLeavesBlock(MOD_ID, "red_leaves")
-    val ORANGE_LEAVES: Block = MapColor.COLOR_ORANGE.registerLeavesBlock(MOD_ID, "orange_leaves")
-    val YELLOW_LEAVES: Block = MapColor.COLOR_YELLOW.registerLeavesBlock(MOD_ID, "yellow_leaves")
-    val LIGHT_GREEN_LEAVES: Block = MapColor.COLOR_LIGHT_GREEN.registerLeavesBlock(MOD_ID, "light_green_leaves")
-    val GREEN_LEAVES: Block = MapColor.COLOR_GREEN.registerLeavesBlock(MOD_ID, "green_leaves")
-    val LIGHT_BLUE_LEAVES: Block = MapColor.COLOR_LIGHT_BLUE.registerLeavesBlock(MOD_ID, "light_blue_leaves")
-    val BLUE_LEAVES: Block = MapColor.COLOR_BLUE.registerLeavesBlock(MOD_ID, "blue_leaves")
-    val PURPLE_LEAVES: Block = MapColor.COLOR_PURPLE.registerLeavesBlock(MOD_ID, "purple_leaves")
-    val MAGENTA_LEAVES: Block = MapColor.COLOR_MAGENTA.registerLeavesBlock(MOD_ID, "magenta_leaves")
-    val BROWN_LEAVES: Block = MapColor.COLOR_BROWN.registerLeavesBlock(MOD_ID, "brown_leaves")
-    val LIGHT_GRAY_LEAVES: Block = MapColor.COLOR_LIGHT_GRAY.registerLeavesBlock(MOD_ID, "light_gray_leaves")
-    val GRAY_LEAVES: Block = MapColor.COLOR_GRAY.registerLeavesBlock(MOD_ID, "gray_leaves")
-    val BLACK_LEAVES: Block = MapColor.COLOR_BLACK.registerLeavesBlock(MOD_ID, "black_leaves")
+    val WHITE_LEAVES: Block = DyeColor.WHITE.registerLeavesBlock(MOD_ID, "white_leaves", Blocks::never)
+    val LIGHT_RED_LEAVES: Block = MapColor.COLOR_PINK.registerLeavesBlock(MOD_ID, "light_red_leaves", Blocks::never)
+    val RED_LEAVES: Block = MapColor.COLOR_RED.registerLeavesBlock(MOD_ID, "red_leaves", Blocks::never)
+    val ORANGE_LEAVES: Block = MapColor.COLOR_ORANGE.registerLeavesBlock(MOD_ID, "orange_leaves", Blocks::never)
+    val YELLOW_LEAVES: Block = MapColor.COLOR_YELLOW.registerLeavesBlock(MOD_ID, "yellow_leaves", Blocks::never)
+    val LIGHT_GREEN_LEAVES: Block = MapColor.COLOR_LIGHT_GREEN.registerLeavesBlock(MOD_ID, "light_green_leaves", Blocks::never)
+    val GREEN_LEAVES: Block = MapColor.COLOR_GREEN.registerLeavesBlock(MOD_ID, "green_leaves", Blocks::never)
+    val LIGHT_BLUE_LEAVES: Block = MapColor.COLOR_LIGHT_BLUE.registerLeavesBlock(MOD_ID, "light_blue_leaves", Blocks::never)
+    val BLUE_LEAVES: Block = MapColor.COLOR_BLUE.registerLeavesBlock(MOD_ID, "blue_leaves", Blocks::never)
+    val PURPLE_LEAVES: Block = MapColor.COLOR_PURPLE.registerLeavesBlock(MOD_ID, "purple_leaves", Blocks::never)
+    val MAGENTA_LEAVES: Block = MapColor.COLOR_MAGENTA.registerLeavesBlock(MOD_ID, "magenta_leaves", Blocks::never)
+    val BROWN_LEAVES: Block = MapColor.COLOR_BROWN.registerLeavesBlock(MOD_ID, "brown_leaves", Blocks::never)
+    val LIGHT_GRAY_LEAVES: Block = MapColor.COLOR_LIGHT_GRAY.registerLeavesBlock(MOD_ID, "light_gray_leaves", Blocks::never)
+    val GRAY_LEAVES: Block = MapColor.COLOR_GRAY.registerLeavesBlock(MOD_ID, "gray_leaves", Blocks::never)
+    val BLACK_LEAVES: Block = MapColor.COLOR_BLACK.registerLeavesBlock(MOD_ID, "black_leaves", Blocks::never)
 
-    val BRIGHTENED_WHITE_LEAVES: Block = DyeColor.WHITE.registerLeavesBlock(MOD_ID, "brightened_white_leaves")
-    val BRIGHTENED_LIGHT_RED_LEAVES: Block = MapColor.COLOR_PINK.registerLeavesBlock(MOD_ID, "brightened_light_red_leaves")
-    val BRIGHTENED_RED_LEAVES: Block = MapColor.COLOR_RED.registerLeavesBlock(MOD_ID, "brightened_red_leaves")
-    val BRIGHTENED_ORANGE_LEAVES: Block = MapColor.COLOR_ORANGE.registerLeavesBlock(MOD_ID, "brightened_orange_leaves")
-    val BRIGHTENED_YELLOW_LEAVES: Block = MapColor.COLOR_YELLOW.registerLeavesBlock(MOD_ID, "brightened_yellow_leaves")
-    val BRIGHTENED_LIGHT_GREEN_LEAVES: Block = MapColor.COLOR_LIGHT_GREEN.registerLeavesBlock(MOD_ID, "brightened_light_green_leaves")
-    val BRIGHTENED_GREEN_LEAVES: Block = MapColor.COLOR_GREEN.registerLeavesBlock(MOD_ID, "brightened_green_leaves")
-    val BRIGHTENED_LIGHT_BLUE_LEAVES: Block = MapColor.COLOR_LIGHT_BLUE.registerLeavesBlock(MOD_ID, "brightened_light_blue_leaves")
-    val BRIGHTENED_BLUE_LEAVES: Block = MapColor.COLOR_BLUE.registerLeavesBlock(MOD_ID, "brightened_blue_leaves")
-    val BRIGHTENED_PURPLE_LEAVES: Block = MapColor.COLOR_PURPLE.registerLeavesBlock(MOD_ID, "brightened_purple_leaves")
-    val BRIGHTENED_MAGENTA_LEAVES: Block = MapColor.COLOR_MAGENTA.registerLeavesBlock(MOD_ID, "brightened_magenta_leaves")
-    val BRIGHTENED_BROWN_LEAVES: Block = MapColor.COLOR_BROWN.registerLeavesBlock(MOD_ID, "brightened_brown_leaves")
-    val BRIGHTENED_LIGHT_GRAY_LEAVES: Block = MapColor.COLOR_LIGHT_GRAY.registerLeavesBlock(MOD_ID, "brightened_light_gray_leaves")
-    val BRIGHTENED_GRAY_LEAVES: Block = MapColor.COLOR_GRAY.registerLeavesBlock(MOD_ID, "brightened_gray_leaves")
-    val BRIGHTENED_BLACK_LEAVES: Block = MapColor.COLOR_BLACK.registerLeavesBlock(MOD_ID, "brightened_black_leaves")
+    val BRIGHTENED_WHITE_LEAVES: Block = DyeColor.WHITE.registerTempLeavesBlock(MOD_ID, "brightened_white_leaves", Blocks::always)
+    val BRIGHTENED_LIGHT_RED_LEAVES: Block = MapColor.COLOR_PINK.registerTempLeavesBlock(MOD_ID, "brightened_light_red_leaves", Blocks::always)
+    val BRIGHTENED_RED_LEAVES: Block = MapColor.COLOR_RED.registerTempLeavesBlock(MOD_ID, "brightened_red_leaves", Blocks::always)
+    val BRIGHTENED_ORANGE_LEAVES: Block = MapColor.COLOR_ORANGE.registerTempLeavesBlock(MOD_ID, "brightened_orange_leaves", Blocks::always)
+    val BRIGHTENED_YELLOW_LEAVES: Block = MapColor.COLOR_YELLOW.registerTempLeavesBlock(MOD_ID, "brightened_yellow_leaves", Blocks::always)
+    val BRIGHTENED_LIGHT_GREEN_LEAVES: Block = MapColor.COLOR_LIGHT_GREEN.registerTempLeavesBlock(MOD_ID, "brightened_light_green_leaves", Blocks::always)
+    val BRIGHTENED_GREEN_LEAVES: Block = MapColor.COLOR_GREEN.registerTempLeavesBlock(MOD_ID, "brightened_green_leaves", Blocks::always)
+    val BRIGHTENED_LIGHT_BLUE_LEAVES: Block = MapColor.COLOR_LIGHT_BLUE.registerTempLeavesBlock(MOD_ID, "brightened_light_blue_leaves", Blocks::always)
+    val BRIGHTENED_BLUE_LEAVES: Block = MapColor.COLOR_BLUE.registerTempLeavesBlock(MOD_ID, "brightened_blue_leaves", Blocks::always)
+    val BRIGHTENED_PURPLE_LEAVES: Block = MapColor.COLOR_PURPLE.registerTempLeavesBlock(MOD_ID, "brightened_purple_leaves", Blocks::always)
+    val BRIGHTENED_MAGENTA_LEAVES: Block = MapColor.COLOR_MAGENTA.registerTempLeavesBlock(MOD_ID, "brightened_magenta_leaves", Blocks::always)
+    val BRIGHTENED_BROWN_LEAVES: Block = MapColor.COLOR_BROWN.registerTempLeavesBlock(MOD_ID, "brightened_brown_leaves", Blocks::always)
+    val BRIGHTENED_LIGHT_GRAY_LEAVES: Block = MapColor.COLOR_LIGHT_GRAY.registerTempLeavesBlock(MOD_ID, "brightened_light_gray_leaves", Blocks::always)
+    val BRIGHTENED_GRAY_LEAVES: Block = MapColor.COLOR_GRAY.registerTempLeavesBlock(MOD_ID, "brightened_gray_leaves", Blocks::always)
+    val BRIGHTENED_BLACK_LEAVES: Block = MapColor.COLOR_BLACK.registerTempLeavesBlock(MOD_ID, "brightened_black_leaves", Blocks::always)
+
+    fun DyeColor.registerTempLeavesBlock(modID: String, name: String, emissiveRenderingState: BlockBehaviour.StatePredicate): Block =
+        LeavesBlock(Properties.pastelLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
+
+    fun MapColor.registerTempLeavesBlock(modID: String, name: String, emissiveRenderingState: BlockBehaviour.StatePredicate): Block =
+        LeavesBlock(Properties.pastelLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
 
 
     fun registerTempBlock(name: String, block: Block): Block {

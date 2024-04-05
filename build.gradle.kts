@@ -42,28 +42,11 @@ dependencies {
     modImplementation(libs.bundles.dependencies)
     modLocalRuntime(libs.bundles.dev.mods)
 
-    // for some FUCKING REASON, using this would NOT import the libraries, but the one below using explicit does????? GRADLEEEEEEEEEE FOR FUCK SAKES
-//    implementation(libs.bundles.imgui) {
-//        exclude(group = "org.lwjgl")
-//    }
-
-    implementation("kotlin.graphics:imgui-core:1.89.7-1") {
-        exclude(group = "org.lwjgl")
-    }
-    implementation("kotlin.graphics:imgui-gl:1.89.7-1") {
-        exclude(group = "org.lwjgl")
-    }
-    implementation("kotlin.graphics:imgui-glfw:1.89.7-1") {
-        exclude(group = "org.lwjgl")
-    }
-    implementation("kotlin.graphics:uno-core:0.7.21") {
-        exclude(group = "org.lwjgl")
-    }
-    implementation("kotlin.graphics:glm:0.9.9.1-build-11") {
+    implementation(libs.bundles.imgui) {
         exclude(group = "org.lwjgl")
     }
 
-    include(modImplementation("gay.asoji:innerpastels:1.0.2+build.29")!!)
+    include(modImplementation("gay.asoji:innerpastels:1.0.3+build.30")!!)
     include(modImplementation("gay.asoji:fmw:1.0.0+build.8")!!)
 }
 

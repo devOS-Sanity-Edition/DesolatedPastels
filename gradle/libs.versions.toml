@@ -11,6 +11,8 @@ continuity_version = "3.0.0-beta.4+1.20.2"
 mod_menu_version = "9.0.0"
 joml_version = "1.10.5"
 imgui_version = "1.89.7-1"
+uno_version = "0.7.21"
+glm_version = "0.9.9.1-build-11"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -23,15 +25,17 @@ indium = { module = "maven.modrinth:indium", version.ref = "indium_version" }
 continuity = { module = "maven.modrinth:continuity", version.ref = "continuity_version" }
 joml = { module = "org.joml:joml", version.ref = "joml_version" }
 mod_menu = { module = "com.terraformersmc:modmenu", version.ref = "mod_menu_version" }
-imgui_core = { module = "com.github.kotlin-graphics:imgui-core", version.ref = "imgui_version" }
-imgui_gl = { module = "com.github.kotlin-graphics:imgui-gl", version.ref = "imgui_version" }
-imgui_glfw = { module = "com.github.kotlin-graphics:imgui-glfw", version.ref = "imgui_version" }
+imgui_core = { module = "kotlin.graphics:imgui-core", version.ref = "imgui_version" }
+imgui_gl = { module = "kotlin.graphics:imgui-gl", version.ref = "imgui_version" }
+imgui_glfw = { module = "kotlin.graphics:imgui-glfw", version.ref = "imgui_version" }
+uno_core = { module = "kotlin.graphics:uno-core", version.ref = "uno_version" }
+glm = { module = "kotlin.graphics:glm", version.ref = "glm_version" }
 
 # If you have multiple similar dependencies, you can declare a dependency bundle and reference it on the build script with "libs.bundles.example".
 [bundles]
 dev_mods = [ "joml", "sodium", "indium" ]
 dependencies = [ "mod_menu", "indium", "softer_pastels", "continuity" ]
-imgui = [ "imgui_core", "imgui_gl", "imgui_glfw" ]
+imgui = [ "imgui_core", "imgui_gl", "imgui_glfw", "uno_core", "glm" ]
 
 [plugins]
 grgit = { id = "org.ajoberstar.grgit", version = "5.2.1"}

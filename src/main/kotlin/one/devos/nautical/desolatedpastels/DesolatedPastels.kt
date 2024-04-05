@@ -3,6 +3,7 @@ package one.devos.nautical.desolatedpastels
 import com.mojang.blaze3d.platform.InputConstants
 import gay.asoji.fmw.FMW
 import gay.asoji.innerpastels.InnerPastels
+import gay.asoji.innerpastels.client.screens.imgui.ImGuiScreen
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -21,8 +22,6 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.MobCategory
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack
-import one.devos.nautical.desolatedpastels.client.screens.ImGuiDevPanel
-import one.devos.nautical.desolatedpastels.client.screens.ImGuiScreen
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
