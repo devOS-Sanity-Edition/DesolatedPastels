@@ -22,6 +22,7 @@ import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.Level
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
+import kotlin.random.Random
 
 
 class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : Animal(entityType, level) {
@@ -50,9 +51,9 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         builder.define(ATTACKING, false)
 
         if (this.commandSenderWorld.dimension().location().path != "desolatedpastels") {
-            builder.define(VARIANT, if (Math.random() <= 0.5) 0 else 1)
+            builder.define(VARIANT, if (Random.nextInt(2) == 0) 0 else 1)
         } else {
-            builder.define(VARIANT, if (Math.random() <= 0.5) 3 else 4)
+            builder.define(VARIANT, if (Random.nextInt(2) == 0) 3 else 4)
         }
     }
 
