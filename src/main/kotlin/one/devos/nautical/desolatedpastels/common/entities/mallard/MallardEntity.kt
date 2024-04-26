@@ -94,8 +94,8 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         this.variant = tag.getInt("Variant")
     }
 
-    override fun getBreedOffspring(serverLevel: ServerLevel, ageableMob: AgeableMob): MallardEntity? {
-        return DesolatedPastels.MALLARD_ENTITY.create(serverLevel)
+    override fun getBreedOffspring(serverLevel: ServerLevel, ageableMob: AgeableMob): MallardEntity {
+        return DesolatedPastels.MALLARD_ENTITY.create(serverLevel)!!
     }
 
     override fun hurt(source: DamageSource, amount: Float): Boolean {

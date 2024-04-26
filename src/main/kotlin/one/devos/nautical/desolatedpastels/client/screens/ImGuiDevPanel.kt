@@ -70,10 +70,10 @@ object ImGuiDevPanel : ImGuiPanel {
             return
         }
 
-        if (blockRaycastHit?.type == HitResult.Type.BLOCK) {
+        if (blockRaycastHit.type == HitResult.Type.BLOCK) {
             val blockHit = blockRaycastHit as BlockHitResult
             val blockPos = blockHit.blockPos
-            val blockState = client.level?.getBlockState(blockPos)
+            val blockState = client.level!!.getBlockState(blockPos)
 
             blockHitResultName = blockState!!.block.name.string
             blockStateHitResultName = blockState.block.stateDefinition.toString()
@@ -88,13 +88,13 @@ object ImGuiDevPanel : ImGuiPanel {
             blockState.tags.map { tagKey -> "#" + tagKey.location() }.forEach { e -> blockStateTagsHitResultList.add(e) }
         }
 
-        if (fluidRaycastHit?.type == HitResult.Type.BLOCK) {
+        if (fluidRaycastHit.type == HitResult.Type.BLOCK) {
             val blockHit = fluidRaycastHit as BlockHitResult
             val blockPos = blockHit.blockPos
-            val fluidState = client.level?.getFluidState(blockPos)
+            val fluidState = client.level!!.getFluidState(blockPos)
 
-            fluidHitResultName = fluidState?.type.toString()
-            fluidBlockPosHitResultFluidState = BuiltInRegistries.FLUID.getKey(fluidState?.type).toString()
+            fluidHitResultName = fluidState!!.type.toString()
+            fluidBlockPosHitResultFluidState = BuiltInRegistries.FLUID.getKey(fluidState.type).toString()
 
             if (fluidBlockPosHitResultFluidState.contains("EmptyFluid")) {
                 fluidBlockPosHitResultFluidState = "Not a fluid!"
@@ -104,15 +104,15 @@ object ImGuiDevPanel : ImGuiPanel {
             fluidBlockPosHitResultY = blockPos.y
             fluidBlockPosHitResultZ = blockPos.z
 
-            fluidState?.tags?.map { tagKey -> "#" + tagKey.location }?.forEach { e -> fluidBlockStateTagsHitResultList.add(e) }
+            fluidState.tags.map { tagKey -> "#" + tagKey.location }.forEach { e -> fluidBlockStateTagsHitResultList.add(e) }
         }
 
         if (client.crosshairPickEntity != null) {
-            val entity: Entity? = client.crosshairPickEntity
+            val entity = client.crosshairPickEntity!!
 
-            entityPosHitResultType = entity?.type.toString()
+            entityPosHitResultType = entity.type.toString()
 
-            entityEyePosHitResultX = entity!!.eyePosition.x
+            entityEyePosHitResultX = entity.eyePosition.x
             entityEyePosHitResultY = entity.eyePosition.y
             entityEyePosHitResultZ = entity.eyePosition.z
 
