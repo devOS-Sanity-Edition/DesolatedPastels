@@ -1,6 +1,6 @@
 package one.devos.nautical.desolatedpastels.common
 
-import gay.asoji.innerpastels.sounds.RegisterSounds
+import gay.asoji.innerpastels.register.RegisterSounds
 import net.minecraft.sounds.SoundEvent
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 

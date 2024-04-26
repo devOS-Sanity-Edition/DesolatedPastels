@@ -46,7 +46,7 @@ dependencies {
         exclude(group = "org.lwjgl")
     }
 
-    include(modImplementation("gay.asoji:innerpastels:1.0.4+build.37+branch.kt.1.20.5.main")!!)
+    include(modImplementation("gay.asoji:innerpastels:1.1.0+rev.a588fcb+branch.kt.1.20.5.main")!!)
     include(modImplementation("gay.asoji:fmw:1.0.0+build.8")!!)
 }
 

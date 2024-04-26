@@ -1,10 +1,9 @@
 package one.devos.nautical.desolatedpastels.common
 
-import gay.asoji.innerpastels.InnerPastels
 import gay.asoji.innerpastels.blocks.Properties
-import gay.asoji.innerpastels.blocks.registerBlockWithItem
-import gay.asoji.innerpastels.blocks.registerLeavesBlock
-import gay.asoji.innerpastels.blocks.registerLogBlock
+import gay.asoji.innerpastels.register.registerBlockWithItem
+import gay.asoji.innerpastels.register.registerLeavesBlock
+import gay.asoji.innerpastels.register.registerLogBlock
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
@@ -14,12 +13,9 @@ import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
-import net.minecraft.world.level.block.Blocks.never
 import net.minecraft.world.level.block.LeavesBlock
-import net.minecraft.world.level.block.RotatedPillarBlock
 import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.material.MapColor
-import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.DesolatedPastels.LOGGER
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 
