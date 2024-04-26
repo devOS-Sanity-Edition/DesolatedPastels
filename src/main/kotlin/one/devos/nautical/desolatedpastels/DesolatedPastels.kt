@@ -35,10 +35,6 @@ object DesolatedPastels : ModInitializer {
     val MOD_ID: String = "desolatedpastels"
     val MOD_VERSION: String = FMW.getVersionString(MOD_ID)
     val MOD_NAME: String = FMW.getName(MOD_ID)
-
-    // This logger is used to write text to the console and the log file.
-    // It is considered best practice to use your mod id as the logger's name.
-    // That way, it's clear which mod wrote info, warnings, and errors.
     val LOGGER: Logger = LoggerFactory.getLogger(MOD_ID)
 
     val MALLARD_ENTITY: EntityType<MallardEntity> =
@@ -56,35 +52,7 @@ object DesolatedPastels : ModInitializer {
         .displayItems(DesolatedPastelsTab::build)
         .build()
 
-    val DEVELOPER_GUI = KeyMapping(
-        "key.desolatedpastels.developergui",
-        InputConstants.Type.KEYSYM,
-        GLFW.GLFW_KEY_M,
-        "category.desolatedpastels.developer")
-
-    fun InitializeDevKeybinds() {
-        val toggleImGuiKeybind = KeyBindingHelper.registerKeyBinding(DEVELOPER_GUI)
-
-        ClientTickEvents.END_CLIENT_TICK.register(::onTick)
-    }
-
-    fun onTick(client: Minecraft) {
-        while (DEVELOPER_GUI.consumeClick()) {
-            if (client.player != null && Minecraft.getInstance().screen == null) {
-                client.setScreen(ImGuiScreen())
-            }
-        }
-    }
-
     override fun onInitialize() {
-        // This code runs as soon as Minecraft is in a mod-load-ready state.
-        // However, some things (like resources) may still be uninitialized.
-        // Proceed with mild caution.
-
-        if (FabricLoader.getInstance().isDevelopmentEnvironment) {
-            InitializeDevKeybinds()
-        }
-
         DesolatedPastelsItems.init()
         DesolatedPastelsBlocks.init()
         DesolatedPastelsSoundEvents.init()
