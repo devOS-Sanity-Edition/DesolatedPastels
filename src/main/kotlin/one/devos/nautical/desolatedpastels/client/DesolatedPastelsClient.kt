@@ -34,7 +34,7 @@ class DesolatedPastelsClient : ClientModInitializer {
 
         DevDisclaimer.init()
 
-        EntityRendererRegistry.register(DesolatedPastels.MALLARD_ENTITY, ({ context -> MallardRenderer(context) }))
+        EntityRendererRegistry.register(DesolatedPastels.MALLARD_ENTITY, ::MallardRenderer)
 
         EntityModelLayerRegistry.registerModelLayer(MallardModel.LAYER_LOCATION, MallardModel.Companion::createBodyLayer)
     }
