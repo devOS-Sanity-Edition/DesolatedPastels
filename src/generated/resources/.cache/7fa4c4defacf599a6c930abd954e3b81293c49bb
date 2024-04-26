@@ -1,6 +1,6 @@
-// 1.20.4	2024-04-02T04:01:34.6879958	Desolated Pastels/Tags for minecraft:block
-1f58e35f103fc8331ab7b54fbdb3b6eeab57636a data\minecraft\tags\blocks\leaves.json
-6286d554618a9b3d91269387dfc9591c3ac08833 data\innerpastels\tags\blocks\logs.json
-4ef5e43f34644e7036969208fc53d05166786ea2 data\minecraft\tags\blocks\logs_that_burn.json
-4ef5e43f34644e7036969208fc53d05166786ea2 data\minecraft\tags\blocks\logs.json
-3001ea626ce1c2cb9aa0e4b08cae130039e33dc8 data\innerpastels\tags\blocks\leaves.json
+// 1.20.5	2024-04-25T05:00:45.3741575	Desolated Pastels/Tags for minecraft:block
+7ca8f275f1ac53e9f1a23741014e63aa488e0149 data\minecraft\tags\blocks\leaves.json
+4519721fd38c2dec9846b770bb291502aef16708 data\innerpastels\tags\blocks\logs.json
+6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\blocks\logs_that_burn.json
+6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\blocks\logs.json
+b51423a1425123483d80de90a494850383a40864 data\innerpastels\tags\blocks\leaves.json

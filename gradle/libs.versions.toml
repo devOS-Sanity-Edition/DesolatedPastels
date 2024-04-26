@@ -1,14 +1,14 @@
 [versions]
 # The latest versions are available at https://fabricmc.net/develop
-minecraft = "1.20.4"
-fabric-loader = "0.15.6"
-fabric-api = "0.95.4+1.20.4"
-fabric_language_kotlin = "1.10.17+kotlin.1.9.22"
-softer_pastels = "0.6.1-rev.74fa71b"
-sodium_version = "mc1.20.4-0.5.8"
+minecraft = "1.20.5"
+fabric-loader = "0.15.10"
+fabric-api = "0.97.3+1.20.5"
+fabric_language_kotlin = "1.10.19+kotlin.1.9.23"
+softer_pastels = "0.7.0-rev.8c05514"
+sodium_version = "mc1.20.5-0.5.8"
 indium_version = "1.0.30+mc1.20.4"
 continuity_version = "3.0.0-beta.4+1.20.2"
-mod_menu_version = "9.0.0"
+mod_menu_version = "10.0.0-beta.1"
 joml_version = "1.10.5"
 imgui_version = "1.89.7-1"
 uno_version = "0.7.21"
@@ -39,5 +39,5 @@ imgui = [ "imgui_core", "imgui_gl", "imgui_glfw", "uno_core", "glm" ]
 
 [plugins]
 grgit = { id = "org.ajoberstar.grgit", version = "5.2.1"}
-fabric_loom = { id = "fabric-loom", version = "1.5-SNAPSHOT" }
+fabric_loom = { id = "fabric-loom", version = "1.6-SNAPSHOT" }
 

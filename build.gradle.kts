@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm") version "1.9.20-RC"
     `maven-publish`
     java
 
@@ -30,7 +30,7 @@ dependencies {
 
     mappings(loom.layered {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-1.20.3:2023.12.31@zip")
+//        parchment("org.parchmentmc.data:parchment-1.20.3:2023.12.31@zip")
     })
 
     //Fabric
@@ -46,7 +46,7 @@ dependencies {
         exclude(group = "org.lwjgl")
     }
 
-    include(modImplementation("gay.asoji:innerpastels:1.0.3+build.30")!!)
+    include(modImplementation("gay.asoji:innerpastels:1.0.4+build.37+branch.kt.1.20.5.main")!!)
     include(modImplementation("gay.asoji:fmw:1.0.0+build.8")!!)
 }
 
@@ -60,14 +60,14 @@ tasks.processResources {
 }
 
 tasks.withType<JavaCompile>().configureEach {
-    options.release.set(17)
+    options.release.set(21)
 }
 
 java {
     withSourcesJar()
 
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 tasks.jar {

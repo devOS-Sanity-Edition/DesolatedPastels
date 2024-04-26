@@ -45,13 +45,13 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         targetSelector.addGoal(1, HurtByTargetGoal(this))
     }
 
-    override fun defineSynchedData() {
-        super.defineSynchedData()
-        this.entityData.define(ATTACKING, false)
+    override fun defineSynchedData(builder: SynchedEntityData.Builder) {
+        super.defineSynchedData(builder)
+        this.entityData.set(ATTACKING, false)
         if (this.commandSenderWorld.dimension().location().path != "desolatedpastels") {
-            entityData.define(VARIANT, if (Math.random() <= 0.5) 0 else 1)
+            entityData.set(VARIANT, if (Math.random() <= 0.5) 0 else 1)
         } else {
-            entityData.define(VARIANT, if (Math.random() <= 0.5) 3 else 4)
+            entityData.set(VARIANT, if (Math.random() <= 0.5) 3 else 4)
         }
     }
 
@@ -63,9 +63,9 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         }
     }
 
-    override fun getStandingEyeHeight(pose: Pose, entityDimensions: EntityDimensions): Float {
+    override fun getDefaultDimensions(pose: Pose): EntityDimensions {
 //        return this.isBaby() ? entityDimensions.height * 0.92F : entityDimensions.height * 0.92F;
-        return entityDimensions.height
+        return super.getDefaultDimensions(pose)
     }
 
     var variant: Int
