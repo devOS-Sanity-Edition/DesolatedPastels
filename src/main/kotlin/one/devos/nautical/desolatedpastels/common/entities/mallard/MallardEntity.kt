@@ -47,11 +47,12 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
 
     override fun defineSynchedData(builder: SynchedEntityData.Builder) {
         super.defineSynchedData(builder)
-        this.entityData.set(ATTACKING, false)
+        builder.define(ATTACKING, false)
+
         if (this.commandSenderWorld.dimension().location().path != "desolatedpastels") {
-            entityData.set(VARIANT, if (Math.random() <= 0.5) 0 else 1)
+            builder.define(VARIANT, if (Math.random() <= 0.5) 0 else 1)
         } else {
-            entityData.set(VARIANT, if (Math.random() <= 0.5) 3 else 4)
+            builder.define(VARIANT, if (Math.random() <= 0.5) 3 else 4)
         }
     }
 
