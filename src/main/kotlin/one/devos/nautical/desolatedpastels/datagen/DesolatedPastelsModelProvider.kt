@@ -6,15 +6,10 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
 import net.minecraft.data.models.BlockModelGenerators
 import net.minecraft.data.models.ItemModelGenerators
-import net.minecraft.data.models.model.ModelTemplate
-import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.data.models.model.TexturedModel
-import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.RotatedPillarBlock
-import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
-import java.util.*
 
 
 class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelProvider(generator) {

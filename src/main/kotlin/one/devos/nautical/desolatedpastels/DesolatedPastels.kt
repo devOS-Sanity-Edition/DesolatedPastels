@@ -1,18 +1,11 @@
 package one.devos.nautical.desolatedpastels
 
-import com.mojang.blaze3d.platform.InputConstants
 import gay.asoji.fmw.FMW
 import gay.asoji.innerpastels.InnerPastels
-import gay.asoji.innerpastels.client.screens.imgui.ImGuiScreen
 import net.fabricmc.api.ModInitializer
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
-import net.fabricmc.loader.api.FabricLoader
-import net.minecraft.client.KeyMapping
-import net.minecraft.client.Minecraft
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.network.chat.Component
@@ -27,7 +20,6 @@ import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsTab
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
-import org.lwjgl.glfw.GLFW
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -40,7 +32,7 @@ object DesolatedPastels : ModInitializer {
     val MALLARD_ENTITY: EntityType<MallardEntity> =
         Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
-            ResourceLocation(MOD_ID, "mallard"),
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "mallard"),
             FabricEntityTypeBuilder.create(MobCategory.MONSTER, ::MallardEntity)
                 .dimensions(EntityDimensions.scalable(0.65f, 0.65f))
                 .build()
@@ -57,7 +49,7 @@ object DesolatedPastels : ModInitializer {
         DesolatedPastelsBlocks.init()
         DesolatedPastelsSoundEvents.init()
 
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation("main"), DP_ITEM_GROUP)
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MOD_ID, "main"), DP_ITEM_GROUP)
         FabricDefaultAttributeRegistry.register(MALLARD_ENTITY, MallardEntity.createAttributes())
         InnerPastels.registerMods(MOD_ID)
 

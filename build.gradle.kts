@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.20-RC"
+    kotlin("jvm") version "2.0.0"
     `maven-publish`
     java
 
@@ -30,7 +30,7 @@ dependencies {
 
     mappings(loom.layered {
         officialMojangMappings()
-//        parchment("org.parchmentmc.data:parchment-1.20.3:2023.12.31@zip")
+        parchment("org.parchmentmc.data:parchment-1.21:2024.07.28@zip")
     })
 
     //Fabric
@@ -39,15 +39,12 @@ dependencies {
     modImplementation(libs.fabric.language.kotlin)
 
     //Mods
-    modImplementation(libs.bundles.dependencies)
+    modImplementation(libs.bundles.dependencies) {
+        exclude(module = "innerpastels") // temp, mainly for dearimgui overriding below
+    }
     modLocalRuntime(libs.bundles.dev.mods)
 
-    implementation(libs.bundles.imgui) {
-        exclude(group = "org.lwjgl")
-    }
-
-    include(modImplementation("gay.asoji:innerpastels:1.1.0+rev.a588fcb+branch.kt.1.20.5.main")!!)
-    include(modImplementation("gay.asoji:fmw:1.0.0+build.8")!!)
+    include(modImplementation("gay.asoji:innerpastels:1.2.0+rev.c4cdf76+branch.kt.1.21.main")!!)
 }
 
 // Write the version to the fabric.mod.json
@@ -110,6 +107,26 @@ loom {
                 "-Dfabric-api.datagen.modid=${project.property("archives_base_name")}"
             )
             runDir("build/datagen")
+        }
+        create("testModClient") {
+            client()
+            name("Test Mod Client")
+            source(sourceSets.getByName("test"))
+            runDir("run/test")
+        }
+        create("testModServer") {
+            server()
+            name("Test Mod Server")
+            source(sourceSets.getByName("test"))
+            runDir("run/test_server")
+        }
+        create("Gametest") {
+            server()
+            name("Test")
+            source(sourceSets.getByName("test"))
+            vmArgs("-Dfabric-api.gametest")
+            vmArgs("-Dfabric-api.gametest.report-file=${project.buildDir}/junit.xml")
+            runDir("run/gametest_server")
         }
     }
 }

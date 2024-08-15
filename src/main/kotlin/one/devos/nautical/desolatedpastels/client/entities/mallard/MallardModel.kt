@@ -66,7 +66,7 @@ class MallardModel<T : LivingEntity?>(root: ModelPart) : AgeableListModel<T>() {
             }
         }
 
-        //        if (entity.isAggressive) { // this was already commented out
+//                if (entity.isAggressive) { // this was already commented out
 //            this.right_wing.yRot = 1.309F + Mth.cos(limbSwing * 5F) * 1.4F * limbSwingAmount;
 //            this.left_wing.yRot = -1.309F - Mth.cos(limbSwing * 5F) * 1.4F * limbSwingAmount;
 //            this.head.xRot = headPitch * 0.017453292F + 1.309F;
@@ -99,7 +99,7 @@ class MallardModel<T : LivingEntity?>(root: ModelPart) : AgeableListModel<T>() {
 
     companion object {
         // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-        val LAYER_LOCATION: ModelLayerLocation = ModelLayerLocation(ResourceLocation(MOD_ID, "mallard"), "mallard")
+        val LAYER_LOCATION: ModelLayerLocation = ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MOD_ID, "mallard"), "mallard")
         fun createBodyLayer(): LayerDefinition {
             val meshdefinition = MeshDefinition()
             val partdefinition = meshdefinition.root

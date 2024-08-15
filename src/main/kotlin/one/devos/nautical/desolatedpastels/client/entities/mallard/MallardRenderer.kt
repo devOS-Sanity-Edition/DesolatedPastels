@@ -21,12 +21,12 @@ class MallardRenderer(context: EntityRendererProvider.Context) : MobRenderer<Mal
 
     companion object {
         val MALLARD_LOCATIONS: Array<ResourceLocation> = arrayOf( // Normal Mallards
-            ResourceLocation(MOD_ID, "textures/entity/mallard/mallard.png"),
-            ResourceLocation(MOD_ID, "textures/entity/mallard/mallady.png"),
-            ResourceLocation(MOD_ID, "textures/entity/mallard/mababy.png"),  // Pastel Mallards
-            ResourceLocation(MOD_ID, "textures/entity/mallard/pallard.png"),
-            ResourceLocation(MOD_ID, "textures/entity/mallard/pallady.png"),
-            ResourceLocation(MOD_ID, "textures/entity/mallard/pababy.png")
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "textures/entity/mallard/mallard.png"),
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "textures/entity/mallard/mallady.png"),
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "textures/entity/mallard/mababy.png"),  // Pastel Mallards
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "textures/entity/mallard/pallard.png"),
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "textures/entity/mallard/pallady.png"),
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "textures/entity/mallard/pababy.png")
         )
     }
 }

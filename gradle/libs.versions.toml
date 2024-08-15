@@ -1,18 +1,15 @@
 [versions]
 # The latest versions are available at https://fabricmc.net/develop
-minecraft = "1.20.5"
-fabric-loader = "0.15.10"
-fabric-api = "0.97.3+1.20.5"
-fabric_language_kotlin = "1.10.19+kotlin.1.9.23"
-softer_pastels = "0.7.0-rev.787cc90"
-sodium_version = "mc1.20.5-0.5.8"
-indium_version = "1.0.30+mc1.20.4"
-continuity_version = "3.0.0-beta.4+1.20.2"
-mod_menu_version = "10.0.0-beta.1"
+minecraft = "1.21"
+fabric-loader = "0.15.11"
+fabric-api = "0.100.4+1.21"
+fabric_language_kotlin = "1.11.0+kotlin.2.0.0"
+softer_pastels = "0.8.0-rev.da982e0"
+sodium_version = "mc1.21-0.5.9"
+indium_version = "1.0.33+mc1.21"
+continuity_version = "3.0.0-beta.5+1.21"
+mod_menu_version = "11.0.0"
 joml_version = "1.10.5"
-imgui_version = "1.89.7-1"
-uno_version = "0.7.21"
-glm_version = "0.9.9.1-build-11"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -25,17 +22,11 @@ indium = { module = "maven.modrinth:indium", version.ref = "indium_version" }
 continuity = { module = "maven.modrinth:continuity", version.ref = "continuity_version" }
 joml = { module = "org.joml:joml", version.ref = "joml_version" }
 mod_menu = { module = "com.terraformersmc:modmenu", version.ref = "mod_menu_version" }
-imgui_core = { module = "kotlin.graphics:imgui-core", version.ref = "imgui_version" }
-imgui_gl = { module = "kotlin.graphics:imgui-gl", version.ref = "imgui_version" }
-imgui_glfw = { module = "kotlin.graphics:imgui-glfw", version.ref = "imgui_version" }
-uno_core = { module = "kotlin.graphics:uno-core", version.ref = "uno_version" }
-glm = { module = "kotlin.graphics:glm", version.ref = "glm_version" }
 
 # If you have multiple similar dependencies, you can declare a dependency bundle and reference it on the build script with "libs.bundles.example".
 [bundles]
 dev_mods = [ "joml", "sodium", "indium" ]
 dependencies = [ "mod_menu", "indium", "softer_pastels", "continuity" ]
-imgui = [ "imgui_core", "imgui_gl", "imgui_glfw", "uno_core", "glm" ]
 
 [plugins]
 grgit = { id = "org.ajoberstar.grgit", version = "5.2.1"}

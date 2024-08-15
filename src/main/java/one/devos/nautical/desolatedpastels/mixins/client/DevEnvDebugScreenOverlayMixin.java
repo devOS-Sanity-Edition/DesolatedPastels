@@ -24,6 +24,8 @@ public class DevEnvDebugScreenOverlayMixin {
             messages.add("[" + FMW.getName(DesolatedPastels.INSTANCE.getMOD_ID()) + " - Development Environment]");
             messages.add(FMW.getName(sp) + " Version: " + FMW.getVersion(sp));
             messages.add("Internal Library Version: " + FMW.getVersion("innerpastels"));
+            messages.add("");
+            messages.add("Press [M] to open debug panels");
         }
     }
 }

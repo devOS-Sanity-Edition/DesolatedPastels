@@ -1,11 +1,11 @@
 package one.devos.nautical.desolatedpastels.client
 
 import com.mojang.blaze3d.platform.InputConstants
-import gay.asoji.innerpastels.client.InnerPastelsClient.Companion.panels
-import gay.asoji.innerpastels.client.screens.imgui.ImGuiPanel
-import gay.asoji.innerpastels.client.screens.imgui.ImGuiScreen
+import gay.asoji.innerpastels.client.ImGuiClient.panels
+import gay.asoji.innerpastels.client.imgui.ImGuiPanel
 import gay.asoji.innerpastels.misc.DevDisclaimer
 import imgui.ImGui
+import imgui.type.ImBoolean
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
@@ -19,18 +19,19 @@ import net.minecraft.client.Minecraft
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardModel
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardRenderer
-import one.devos.nautical.desolatedpastels.client.screens.ImGuiDevPanel
+import one.devos.nautical.desolatedpastels.client.panels.*
 import org.lwjgl.glfw.GLFW
 
 @Environment(EnvType.CLIENT)
 class DesolatedPastelsClient : ClientModInitializer {
+    private var isImGuiRenderEnabled: Boolean = false
     val DEVELOPER_GUI = KeyMapping(
         "key.desolatedpastels.developergui",
         InputConstants.Type.KEYSYM,
         GLFW.GLFW_KEY_M,
         "category.desolatedpastels.developer")
 
-    fun InitializeDevKeybinds() {
+    fun initializeDevKeybinds() {
         val toggleImGuiKeybind = KeyBindingHelper.registerKeyBinding(DEVELOPER_GUI)
 
         ClientTickEvents.END_CLIENT_TICK.register(::onTick)
@@ -38,26 +39,41 @@ class DesolatedPastelsClient : ClientModInitializer {
 
     fun onTick(client: Minecraft) {
         while (DEVELOPER_GUI.consumeClick()) {
-            if (client.player != null && Minecraft.getInstance().screen == null) {
-                client.setScreen(ImGuiScreen())
+            if (client.player != null && client.screen == null) {
+                isImGuiRenderEnabled = !isImGuiRenderEnabled
             }
         }
     }
 
-    override fun onInitializeClient() {
+    fun imGuiInitialization() {
         panels.addAll(
             listOf(
                 object: ImGuiPanel { // anything that doesnt extend `ImGuiPanel`, do this
-                    override fun render(open_: BooleanArray) {
-                        ImGui.showDemoWindow(booleanArrayOf(true))
+                    override fun render(open_: ImBoolean) {
+                        ImGui.showDemoWindow() // no more demo window for now
+                    }
+
+                    override fun theme() {
+
                     }
                 },
-                ImGuiDevPanel
+//                    DevDebugSpace
+                BlockInformation,
+                ClientInfo,
+                EntityDetails,
+                GameInformation,
+                PastelModsInformation,
+                PlayerDetails
             )
         )
 
+        initializeDevKeybinds()
+    }
+
+    override fun onInitializeClient() {
         if (FabricLoader.getInstance().isDevelopmentEnvironment) {
-            InitializeDevKeybinds()
+            // initialize dearimgui panels
+            imGuiInitialization()
         }
 
         DesolatedPastelsRendering.init()

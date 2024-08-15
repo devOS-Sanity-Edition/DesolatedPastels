@@ -1,10 +1,8 @@
 package one.devos.nautical.desolatedpastels.client
 
-import com.mojang.authlib.minecraft.client.MinecraftClient
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
-import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.RenderType
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 

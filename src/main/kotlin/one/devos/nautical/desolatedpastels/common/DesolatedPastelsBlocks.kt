@@ -13,6 +13,7 @@ import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.GrassBlock
 import net.minecraft.world.level.block.LeavesBlock
 import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.material.MapColor
@@ -22,6 +23,8 @@ import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 
 object DesolatedPastelsBlocks {
     @JvmField
+
+    // val GRASS_BLOCK = registerTempBlock("grass_block", GrassBlock()) // i am forgetting things
 
     val WHITE_LOG = DyeColor.WHITE.registerLogBlock(MOD_ID, "white_log")
     val LIGHT_RED_LOG = MapColor.COLOR_PINK.registerLogBlock(MOD_ID, "light_red_log")
@@ -80,8 +83,8 @@ object DesolatedPastelsBlocks {
 
     fun registerTempBlock(name: String, block: Block): Block {
         LOGGER.warn("${name.replace("_", " ").replaceFirstChar(Char::uppercaseChar)} is registered as a Temp Block, please make a dedicated register for this block eventually!")
-        Registry.register(BuiltInRegistries.ITEM, ResourceLocation(MOD_ID, name), BlockItem(block, Item.Properties()))
-        return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation(MOD_ID, name), block)
+        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), BlockItem(block, Item.Properties()))
+        return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), block)
     }
 
     fun init() { }
