@@ -145,7 +145,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
                 .add(Attributes.MAX_HEALTH, 6.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.25)
                 .add(Attributes.ATTACK_SPEED, 1.0)
-                .add(Attributes.ATTACK_DAMAGE, 1.5)
+                .add(Attributes.ATTACK_DAMAGE, 4.0)
         }
     }
 }
