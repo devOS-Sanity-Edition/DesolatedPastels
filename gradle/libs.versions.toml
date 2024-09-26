@@ -30,5 +30,5 @@ dependencies = [ "mod_menu", "indium", "softer_pastels", "continuity" ]
 
 [plugins]
 grgit = { id = "org.ajoberstar.grgit", version = "5.2.1"}
-fabric_loom = { id = "fabric-loom", version = "1.6-SNAPSHOT" }
+fabric_loom = { id = "fabric-loom", version = "1.7-SNAPSHOT" }
 

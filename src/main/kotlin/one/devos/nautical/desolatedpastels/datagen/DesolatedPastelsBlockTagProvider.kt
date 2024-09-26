@@ -70,5 +70,12 @@ class DesolatedPastelsBlockTagProvider(
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
             .addTag(InnerPastelsBlockTags.LOGS)
+
+        getOrCreateTagBuilder(InnerPastelsBlockTags.ORES)
+            .add(DesolatedPastelsBlocks.PASTEL_ORE)
+
+        getOrCreateTagBuilder(BlockTags.DIRT)
+            .add(DesolatedPastelsBlocks.PASTEL_DIRT)
+            .add(DesolatedPastelsBlocks.PASTEL_GRASS)
     }
 }

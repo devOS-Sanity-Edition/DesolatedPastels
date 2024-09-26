@@ -6,8 +6,11 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
 import net.minecraft.data.models.BlockModelGenerators
 import net.minecraft.data.models.ItemModelGenerators
+import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.data.models.model.TexturedModel
+import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.RotatedPillarBlock
+import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 
@@ -61,6 +64,12 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.BRIGHTENED_LIGHT_GRAY_LEAVES, TexturedModel.LEAVES)
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.BRIGHTENED_GRAY_LEAVES, TexturedModel.LEAVES)
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.BRIGHTENED_BLACK_LEAVES, TexturedModel.LEAVES)
+
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_ORE, TexturedModel.CUBE_TOP)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_STONE, TexturedModel.CUBE_TOP)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_DIRT, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_GRASS, TexturedModel.CUBE_TOP_BOTTOM.updateTexture { it.put(TextureSlot.BOTTOM, ResourceLocation.fromNamespaceAndPath(DesolatedPastels.MOD_ID, "block/pastel_dirt")) })
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_SAND, TexturedModel.CUBE)
     }
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerators) {

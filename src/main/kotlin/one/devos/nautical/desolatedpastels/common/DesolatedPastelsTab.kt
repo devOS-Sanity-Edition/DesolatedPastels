@@ -8,6 +8,7 @@ object DesolatedPastelsTab {
     fun build(params: CreativeModeTab.ItemDisplayParameters, output: Output) {
         addBlocks(output)
         addDecorations(output)
+        addNature(output)
     }
 
     private fun addBlocks(output: Output) {
@@ -64,6 +65,17 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.BRIGHTENED_LIGHT_GRAY_LEAVES,
             DesolatedPastelsBlocks.BRIGHTENED_GRAY_LEAVES,
             DesolatedPastelsBlocks.BRIGHTENED_BLACK_LEAVES
+        )
+    }
+
+    private fun addNature(output: Output) {
+        addAll(
+            output,
+            DesolatedPastelsBlocks.PASTEL_ORE,
+            DesolatedPastelsBlocks.PASTEL_STONE,
+            DesolatedPastelsBlocks.PASTEL_GRASS,
+            DesolatedPastelsBlocks.PASTEL_DIRT,
+            DesolatedPastelsBlocks.PASTEL_SAND
         )
     }
 

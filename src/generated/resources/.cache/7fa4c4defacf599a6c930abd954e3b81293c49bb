@@ -1,6 +1,8 @@
-// 1.21	2024-06-29T16:22:55.705385041	Desolated Pastels/Tags for minecraft:block
-4519721fd38c2dec9846b770bb291502aef16708 data/innerpastels/tags/block/logs.json
-6fe20dc2da809af9bf9701af1dd98827b561f6a9 data/minecraft/tags/block/logs.json
-6fe20dc2da809af9bf9701af1dd98827b561f6a9 data/minecraft/tags/block/logs_that_burn.json
-7ca8f275f1ac53e9f1a23741014e63aa488e0149 data/minecraft/tags/block/leaves.json
-b51423a1425123483d80de90a494850383a40864 data/innerpastels/tags/block/leaves.json
+// 1.21	2024-09-25T20:02:45.9448387	Desolated Pastels/Tags for minecraft:block
+e3fb7c6bf3352d71a75d02cf22134e4bb1bd1c7c data\innerpastels\tags\block\ores.json
+6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\block\logs_that_burn.json
+f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\dirt.json
+b51423a1425123483d80de90a494850383a40864 data\innerpastels\tags\block\leaves.json
+6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\block\logs.json
+4519721fd38c2dec9846b770bb291502aef16708 data\innerpastels\tags\block\logs.json
+7ca8f275f1ac53e9f1a23741014e63aa488e0149 data\minecraft\tags\block\leaves.json

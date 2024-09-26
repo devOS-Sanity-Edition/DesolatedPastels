@@ -20,6 +20,7 @@ import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsTab
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
+import one.devos.nautical.desolatedpastels.world.gen.DesolatedPastelsWorldGeneration
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -52,6 +53,8 @@ object DesolatedPastels : ModInitializer {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MOD_ID, "main"), DP_ITEM_GROUP)
         FabricDefaultAttributeRegistry.register(MALLARD_ENTITY, MallardEntity.createAttributes())
         InnerPastels.registerMods(MOD_ID)
+
+        DesolatedPastelsWorldGeneration.doTheWorldGenMrKrabs()
 
         LOGGER.info("[${MOD_NAME}] ${MOD_NAME} Version ${MOD_VERSION}, paired with ${FMW.getName("softerpastels")} Version ${FMW.getVersionString("softerpastels")}, has been loaded.")
         LOGGER.info("[${MOD_NAME}] Internal Library Version ${FMW.getVersionString("innerpastels")} loaded. Please include this when reporting bugs!!!")

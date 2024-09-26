@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "desolatedpastels:block/pastel_dirt",
+    "side": "desolatedpastels:block/pastel_grass_side",
+    "top": "desolatedpastels:block/pastel_grass_top"
+  }
+}

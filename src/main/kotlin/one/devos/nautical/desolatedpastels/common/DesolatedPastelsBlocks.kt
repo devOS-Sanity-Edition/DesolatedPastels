@@ -1,24 +1,26 @@
 package one.devos.nautical.desolatedpastels.common
 
 import gay.asoji.innerpastels.blocks.Properties
-import gay.asoji.innerpastels.register.registerBlockWithItem
-import gay.asoji.innerpastels.register.registerLeavesBlock
-import gay.asoji.innerpastels.register.registerLogBlock
+import gay.asoji.innerpastels.blocks.Properties.pastelBlock
+import gay.asoji.innerpastels.blocks.Properties.pastelDirt
+import gay.asoji.innerpastels.blocks.Properties.pastelGrass
+import gay.asoji.innerpastels.register.*
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.util.ColorRGBA
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
-import net.minecraft.world.level.block.GrassBlock
 import net.minecraft.world.level.block.LeavesBlock
 import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.material.MapColor
 import one.devos.nautical.desolatedpastels.DesolatedPastels.LOGGER
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
+import one.devos.nautical.desolatedpastels.common.blocks.PastelGrassBlock
 
 
 object DesolatedPastelsBlocks {
@@ -74,6 +76,12 @@ object DesolatedPastelsBlocks {
     val BRIGHTENED_GRAY_LEAVES: Block = MapColor.COLOR_GRAY.registerTempLeavesBlock(MOD_ID, "brightened_gray_leaves", Blocks::always)
     val BRIGHTENED_BLACK_LEAVES: Block = MapColor.COLOR_BLACK.registerTempLeavesBlock(MOD_ID, "brightened_black_leaves", Blocks::always)
 
+    val PASTEL_ORE: Block = MapColor.COLOR_GRAY.registerOreBlock(MOD_ID, "pastel_ore")
+    val PASTEL_STONE: Block = MapColor.COLOR_GRAY.registerStoneBlock(MOD_ID, "pastel_stone")
+    val PASTEL_DIRT: Block = MapColor.COLOR_BROWN.registerDirtBlock(MOD_ID, "pastel_dirt")
+    val PASTEL_GRASS: Block = MapColor.COLOR_LIGHT_GREEN.registerGrassBlock(MOD_ID, "pastel_grass")
+    val PASTEL_SAND: Block = MapColor.COLOR_YELLOW.registerSandBlock(MOD_ID, "pastel_sand", ColorRGBA(14997396))
+
     fun DyeColor.registerTempLeavesBlock(modID: String, name: String, emissiveRenderingState: BlockBehaviour.StatePredicate): Block =
         LeavesBlock(Properties.pastelLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
 
@@ -81,11 +89,29 @@ object DesolatedPastelsBlocks {
         LeavesBlock(Properties.pastelLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
 
 
-    fun registerTempBlock(name: String, block: Block): Block {
+    fun DyeColor.registerTempBlock(name: String, block: Block): Block {
         LOGGER.warn("${name.replace("_", " ").replaceFirstChar(Char::uppercaseChar)} is registered as a Temp Block, please make a dedicated register for this block eventually!")
         Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), BlockItem(block, Item.Properties()))
         return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), block)
     }
+
+    fun MapColor.registerTempBlock(name: String, block: Block): Block {
+        LOGGER.warn("${name.replace("_", " ").replaceFirstChar(Char::uppercaseChar)} is registered as a Temp Block, please make a dedicated register for this block eventually!")
+        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), BlockItem(block, Item.Properties()))
+        return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), block)
+    }
+
+    fun MapColor.registerDirtBlock(modID: String, name: String): Block =
+        Block(pastelDirt().mapColor(this)).registerBlockWithItem(modID, name)
+
+    fun DyeColor.registerDirtBlock(modID: String, name: String): Block =
+        Block(pastelDirt().mapColor(this)).registerBlockWithItem(modID, name)
+
+    fun MapColor.registerGrassBlock(modID: String, name: String): Block =
+        PastelGrassBlock(pastelGrass().mapColor(this)).registerBlockWithItem(modID, name)
+
+    fun DyeColor.registerGrassBlock(modID: String, name: String): Block =
+        PastelGrassBlock(pastelGrass().mapColor(this)).registerBlockWithItem(modID, name)
 
     fun init() { }
 }
