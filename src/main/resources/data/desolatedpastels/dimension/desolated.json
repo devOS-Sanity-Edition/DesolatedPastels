@@ -5,14 +5,26 @@
     "biome_source": {
       "biomes": [
         {
+          "biome": "desolatedpastels:green",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
           "biome": "desolatedpastels:blue",
           "parameters": {
             "continentalness": 0,
             "depth": 0,
             "erosion": 0,
-            "humidity": 0,
+            "humidity": 0.7,
             "offset": 0,
-            "temperature": 0,
+            "temperature": 1,
             "weirdness": 0
           }
         }
