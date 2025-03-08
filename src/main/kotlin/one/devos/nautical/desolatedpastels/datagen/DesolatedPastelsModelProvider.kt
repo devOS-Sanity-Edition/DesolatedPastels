@@ -9,6 +9,7 @@ import net.minecraft.data.models.ItemModelGenerators
 import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.data.models.model.TexturedModel
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.RotatedPillarBlock
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
@@ -70,6 +71,9 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_DIRT, TexturedModel.CUBE)
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_GRASS, TexturedModel.CUBE_TOP_BOTTOM.updateTexture { it.put(TextureSlot.BOTTOM, ResourceLocation.fromNamespaceAndPath(DesolatedPastels.MOD_ID, "block/pastel_dirt")) })
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_SAND, TexturedModel.CUBE)
+        
+        blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING, DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
+        blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING, DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
     }
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerators) {

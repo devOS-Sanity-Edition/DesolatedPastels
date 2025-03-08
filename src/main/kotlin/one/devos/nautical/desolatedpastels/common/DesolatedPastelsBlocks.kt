@@ -1,7 +1,6 @@
 package one.devos.nautical.desolatedpastels.common
 
 import gay.asoji.innerpastels.blocks.Properties
-import gay.asoji.innerpastels.blocks.Properties.pastelBlock
 import gay.asoji.innerpastels.blocks.Properties.pastelDirt
 import gay.asoji.innerpastels.blocks.Properties.pastelGrass
 import gay.asoji.innerpastels.register.*
@@ -15,12 +14,16 @@ import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.FlowerPotBlock
 import net.minecraft.world.level.block.LeavesBlock
+import net.minecraft.world.level.block.SaplingBlock
 import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.material.MapColor
+import net.minecraft.world.level.material.PushReaction
 import one.devos.nautical.desolatedpastels.DesolatedPastels.LOGGER
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 import one.devos.nautical.desolatedpastels.common.blocks.PastelGrassBlock
+import one.devos.nautical.desolatedpastels.world.DesolatedPastelsSaplingGenerators
 
 
 object DesolatedPastelsBlocks {
@@ -81,6 +84,16 @@ object DesolatedPastelsBlocks {
     val PASTEL_DIRT: Block = MapColor.COLOR_BROWN.registerDirtBlock(MOD_ID, "pastel_dirt")
     val PASTEL_GRASS: Block = MapColor.COLOR_LIGHT_GREEN.registerGrassBlock(MOD_ID, "pastel_grass")
     val PASTEL_SAND: Block = MapColor.COLOR_YELLOW.registerSandBlock(MOD_ID, "pastel_sand", ColorRGBA(14997396))
+    
+    val LIGHT_BLUE_SAPLING: Block = MapColor.COLOR_LIGHT_BLUE.registerSaplingBlock(
+        "light_blue_sapling", SaplingBlock(DesolatedPastelsSaplingGenerators.LIGHT_BLUE_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING))
+    )
+    val LIGHT_GREEN_SAPLING: Block = MapColor.COLOR_LIGHT_GREEN.registerSaplingBlock(
+        "light_green_sapling", SaplingBlock(DesolatedPastelsSaplingGenerators.LIGHT_GREEN_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING))
+    )
+    
+    val LIGHT_BLUE_SAPLING_POTTED: Block = MapColor.COLOR_LIGHT_BLUE.registerTempBlock("light_blue_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
+    val LIGHT_GREEN_SAPLING_POTTED: Block = MapColor.COLOR_LIGHT_GREEN.registerTempBlock("light_green_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
 
     fun DyeColor.registerTempLeavesBlock(modID: String, name: String, emissiveRenderingState: BlockBehaviour.StatePredicate): Block =
         LeavesBlock(Properties.pastelLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
@@ -97,6 +110,16 @@ object DesolatedPastelsBlocks {
 
     fun MapColor.registerTempBlock(name: String, block: Block): Block {
         LOGGER.warn("${name.replace("_", " ").replaceFirstChar(Char::uppercaseChar)} is registered as a Temp Block, please make a dedicated register for this block eventually!")
+        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), BlockItem(block, Item.Properties()))
+        return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), block)
+    }
+
+    fun DyeColor.registerSaplingBlock(name: String, block: SaplingBlock): SaplingBlock {
+        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), BlockItem(block, Item.Properties()))
+        return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), block)
+    }
+
+    fun MapColor.registerSaplingBlock(name: String, block: SaplingBlock): SaplingBlock {
         Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), BlockItem(block, Item.Properties()))
         return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(MOD_ID, name), block)
     }

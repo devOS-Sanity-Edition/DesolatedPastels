@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.0.0"
+    kotlin("jvm") version "2.1.10"
     `maven-publish`
     java
 
@@ -30,7 +30,7 @@ dependencies {
 
     mappings(loom.layered {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-1.21:2024.07.28@zip")
+        parchment("org.parchmentmc.data:parchment-1.21.1:2024.11.17@zip")
     })
 
     //Fabric
@@ -44,7 +44,7 @@ dependencies {
     }
     modLocalRuntime(libs.bundles.dev.mods)
 
-    include(modImplementation("gay.asoji:innerpastels:1.3.8+rev.aeb2f94-branch.kt.1.21.main")!!)
+    include(modImplementation("gay.asoji:innerpastels:1.3.9+rev.3259704-branch.kt.1.21.main")!!)
 }
 
 // Write the version to the fabric.mod.json

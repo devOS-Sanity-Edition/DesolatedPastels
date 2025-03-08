@@ -140,6 +140,13 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         private val FOOD_ITEMS: Ingredient = Ingredient.of(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.EMERALD)
         private val ATTACKING: EntityDataAccessor<Boolean> = SynchedEntityData.defineId(MallardEntity::class.java, EntityDataSerializers.BOOLEAN)
 
+
+        val idleAnimationState: AnimationState = AnimationState()
+        val idleAnimationTimeout: Int = 0
+
+        val attackAnimationState: AnimationState = AnimationState()
+        val attackAnimationTimeout: Int = 0
+
         fun createAttributes(): AttributeSupplier.Builder {
             return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 6.0)

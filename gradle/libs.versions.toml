@@ -1,15 +1,14 @@
 [versions]
 # The latest versions are available at https://fabricmc.net/develop
-minecraft = "1.21"
-fabric-loader = "0.15.11"
-fabric-api = "0.100.4+1.21"
-fabric_language_kotlin = "1.11.0+kotlin.2.0.0"
-softer_pastels = "0.8.0-rev.da982e0"
-sodium_version = "mc1.21-0.5.9"
-indium_version = "1.0.33+mc1.21"
-continuity_version = "3.0.0-beta.5+1.21"
-mod_menu_version = "11.0.0"
-joml_version = "1.10.5"
+minecraft = "1.21.1"
+fabric-loader = "0.16.10"
+fabric-api = "0.115.1+1.21.1"
+fabric_language_kotlin = "1.13.1+kotlin.2.1.10"
+softer_pastels = "0.9.0-rev.975170c"
+sodium_version = "mc1.21.1-0.6.9-fabric"
+continuity_version = "3.0.0+1.21"
+mod_menu_version = "11.0.3"
+#joml_version = "1.10.5"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -18,17 +17,16 @@ fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fab
 fabric_language_kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric_language_kotlin" }
 softer_pastels = { module = "one.devos.nautical:softerpastels", version.ref = "softer_pastels" }
 sodium = { module = "maven.modrinth:sodium", version.ref = "sodium_version" }
-indium = { module = "maven.modrinth:indium", version.ref = "indium_version" }
 continuity = { module = "maven.modrinth:continuity", version.ref = "continuity_version" }
-joml = { module = "org.joml:joml", version.ref = "joml_version" }
+#joml = { module = "org.joml:joml", version.ref = "joml_version" }
 mod_menu = { module = "com.terraformersmc:modmenu", version.ref = "mod_menu_version" }
 
 # If you have multiple similar dependencies, you can declare a dependency bundle and reference it on the build script with "libs.bundles.example".
 [bundles]
-dev_mods = [ "joml", "sodium", "indium" ]
-dependencies = [ "mod_menu", "indium", "softer_pastels", "continuity" ]
+dev_mods = [ "sodium" ]
+dependencies = [ "mod_menu", "softer_pastels", "continuity" ]
 
 [plugins]
 grgit = { id = "org.ajoberstar.grgit", version = "5.2.1"}
-fabric_loom = { id = "fabric-loom", version = "1.7-SNAPSHOT" }
+fabric_loom = { id = "fabric-loom", version = "1.10-SNAPSHOT" }
 

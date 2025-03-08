@@ -15,13 +15,13 @@ import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 
 
 object DesolatedPastelsPlacedFeatures {
-    val PASTEL_ORE_PLACED_KEY: ResourceKey<PlacedFeature> = registerKey("pastel_ore_placed")
+//    val PASTEL_ORE_PLACED_OVERWORLD_KEY: ResourceKey<PlacedFeature> = registerKey("pastel_ore_placed_overworld")
 
     fun bootstrap(context: BootstrapContext<PlacedFeature>) {
         val configuredFeatureRegistryEntryLookup = context.lookup(Registries.CONFIGURED_FEATURE)
 
-        register(context, PASTEL_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(DesolatedPastelsConfiguredFeatures.OVERWORLD_PASTEL_ORE_KEY),
-            DesolatedPastelsOrePlacement.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80))))
+//        register(context, PASTEL_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(DesolatedPastelsConfiguredFeatures.OVERWORLD_PASTEL_ORE_KEY),
+//            DesolatedPastelsOrePlacement.rareOrePlacement(6, HeightRangePlacement.uniform(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80))))
     }
 
     fun registerKey(name: String?): ResourceKey<PlacedFeature> {

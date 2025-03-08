@@ -75,7 +75,8 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.PASTEL_STONE,
             DesolatedPastelsBlocks.PASTEL_GRASS,
             DesolatedPastelsBlocks.PASTEL_DIRT,
-            DesolatedPastelsBlocks.PASTEL_SAND
+            DesolatedPastelsBlocks.PASTEL_SAND,
+            DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING
         )
     }
 
