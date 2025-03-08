@@ -53,16 +53,16 @@
     "has_precipitation": true,
     "spawn_costs": {},
     "spawners": {
-        "ambient": [
+        "ambient": [],
+        "axolotls": [],
+        "creature": [
             {
                 "type": "desolatedpastels:mallard",
-                "maxCount": 8,
-                "minCount": 8,
-                "weight": 10
+                "maxCount": 5,
+                "minCount": 1,
+                "weight": 5
             }
         ],
-        "axolotls": [],
-        "creature": [],
         "misc": [],
         "monster": [
             {

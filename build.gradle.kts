@@ -13,13 +13,14 @@ group = project.property("maven_group")!!
 
 repositories {
     mavenLocal()
-    maven { url = uri("https://api.modrinth.com/maven") }
-    maven { url = uri("https://maven.terraformersmc.com/") }
-    maven { url = uri("https://maven.parchmentmc.org") }
-    maven { url = uri("https://mvn.devos.one/snapshots") }
-    maven { url = uri("https://ueaj.dev/maven") }
-    maven { url = uri("https://jitpack.io") }
-    maven { url = uri("https://raw.githubusercontent.com/kotlin-graphics/mary/master") }
+    maven("https://api.modrinth.com/maven")
+    maven("https://maven.terraformersmc.com/")
+    maven("https://maven.parchmentmc.org")
+    maven("https://mvn.devos.one/snapshots")
+    maven("https://ueaj.dev/maven")
+    maven("https://jitpack.io")
+    maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
+    maven("https://maven.kyrptonaught.dev")
 }
 
 
@@ -45,6 +46,7 @@ dependencies {
     modLocalRuntime(libs.bundles.dev.mods)
 
     include(modImplementation("gay.asoji:innerpastels:1.3.9+rev.3259704-branch.kt.1.21.main")!!)
+    include(modImplementation("net.kyrptonaught:customportalapi:0.0.1-beta67-1.21")!!)
 }
 
 // Write the version to the fabric.mod.json

@@ -10,15 +10,12 @@ import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceLocation
-import net.minecraft.world.entity.EntityDimensions
-import net.minecraft.world.entity.EntityType
-import net.minecraft.world.entity.MobCategory
+import net.minecraft.world.entity.*
+import net.minecraft.world.entity.animal.Animal
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack
-import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
-import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
-import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
-import one.devos.nautical.desolatedpastels.common.DesolatedPastelsTab
+import net.minecraft.world.level.levelgen.Heightmap
+import one.devos.nautical.desolatedpastels.common.*
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
 import one.devos.nautical.desolatedpastels.world.gen.DesolatedPastelsWorldGeneration
 import org.slf4j.Logger
@@ -34,7 +31,7 @@ object DesolatedPastels : ModInitializer {
         Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             ResourceLocation.fromNamespaceAndPath(MOD_ID, "mallard"),
-            FabricEntityTypeBuilder.create(MobCategory.MONSTER, ::MallardEntity)
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, ::MallardEntity)
                 .dimensions(EntityDimensions.scalable(0.65f, 0.65f))
                 .build()
         )
@@ -49,9 +46,11 @@ object DesolatedPastels : ModInitializer {
         DesolatedPastelsItems.init()
         DesolatedPastelsBlocks.init()
         DesolatedPastelsSoundEvents.init()
+        DesolatedPastelsPortals.init()
 
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MOD_ID, "main"), DP_ITEM_GROUP)
         FabricDefaultAttributeRegistry.register(MALLARD_ENTITY, MallardEntity.createAttributes())
+        SpawnPlacements.register(MALLARD_ENTITY, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules)
         InnerPastels.registerMods(MOD_ID)
 
         DesolatedPastelsWorldGeneration.doTheWorldGenMrKrabs()
