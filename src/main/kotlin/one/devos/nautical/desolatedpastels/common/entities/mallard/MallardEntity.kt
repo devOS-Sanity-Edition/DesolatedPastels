@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerLevel
 import net.minecraft.sounds.SoundEvent
 import net.minecraft.sounds.SoundEvents
 import net.minecraft.util.Mth
+import net.minecraft.util.TimeUtil
 import net.minecraft.world.damagesource.DamageSource
 import net.minecraft.world.entity.*
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier
@@ -20,12 +21,15 @@ import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.Level
+import net.minecraft.world.phys.AABB
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
 import kotlin.random.Random
 
 
 class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : Animal(entityType, level) {
+    var ticksUntilNextAlert: Int = 0
+    
     init {
         this.health = 6f
     }
@@ -44,6 +48,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         goalSelector.addGoal(6, RandomLookAroundGoal(this))
         goalSelector.addGoal(7, RandomStrollGoal(this, 1.1))
         targetSelector.addGoal(1, HurtByTargetGoal(this))
+        targetSelector.addGoal(2, MallardNightTargetGoal(this, Player::class.java))
     }
 
     override fun defineSynchedData(builder: SynchedEntityData.Builder) {
@@ -135,11 +140,40 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         return SoundEvents.PLAYER_SPLASH_HIGH_SPEED
     }
 
+    override fun customServerAiStep() {
+        if (this.target != null) {
+            this.maybeAlertOthers()
+        }
+        super.customServerAiStep()
+    }
+    
+    fun maybeAlertOthers() {
+        if (this.ticksUntilNextAlert > 0) {
+            --ticksUntilNextAlert
+        } else {
+            if (this.sensing.hasLineOfSight(this.target)) {
+                this.alertOthers()
+            }
+            
+            this.ticksUntilNextAlert = ALERT_INTERVAL.sample(this.random)
+        }
+    }
+    
+    fun alertOthers() {
+        val range = this.getAttributeValue(Attributes.FOLLOW_RANGE)
+        val box = AABB.unitCubeFromLowerCorner(this.position()).inflate(range, 10.0, range)
+        this.level().getEntitiesOfClass(MallardEntity::class.java, box, EntitySelector.NO_SPECTATORS)
+            .filter { it != this && it.target == null && !it.isAlliedTo(this.target) }
+            .forEach { 
+                it.target = this.target 
+            }
+    }
+
     companion object {
         private var VARIANT: EntityDataAccessor<Int> = SynchedEntityData.defineId(MallardEntity::class.java, EntityDataSerializers.INT)
         private val FOOD_ITEMS: Ingredient = Ingredient.of(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.EMERALD)
         private val ATTACKING: EntityDataAccessor<Boolean> = SynchedEntityData.defineId(MallardEntity::class.java, EntityDataSerializers.BOOLEAN)
-
+        private val ALERT_INTERVAL = TimeUtil.rangeOfSeconds(4, 6)
 
         val idleAnimationState: AnimationState = AnimationState()
         val idleAnimationTimeout: Int = 0

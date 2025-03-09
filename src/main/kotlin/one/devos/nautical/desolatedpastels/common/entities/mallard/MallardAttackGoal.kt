@@ -12,6 +12,14 @@ class MallardAttackGoal(mob: PathfinderMob, speedModifier: Double, followingTarg
     private var ticksUntilNextAttack = 2.secondsToTicks()
     private var shouldCountTillNextAttack = false
 
+    override fun canContinueToUse(): Boolean {
+        if (this.mob.lightLevelDependentMagicValue >= 0.5 && this.mob.random.nextInt(100) == 0) {
+            this.mob.target = null
+            return false
+        }
+        return super.canContinueToUse()
+    }
+
     override fun checkAndPerformAttack(pEnemy: LivingEntity) {
         if (isEnemyWithinAttackDistance(pEnemy)) {
             shouldCountTillNextAttack = true
