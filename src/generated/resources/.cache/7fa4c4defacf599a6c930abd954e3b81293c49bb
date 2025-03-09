@@ -1,7 +1,8 @@
-// 1.21.1	2025-03-08T11:52:34.0809159	Desolated Pastels/Tags for minecraft:block
+// 1.21.1	2025-03-08T21:22:14.3240483	Desolated Pastels/Tags for minecraft:block
 6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\block\logs_that_burn.json
 6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\block\logs.json
 f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\animals_spawnable_on.json
+f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\sniffer_diggable_block.json
 7ca8f275f1ac53e9f1a23741014e63aa488e0149 data\minecraft\tags\block\leaves.json
 e3fb7c6bf3352d71a75d02cf22134e4bb1bd1c7c data\innerpastels\tags\block\ores.json
 4519721fd38c2dec9846b770bb291502aef16708 data\innerpastels\tags\block\logs.json
