@@ -45,7 +45,7 @@ class DesolatedPastelsLootTableProvider(
                 *NORMAL_LEAVES_SAPLING_CHANCES
             )
         }
-        
+
         add(DesolatedPastelsBlocks.LIGHT_GREEN_LEAVES) { block: Block ->
             this.createLeavesDrops(
                 block,
@@ -61,6 +61,7 @@ class DesolatedPastelsLootTableProvider(
                 *NORMAL_LEAVES_SAPLING_CHANCES
             )
         }
+        
         add(DesolatedPastelsBlocks.BRIGHTENED_LIGHT_GREEN_LEAVES) { block: Block ->
             this.createLeavesDrops(
                 block,
@@ -77,7 +78,7 @@ class DesolatedPastelsLootTableProvider(
         dropSelf(DesolatedPastelsBlocks.PASTEL_DIRT)
         dropSelf(DesolatedPastelsBlocks.PASTEL_SAND)
 
-        this.add(DesolatedPastelsBlocks.PASTEL_GRASS) { block: Block ->
+        add(DesolatedPastelsBlocks.PASTEL_GRASS) { block: Block ->
             this.createSingleItemTableWithSilkTouch(block, DesolatedPastelsBlocks.PASTEL_DIRT)
         }
     }

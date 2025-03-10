@@ -64,6 +64,9 @@ class DesolatedPastelsBlockTagProvider(
 
         getOrCreateTagBuilder(BlockTags.LEAVES)
             .addTag(InnerPastelsBlockTags.LEAVES)
+        
+        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_HOE)
+            .addTag(InnerPastelsBlockTags.LEAVES)
 
         getOrCreateTagBuilder(BlockTags.LOGS)
             .addTag(InnerPastelsBlockTags.LOGS)
