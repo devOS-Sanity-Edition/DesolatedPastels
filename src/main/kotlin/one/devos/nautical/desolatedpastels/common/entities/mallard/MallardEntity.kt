@@ -1,12 +1,18 @@
 package one.devos.nautical.desolatedpastels.common.entities.mallard
 
+import io.netty.buffer.ByteBuf
 import net.minecraft.nbt.CompoundTag
+import net.minecraft.network.codec.ByteBufCodecs
+import net.minecraft.network.codec.StreamCodec
 import net.minecraft.network.syncher.EntityDataAccessor
+import net.minecraft.network.syncher.EntityDataSerializer
 import net.minecraft.network.syncher.EntityDataSerializers
 import net.minecraft.network.syncher.SynchedEntityData
+import net.minecraft.resources.ResourceLocation
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.sounds.SoundEvent
 import net.minecraft.sounds.SoundEvents
+import net.minecraft.util.ByIdMap
 import net.minecraft.util.Mth
 import net.minecraft.util.TimeUtil
 import net.minecraft.world.damagesource.DamageSource
@@ -29,7 +35,24 @@ import kotlin.random.Random
 
 class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : Animal(entityType, level) {
     var ticksUntilNextAlert: Int = 0
-    
+
+    enum class Type(val texture: ResourceLocation, val babyTexture: ResourceLocation) {
+        NORMAL(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mallard.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mababy.png")),
+        LADY(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mallady.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mababy.png")),
+        PALLARD(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pallard.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pababy.png")),
+        PALLADY(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pallady.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pababy.png"));
+
+        companion object {
+            val STREAM_CODEC: StreamCodec<ByteBuf, Type> = ByteBufCodecs.idMapper(
+                ByIdMap.continuous(
+                    Type::ordinal,
+                    Type.values(),
+                    ByIdMap.OutOfBoundsStrategy.WRAP
+                ), Type::ordinal
+            )
+        }
+    }
+
     init {
         this.health = 6f
     }
@@ -56,9 +79,9 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         builder.define(ATTACKING, false)
 
         if (this.commandSenderWorld.dimension().location().path != "desolatedpastels") {
-            builder.define(VARIANT, if (Random.nextInt(2) == 0) 0 else 1)
+            builder.define(DATA_MALLARD_TYPE, if (Random.nextInt(2) == 0) MallardEntity.Type.PALLARD else MallardEntity.Type.PALLADY)
         } else {
-            builder.define(VARIANT, if (Random.nextInt(2) == 0) 3 else 4)
+            builder.define(DATA_MALLARD_TYPE, if (Random.nextInt(2) == 0) MallardEntity.Type.NORMAL else MallardEntity.Type.LADY)
         }
     }
 
@@ -75,10 +98,10 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         return super.getDefaultDimensions(pose)
     }
 
-    var variant: Int
-        get() = Mth.clamp((entityData.get(VARIANT) as Int), 0, 5)
+    var variant: MallardEntity.Type
+        get() = entityData.get(DATA_MALLARD_TYPE)
         set(variant) {
-            entityData.set(VARIANT, variant)
+            entityData.set(DATA_MALLARD_TYPE, variant)
         }
 
     fun setAttacking(attacking: Boolean) {
@@ -91,12 +114,12 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
 
     override fun addAdditionalSaveData(tag: CompoundTag) {
         super.addAdditionalSaveData(tag)
-        tag.putInt("Variant", this.variant)
+        tag.putString("Variant", this.variant.name)
     }
 
     override fun readAdditionalSaveData(tag: CompoundTag) {
         super.readAdditionalSaveData(tag)
-        this.variant = tag.getInt("Variant")
+        this.variant = MallardEntity.Type.valueOf(tag.getString("Variant"))
     }
 
     override fun getBreedOffspring(serverLevel: ServerLevel, ageableMob: AgeableMob): MallardEntity {
@@ -146,7 +169,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         }
         super.customServerAiStep()
     }
-    
+
     fun maybeAlertOthers() {
         if (this.ticksUntilNextAlert > 0) {
             --ticksUntilNextAlert
@@ -154,26 +177,34 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
             if (this.sensing.hasLineOfSight(this.target)) {
                 this.alertOthers()
             }
-            
+
             this.ticksUntilNextAlert = ALERT_INTERVAL.sample(this.random)
         }
     }
-    
+
     fun alertOthers() {
         val range = this.getAttributeValue(Attributes.FOLLOW_RANGE)
         val box = AABB.unitCubeFromLowerCorner(this.position()).inflate(range, 10.0, range)
         this.level().getEntitiesOfClass(MallardEntity::class.java, box, EntitySelector.NO_SPECTATORS)
             .filter { it != this && it.target == null && !it.isAlliedTo(this.target) }
-            .forEach { 
-                it.target = this.target 
+            .forEach {
+                it.target = this.target
             }
     }
 
     companion object {
-        private var VARIANT: EntityDataAccessor<Int> = SynchedEntityData.defineId(MallardEntity::class.java, EntityDataSerializers.INT)
-        private val FOOD_ITEMS: Ingredient = Ingredient.of(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.EMERALD)
-        private val ATTACKING: EntityDataAccessor<Boolean> = SynchedEntityData.defineId(MallardEntity::class.java, EntityDataSerializers.BOOLEAN)
+        private val FOOD_ITEMS: Ingredient = Ingredient.of(
+            Items.WHEAT_SEEDS,
+            Items.MELON_SEEDS,
+            Items.PUMPKIN_SEEDS,
+            Items.BEETROOT_SEEDS,
+            Items.EMERALD
+        )
+        private val ATTACKING: EntityDataAccessor<Boolean> =
+            SynchedEntityData.defineId(MallardEntity::class.java, EntityDataSerializers.BOOLEAN)
         private val ALERT_INTERVAL = TimeUtil.rangeOfSeconds(4, 6)
+        private val MALLARD_TYPE_SERIALIZER = EntityDataSerializer.forValueType(MallardEntity.Type.STREAM_CODEC)
+        private val DATA_MALLARD_TYPE = SynchedEntityData.defineId(MallardEntity::class.java, MALLARD_TYPE_SERIALIZER)
 
         val idleAnimationState: AnimationState = AnimationState()
         val idleAnimationTimeout: Int = 0
@@ -187,6 +218,10 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
                 .add(Attributes.MOVEMENT_SPEED, 0.25)
                 .add(Attributes.ATTACK_SPEED, 1.0)
                 .add(Attributes.ATTACK_DAMAGE, 4.0)
+        }
+
+        init {
+            EntityDataSerializers.registerSerializer(MALLARD_TYPE_SERIALIZER)
         }
     }
 }
