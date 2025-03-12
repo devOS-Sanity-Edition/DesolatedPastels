@@ -1,9 +1,9 @@
 {
-  "feature": "desolatedpastels:light_blue_tree",
+  "feature": "desolatedpastels:light_green_tree",
   "placement": [
     {
       "type": "minecraft:count_on_every_layer",
-      "count": 5
+      "count": 3
     },
     {
       "type": "minecraft:biome"

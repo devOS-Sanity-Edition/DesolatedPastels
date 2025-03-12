@@ -1,4 +1,5 @@
-// 1.21.1	2025-03-11T21:05:49.6647656	Desolated Pastels/Tags for minecraft:block
+// 1.21.1	2025-03-11T23:08:10.9483186	Desolated Pastels/Tags for minecraft:block
+39f05a88237ae12d16f83572d4d0dfe4ec4d6a93 data\minecraft\tags\block\replaceable_by_trees.json
 6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\block\logs_that_burn.json
 6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\block\logs.json
 f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\animals_spawnable_on.json

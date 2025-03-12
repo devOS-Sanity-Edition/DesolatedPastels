@@ -88,5 +88,9 @@ class DesolatedPastelsBlockTagProvider(
         getOrCreateTagBuilder(BlockTags.SNIFFER_DIGGABLE_BLOCK)
             .add(DesolatedPastelsBlocks.PASTEL_DIRT)
             .add(DesolatedPastelsBlocks.PASTEL_GRASS)
+        
+        getOrCreateTagBuilder(BlockTags.REPLACEABLE_BY_TREES)
+            .add(DesolatedPastelsBlocks.PASTEL_GRASS)
+            .add(DesolatedPastelsBlocks.PASTEL_DIRT)
     }
 }

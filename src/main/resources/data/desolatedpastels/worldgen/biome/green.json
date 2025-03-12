@@ -48,7 +48,9 @@
       "minecraft:spring_water",
       "minecraft:spring_lava"
     ],
-    [],
+    [
+      "desolatedpastels:light_green_tree"
+    ],
     []
   ],
   "has_precipitation": true,
