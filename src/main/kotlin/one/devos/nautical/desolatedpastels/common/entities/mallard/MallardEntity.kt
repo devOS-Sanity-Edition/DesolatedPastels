@@ -78,7 +78,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         super.defineSynchedData(builder)
         builder.define(ATTACKING, false)
 
-        if (this.commandSenderWorld.dimension().location().path != "desolatedpastels") {
+        if (this.commandSenderWorld.dimension().location().namespace == "desolatedpastels") {
             builder.define(DATA_MALLARD_TYPE, if (Random.nextInt(2) == 0) MallardEntity.Type.PALLARD else MallardEntity.Type.PALLADY)
         } else {
             builder.define(DATA_MALLARD_TYPE, if (Random.nextInt(2) == 0) MallardEntity.Type.NORMAL else MallardEntity.Type.LADY)
