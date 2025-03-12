@@ -96,10 +96,10 @@ object DesolatedPastelsBlocks {
     val LIGHT_GREEN_SAPLING_POTTED: Block = MapColor.COLOR_LIGHT_GREEN.registerTempBlock("light_green_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
 
     fun DyeColor.registerTempLeavesBlock(modID: String, name: String, emissiveRenderingState: BlockBehaviour.StatePredicate): Block =
-        LeavesBlock(Properties.pastelLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
+        LeavesBlock(Properties.pastelBrightenedLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
 
     fun MapColor.registerTempLeavesBlock(modID: String, name: String, emissiveRenderingState: BlockBehaviour.StatePredicate): Block =
-        LeavesBlock(Properties.pastelLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
+        LeavesBlock(Properties.pastelBrightenedLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
 
 
     fun DyeColor.registerTempBlock(name: String, block: Block): Block {
