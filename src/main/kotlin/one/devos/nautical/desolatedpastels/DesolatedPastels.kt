@@ -3,17 +3,21 @@ package one.devos.nautical.desolatedpastels
 import gay.asoji.fmw.FMW
 import gay.asoji.innerpastels.InnerPastels
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
+import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
+import net.minecraft.resources.ResourceKey
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.entity.*
 import net.minecraft.world.entity.animal.Animal
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.Level
 import net.minecraft.world.level.levelgen.Heightmap
 import one.devos.nautical.desolatedpastels.common.*
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
@@ -42,7 +46,25 @@ object DesolatedPastels : ModInitializer {
         .displayItems(DesolatedPastelsTab::build)
         .build()
 
+    val DESOLATED_DIMENSION: ResourceKey<Level> = ResourceKey.create(Registries.DIMENSION,
+        ResourceLocation.fromNamespaceAndPath(MOD_ID, "desolated"))
+
     override fun onInitialize() {
+        ServerTickEvents.END_WORLD_TICK.register { level ->
+            if (level.dimension() != DESOLATED_DIMENSION)
+                return@register
+
+            val overworld = level.server.overworld()
+            val players = level.players().toList()
+
+            players.forEach { player ->
+                if (player.y < level.dimensionType().minY - 32) {
+                    player.teleportTo(overworld, player.x,
+                        (overworld.dimensionType().minY + overworld.dimensionType().height).toDouble(), player.z, player.yRot, player.xRot)
+                }
+            }
+        }
+
         DesolatedPastelsItems.init()
         DesolatedPastelsBlocks.init()
         DesolatedPastelsSoundEvents.init()
