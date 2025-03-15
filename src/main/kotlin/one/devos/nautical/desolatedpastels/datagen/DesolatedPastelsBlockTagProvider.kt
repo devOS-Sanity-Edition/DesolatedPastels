@@ -92,5 +92,22 @@ class DesolatedPastelsBlockTagProvider(
         getOrCreateTagBuilder(BlockTags.REPLACEABLE_BY_TREES)
             .add(DesolatedPastelsBlocks.PASTEL_GRASS)
             .add(DesolatedPastelsBlocks.PASTEL_DIRT)
+        
+        getOrCreateTagBuilder(BlockTags.PLANKS)
+            .add(DesolatedPastelsBlocks.WHITE_PLANKS)
+            .add(DesolatedPastelsBlocks.LIGHT_RED_PLANKS)
+            .add(DesolatedPastelsBlocks.RED_PLANKS)
+            .add(DesolatedPastelsBlocks.ORANGE_PLANKS)
+            .add(DesolatedPastelsBlocks.YELLOW_PLANKS)
+            .add(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS)
+            .add(DesolatedPastelsBlocks.GREEN_PLANKS)
+            .add(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS)
+            .add(DesolatedPastelsBlocks.BLUE_PLANKS)
+            .add(DesolatedPastelsBlocks.PURPLE_PLANKS)
+            .add(DesolatedPastelsBlocks.MAGENTA_PLANKS)
+            .add(DesolatedPastelsBlocks.BROWN_PLANKS)
+            .add(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS)
+            .add(DesolatedPastelsBlocks.GRAY_PLANKS)
+            .add(DesolatedPastelsBlocks.BLACK_PLANKS)
     }
 }

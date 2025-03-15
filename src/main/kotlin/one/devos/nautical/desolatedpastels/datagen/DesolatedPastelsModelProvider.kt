@@ -72,8 +72,26 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_GRASS, TexturedModel.CUBE_TOP_BOTTOM.updateTexture { it.put(TextureSlot.BOTTOM, ResourceLocation.fromNamespaceAndPath(DesolatedPastels.MOD_ID, "block/pastel_dirt")) })
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_SAND, TexturedModel.CUBE)
         
+        blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.BLUE_SAPLING, DesolatedPastelsBlocks.BLUE_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
         blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING, DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
+        blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.GREEN_SAPLING, DesolatedPastelsBlocks.GREEN_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
         blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING, DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
+
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.WHITE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.LIGHT_RED_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.RED_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.ORANGE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.YELLOW_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.GREEN_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.BLUE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PURPLE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.MAGENTA_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.BROWN_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.GRAY_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.BLACK_PLANKS, TexturedModel.CUBE)
     }
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerators) {

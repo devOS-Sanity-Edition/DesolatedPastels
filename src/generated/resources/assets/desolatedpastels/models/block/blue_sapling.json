@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "desolatedpastels:block/blue_sapling"
+  }
+}

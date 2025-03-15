@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "desolatedpastels:block/light_green_planks"
+  }
+}

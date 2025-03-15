@@ -28,7 +28,23 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.BROWN_LOG,
             DesolatedPastelsBlocks.LIGHT_GRAY_LOG,
             DesolatedPastelsBlocks.GRAY_LOG,
-            DesolatedPastelsBlocks.BLACK_LOG
+            DesolatedPastelsBlocks.BLACK_LOG,
+
+            DesolatedPastelsBlocks.WHITE_PLANKS,
+            DesolatedPastelsBlocks.LIGHT_RED_PLANKS,
+            DesolatedPastelsBlocks.RED_PLANKS,
+            DesolatedPastelsBlocks.ORANGE_PLANKS,
+            DesolatedPastelsBlocks.YELLOW_PLANKS,
+            DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS,
+            DesolatedPastelsBlocks.GREEN_PLANKS,
+            DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS,
+            DesolatedPastelsBlocks.BLUE_PLANKS,
+            DesolatedPastelsBlocks.PURPLE_PLANKS,
+            DesolatedPastelsBlocks.MAGENTA_PLANKS,
+            DesolatedPastelsBlocks.BROWN_PLANKS,
+            DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS,
+            DesolatedPastelsBlocks.GRAY_PLANKS,
+            DesolatedPastelsBlocks.BLACK_PLANKS
         )
     }
 
@@ -50,6 +66,7 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.LIGHT_GRAY_LEAVES,
             DesolatedPastelsBlocks.GRAY_LEAVES,
             DesolatedPastelsBlocks.BLACK_LEAVES,
+            
             DesolatedPastelsBlocks.BRIGHTENED_WHITE_LEAVES,
             DesolatedPastelsBlocks.BRIGHTENED_LIGHT_RED_LEAVES,
             DesolatedPastelsBlocks.BRIGHTENED_RED_LEAVES,
@@ -76,7 +93,11 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.PASTEL_GRASS,
             DesolatedPastelsBlocks.PASTEL_DIRT,
             DesolatedPastelsBlocks.PASTEL_SAND,
-            DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING
+
+            DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING,
+            DesolatedPastelsBlocks.GREEN_SAPLING,
+            DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING,
+            DesolatedPastelsBlocks.BLUE_SAPLING
         )
     }
 

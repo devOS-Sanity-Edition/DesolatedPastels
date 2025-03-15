@@ -1066,7 +1066,7 @@
                                 {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:sand"
+                                    "Name": "desolatedpastels:pastel_sand"
                                   }
                                 }
                               ]
@@ -1102,7 +1102,7 @@
                                 {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:sand"
+                                    "Name": "desolatedpastels:pastel_sand"
                                   }
                                 }
                               ]
@@ -1842,7 +1842,7 @@
                                 {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:sand"
+                                    "Name": "desolatedpastels:pastel_sand"
                                   }
                                 }
                               ]
@@ -1878,7 +1878,7 @@
                                 {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:sand"
+                                    "Name": "desolatedpastels:pastel_sand"
                                   }
                                 }
                               ]
@@ -2171,7 +2171,7 @@
                       {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:sand"
+                          "Name": "desolatedpastels:pastel_sand"
                         }
                       }
                     ]

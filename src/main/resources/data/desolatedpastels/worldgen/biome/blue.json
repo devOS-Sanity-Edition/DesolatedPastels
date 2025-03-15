@@ -46,7 +46,8 @@
             "minecraft:spring_lava"
         ],
         [
-            "desolatedpastels:light_blue_tree"
+            "desolatedpastels:light_blue_tree",
+            "desolatedpastels:blue_tree"
         ],
         []
     ],
