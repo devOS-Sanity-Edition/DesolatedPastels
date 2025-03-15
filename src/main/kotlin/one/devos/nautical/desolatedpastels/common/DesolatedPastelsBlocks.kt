@@ -111,12 +111,11 @@ object DesolatedPastelsBlocks {
     val LIGHT_BLUE_SAPLING: Block = MapColor.COLOR_LIGHT_BLUE.registerSaplingBlock(
         "light_blue_sapling", SaplingBlock(DesolatedPastelsSaplingGenerators.LIGHT_BLUE_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING))
     )
-
     val BLUE_SAPLING: Block = MapColor.COLOR_BLUE.registerSaplingBlock(
         "blue_sapling", SaplingBlock(DesolatedPastelsSaplingGenerators.BLUE_TREE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING))
     )
 
-    val GREEN_SAPLING_POTTED: Block = MapColor.COLOR_GREEN.registerTempBlock("green_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
+    val GREEN_SAPLING_POTTED: Block = MapColor.COLOR_GREEN.registerTempBlock("green_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.GREEN_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
     val LIGHT_GREEN_SAPLING_POTTED: Block = MapColor.COLOR_LIGHT_GREEN.registerTempBlock("light_green_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
     val BLUE_SAPLING_POTTED: Block = MapColor.COLOR_BLUE.registerTempBlock("blue_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.BLUE_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
     val LIGHT_BLUE_SAPLING_POTTED: Block = MapColor.COLOR_LIGHT_BLUE.registerTempBlock("light_blue_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))

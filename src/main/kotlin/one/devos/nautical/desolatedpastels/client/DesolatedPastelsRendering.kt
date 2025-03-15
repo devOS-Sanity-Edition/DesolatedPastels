@@ -10,8 +10,12 @@ import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 object DesolatedPastelsRendering {
     fun SaplingCutout() {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutoutMipped(),
+            DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING,
+            DesolatedPastelsBlocks.GREEN_SAPLING,
+            DesolatedPastelsBlocks.GREEN_SAPLING_POTTED,
             DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING,
-            DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING)
+            DesolatedPastelsBlocks.BLUE_SAPLING,
+            DesolatedPastelsBlocks.BLUE_SAPLING_POTTED)
     }
     
     fun GlassTranslucency() {
