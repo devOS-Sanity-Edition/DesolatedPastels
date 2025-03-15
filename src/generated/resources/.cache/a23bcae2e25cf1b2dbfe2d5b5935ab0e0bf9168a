@@ -1,7 +1,7 @@
-// 1.21.1	2025-03-14T23:19:05.0165968	Desolated Pastels/Tags for minecraft:item
+// 1.21.1	2025-03-15T01:12:05.6902353	Desolated Pastels/Tags for minecraft:item
 136dbd79b177ba8d5b854bd03fb9ec5ae1e13dfe data\innerpastels\tags\item\planks.json
-89dbad4c85489e5c1f7368c96236918b93b11be3 data\minecraft\tags\item\planks.json
 6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\item\logs_that_burn.json
+89dbad4c85489e5c1f7368c96236918b93b11be3 data\minecraft\tags\item\planks.json
 6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\item\logs.json
 4519721fd38c2dec9846b770bb291502aef16708 data\innerpastels\tags\item\logs.json
 7ca8f275f1ac53e9f1a23741014e63aa488e0149 data\minecraft\tags\item\leaves.json
