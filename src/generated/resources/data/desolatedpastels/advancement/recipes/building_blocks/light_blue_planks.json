@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_light_blue_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:light_blue_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_light_blue_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:light_blue_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "desolatedpastels:light_blue_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_light_blue_log",
+      "has_light_blue_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "desolatedpastels:light_blue_planks"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "desolatedpastels:brown_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "desolatedpastels:brown_planks"
+  }
+}

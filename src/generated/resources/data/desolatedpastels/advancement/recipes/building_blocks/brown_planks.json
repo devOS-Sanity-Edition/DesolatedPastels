@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brown_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:brown_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_brown_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:brown_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "desolatedpastels:brown_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_brown_log",
+      "has_brown_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "desolatedpastels:brown_planks"
+    ]
+  }
+}
