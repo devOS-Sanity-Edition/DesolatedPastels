@@ -3,6 +3,7 @@ package one.devos.nautical.desolatedpastels.datagen
 import gay.asoji.innerpastels.tags.InnerPastelsItemTags
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags
 import net.minecraft.core.HolderLookup
 import net.minecraft.tags.ItemTags
 import net.minecraft.tags.TagKey
@@ -93,5 +94,14 @@ class DesolatedPastelsItemTagProvider(
         
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
             .addTag(InnerPastelsItemTags.LOGS)
+
+        getOrCreateTagBuilder(ItemTags.STONE_CRAFTING_MATERIALS)
+            .add(DesolatedPastelsBlocks.PASTEL_STONE.asItem())
+
+        getOrCreateTagBuilder(ItemTags.STONE_TOOL_MATERIALS)
+            .add(DesolatedPastelsBlocks.PASTEL_STONE.asItem())
+
+        getOrCreateTagBuilder(ConventionalItemTags.COBBLESTONES)
+            .add(DesolatedPastelsBlocks.PASTEL_STONE.asItem())
     }
 }

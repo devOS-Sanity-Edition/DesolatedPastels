@@ -1,8 +1,11 @@
-// 1.21.1	2025-03-15T07:42:23.6853465	Desolated Pastels/Tags for minecraft:item
+// 1.21.1	2025-03-15T08:00:32.195945	Desolated Pastels/Tags for minecraft:item
 136dbd79b177ba8d5b854bd03fb9ec5ae1e13dfe data\innerpastels\tags\item\planks.json
 89dbad4c85489e5c1f7368c96236918b93b11be3 data\minecraft\tags\item\planks.json
 6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\item\logs_that_burn.json
 6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\item\logs.json
+99fda7e1b3104c06599a590187837285ee8a12f4 data\minecraft\tags\item\stone_crafting_materials.json
 4519721fd38c2dec9846b770bb291502aef16708 data\innerpastels\tags\item\logs.json
+99fda7e1b3104c06599a590187837285ee8a12f4 data\minecraft\tags\item\stone_tool_materials.json
 7ca8f275f1ac53e9f1a23741014e63aa488e0149 data\minecraft\tags\item\leaves.json
+99fda7e1b3104c06599a590187837285ee8a12f4 data\c\tags\item\cobblestones.json
 b51423a1425123483d80de90a494850383a40864 data\innerpastels\tags\item\leaves.json
