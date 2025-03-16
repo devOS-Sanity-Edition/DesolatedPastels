@@ -116,5 +116,8 @@ class DesolatedPastelsBlockTagProvider(
 
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
             .add(DesolatedPastelsBlocks.PASTEL_STONE)
+
+        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
+            .add(DesolatedPastelsBlocks.PASTEL_ORE)
     }
 }

@@ -97,7 +97,9 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING,
             DesolatedPastelsBlocks.GREEN_SAPLING,
             DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING,
-            DesolatedPastelsBlocks.BLUE_SAPLING
+            DesolatedPastelsBlocks.BLUE_SAPLING,
+
+            DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM
         )
     }
 

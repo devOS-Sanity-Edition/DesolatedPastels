@@ -26,7 +26,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "desolatedpastels:light_green_sapling"
+          "name": "desolatedpastels:green_sapling"
         }
       ],
       "rolls": 1.0
