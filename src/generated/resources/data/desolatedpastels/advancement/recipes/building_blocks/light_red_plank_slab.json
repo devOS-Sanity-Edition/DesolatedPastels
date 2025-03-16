@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_light_red_plank_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:light_red_plank_slab"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_light_red_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:light_red_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "desolatedpastels:light_red_plank_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_light_red_planks",
+      "has_light_red_plank_slab"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "desolatedpastels:light_red_plank_slab"
+    ]
+  }
+}
