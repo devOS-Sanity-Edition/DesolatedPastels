@@ -159,6 +159,12 @@ class DesolatedPastelsItemTagProvider(
         
         getOrCreateTagBuilder(ItemTags.PLANKS)
             .addTag(InnerPastelsItemTags.PLANKS)
+
+        getOrCreateTagBuilder(ItemTags.STAIRS)
+            .addTag(InnerPastelsItemTags.STAIRS)
+
+        getOrCreateTagBuilder(ItemTags.SLABS)
+            .addTag(InnerPastelsItemTags.SLABS)
         
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
             .addTag(InnerPastelsItemTags.LOGS)
