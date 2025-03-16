@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "desolatedpastels:block/purple_plank_slab"
+    },
+    "type=double": {
+      "model": "desolatedpastels:block/purple_planks"
+    },
+    "type=top": {
+      "model": "desolatedpastels:block/purple_plank_slab_top"
+    }
+  }
+}

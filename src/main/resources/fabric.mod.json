@@ -3,7 +3,7 @@
 	"id": "desolatedpastels",
 	"version": "${version}",
 	"name": "Desolated Pastels",
-	"description": "A rethinking of the discontinued Pastel Wonderland",
+	"description": "Desolated Pastels is a dimensions mod, with a pastel vibe to add taste, and a few mallards to meet your way.",
 	"authors": [
 		"devOS: Sanity Edition",
 		"Team Nautical"
@@ -39,11 +39,12 @@
 		"desolatedpastels.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.10",
-		"minecraft": "~1.21",
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.1",
 		"java": ">=21",
 		"fabric-api": "*",
-		"softerpastels": "*",
-		"innerpastels": "*"
+		"fabric-language-kotlin": "*",
+		"softerpastels": ">=0.9.1-rev.2b2764d",
+		"innerpastels": ">=1.3.13+rev.e7bb3c8-branch.kt.1.21.main"
 	}
 }

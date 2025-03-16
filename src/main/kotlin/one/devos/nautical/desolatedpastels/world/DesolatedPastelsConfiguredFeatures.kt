@@ -16,9 +16,11 @@ import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 
 object DesolatedPastelsConfiguredFeatures {
     val OVERWORLD_PASTEL_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("overworld_pastel_ore")
-    val LIGHT_BLUE_TREE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("light_blue_tree")
+    val GREEN_TREE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("light_green_tree")
     val LIGHT_GREEN_TREE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("light_green_tree")
-    
+    val BLUE_TREE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("light_blue_tree")
+    val LIGHT_BLUE_TREE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("light_blue_tree")
+
 
     fun bootstrap(context: BootstrapContext<ConfiguredFeature<*, *>>) {
         val stoneReplacables = TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES)

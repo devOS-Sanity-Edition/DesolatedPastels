@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "desolatedpastels:block/light_green_planks",
+    "side": "desolatedpastels:block/light_green_planks",
+    "top": "desolatedpastels:block/light_green_planks"
+  }
+}

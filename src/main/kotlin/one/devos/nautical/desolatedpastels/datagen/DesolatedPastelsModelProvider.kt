@@ -2,6 +2,10 @@ package one.devos.nautical.desolatedpastels.datagen
 
 import gay.asoji.innerpastels.datagen.CustomModelTemplates.createCustomItemModel
 import gay.asoji.innerpastels.datagen.ModelGenerators
+import gay.asoji.innerpastels.datagen.ModelGenerators.createFence
+import gay.asoji.innerpastels.datagen.ModelGenerators.createFenceGate
+import gay.asoji.innerpastels.datagen.ModelGenerators.createSlabs
+import gay.asoji.innerpastels.datagen.ModelGenerators.createStairs
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
 import net.minecraft.data.models.BlockModelGenerators
@@ -72,8 +76,90 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_GRASS, TexturedModel.CUBE_TOP_BOTTOM.updateTexture { it.put(TextureSlot.BOTTOM, ResourceLocation.fromNamespaceAndPath(DesolatedPastels.MOD_ID, "block/pastel_dirt")) })
         blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PASTEL_SAND, TexturedModel.CUBE)
         
+        blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.BLUE_SAPLING, DesolatedPastelsBlocks.BLUE_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
         blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING, DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
+        blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.GREEN_SAPLING, DesolatedPastelsBlocks.GREEN_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
         blockStateModelGenerator.createPlant(DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING, DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING_POTTED, BlockModelGenerators.TintState.NOT_TINTED)
+
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.WHITE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.LIGHT_RED_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.RED_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.ORANGE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.YELLOW_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.GREEN_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.BLUE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.PURPLE_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.MAGENTA_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.BROWN_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.GRAY_PLANKS, TexturedModel.CUBE)
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.BLACK_PLANKS, TexturedModel.CUBE)
+
+        createFence(DesolatedPastelsBlocks.WHITE_PLANKS, DesolatedPastelsBlocks.WHITE_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.LIGHT_RED_PLANKS, DesolatedPastelsBlocks.LIGHT_RED_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.RED_PLANKS, DesolatedPastelsBlocks.RED_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.ORANGE_PLANKS, DesolatedPastelsBlocks.ORANGE_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.YELLOW_PLANKS, DesolatedPastelsBlocks.YELLOW_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS, DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.GREEN_PLANKS, DesolatedPastelsBlocks.GREEN_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS, DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.BLUE_PLANKS, DesolatedPastelsBlocks.BLUE_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.PURPLE_PLANKS, DesolatedPastelsBlocks.PURPLE_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.MAGENTA_PLANKS, DesolatedPastelsBlocks.MAGENTA_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.BROWN_PLANKS, DesolatedPastelsBlocks.BROWN_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.GRAY_PLANKS, DesolatedPastelsBlocks.GRAY_PLANK_FENCE, blockStateModelGenerator)
+        createFence(DesolatedPastelsBlocks.BLACK_PLANKS, DesolatedPastelsBlocks.BLACK_PLANK_FENCE, blockStateModelGenerator)
+
+        createFenceGate(DesolatedPastelsBlocks.WHITE_PLANKS, DesolatedPastelsBlocks.WHITE_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.LIGHT_RED_PLANKS, DesolatedPastelsBlocks.LIGHT_RED_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.RED_PLANKS, DesolatedPastelsBlocks.RED_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.ORANGE_PLANKS, DesolatedPastelsBlocks.ORANGE_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.YELLOW_PLANKS, DesolatedPastelsBlocks.YELLOW_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS, DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.GREEN_PLANKS, DesolatedPastelsBlocks.GREEN_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS, DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.BLUE_PLANKS, DesolatedPastelsBlocks.BLUE_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.PURPLE_PLANKS, DesolatedPastelsBlocks.PURPLE_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.MAGENTA_PLANKS, DesolatedPastelsBlocks.MAGENTA_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.BROWN_PLANKS, DesolatedPastelsBlocks.BROWN_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.GRAY_PLANKS, DesolatedPastelsBlocks.GRAY_PLANK_FENCE_GATE, blockStateModelGenerator)
+        createFenceGate(DesolatedPastelsBlocks.BLACK_PLANKS, DesolatedPastelsBlocks.BLACK_PLANK_FENCE_GATE, blockStateModelGenerator)
+
+        createSlabs(DesolatedPastelsBlocks.WHITE_PLANKS, DesolatedPastelsBlocks.WHITE_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.LIGHT_RED_PLANKS, DesolatedPastelsBlocks.LIGHT_RED_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.RED_PLANKS, DesolatedPastelsBlocks.RED_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.ORANGE_PLANKS, DesolatedPastelsBlocks.ORANGE_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.YELLOW_PLANKS, DesolatedPastelsBlocks.YELLOW_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS, DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.GREEN_PLANKS, DesolatedPastelsBlocks.GREEN_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS, DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.BLUE_PLANKS, DesolatedPastelsBlocks.BLUE_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.PURPLE_PLANKS, DesolatedPastelsBlocks.PURPLE_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.MAGENTA_PLANKS, DesolatedPastelsBlocks.MAGENTA_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.BROWN_PLANKS, DesolatedPastelsBlocks.BROWN_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.GRAY_PLANKS, DesolatedPastelsBlocks.GRAY_PLANK_SLAB, blockStateModelGenerator)
+        createSlabs(DesolatedPastelsBlocks.BLACK_PLANKS, DesolatedPastelsBlocks.BLACK_PLANK_SLAB, blockStateModelGenerator)
+
+        createStairs(DesolatedPastelsBlocks.WHITE_PLANKS, DesolatedPastelsBlocks.WHITE_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.LIGHT_RED_PLANKS, DesolatedPastelsBlocks.LIGHT_RED_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.RED_PLANKS, DesolatedPastelsBlocks.RED_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.ORANGE_PLANKS, DesolatedPastelsBlocks.ORANGE_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.YELLOW_PLANKS, DesolatedPastelsBlocks.YELLOW_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS, DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.GREEN_PLANKS, DesolatedPastelsBlocks.GREEN_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS, DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.BLUE_PLANKS, DesolatedPastelsBlocks.BLUE_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.PURPLE_PLANKS, DesolatedPastelsBlocks.PURPLE_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.MAGENTA_PLANKS, DesolatedPastelsBlocks.MAGENTA_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.BROWN_PLANKS, DesolatedPastelsBlocks.BROWN_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.GRAY_PLANKS, DesolatedPastelsBlocks.GRAY_PLANK_STAIRS, blockStateModelGenerator)
+        createStairs(DesolatedPastelsBlocks.BLACK_PLANKS, DesolatedPastelsBlocks.BLACK_PLANK_STAIRS, blockStateModelGenerator)
     }
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerators) {

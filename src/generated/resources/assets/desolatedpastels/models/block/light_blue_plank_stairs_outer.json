@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "desolatedpastels:block/light_blue_planks",
+    "side": "desolatedpastels:block/light_blue_planks",
+    "top": "desolatedpastels:block/light_blue_planks"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "desolatedpastels:village1",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 40,
+    "separation": 5,
+    "salt": 1632641280
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "desolatedpastels:block/light_green_planks"
+  }
+}

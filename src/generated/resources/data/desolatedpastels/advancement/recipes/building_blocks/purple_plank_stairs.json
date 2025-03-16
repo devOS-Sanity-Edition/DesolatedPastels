@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_purple_plank_stairs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:purple_plank_stairs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_purple_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:purple_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "desolatedpastels:purple_plank_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_purple_planks",
+      "has_purple_plank_stairs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "desolatedpastels:purple_plank_stairs"
+    ]
+  }
+}

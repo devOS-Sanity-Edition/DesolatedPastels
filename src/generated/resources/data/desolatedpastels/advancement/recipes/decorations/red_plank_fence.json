@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_red_plank_fence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:red_plank_fence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_red_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:red_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "desolatedpastels:red_plank_fence"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stick",
+      "has_red_planks",
+      "has_red_plank_fence"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "desolatedpastels:red_plank_fence"
+    ]
+  }
+}

@@ -38,13 +38,86 @@ class DesolatedPastelsLootTableProvider(
         dropSelf(DesolatedPastelsBlocks.GRAY_LOG)
         dropSelf(DesolatedPastelsBlocks.BLACK_LOG)
 
-        add(DesolatedPastelsBlocks.LIGHT_BLUE_LEAVES) { block: Block ->
-            this.createLeavesDrops(
-                block,
-                DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING,
-                *NORMAL_LEAVES_SAPLING_CHANCES
-            )
-        }
+        dropSelf(DesolatedPastelsBlocks.WHITE_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_RED_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.RED_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.ORANGE_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.YELLOW_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.GREEN_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.BLUE_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.PURPLE_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.MAGENTA_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.BROWN_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.GRAY_PLANKS)
+        dropSelf(DesolatedPastelsBlocks.BLACK_PLANKS)
+
+        dropSelf(DesolatedPastelsBlocks.WHITE_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_RED_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.RED_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.ORANGE_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.YELLOW_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.GREEN_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.BLUE_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.PURPLE_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.MAGENTA_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.BROWN_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.GRAY_PLANK_FENCE)
+        dropSelf(DesolatedPastelsBlocks.BLACK_PLANK_FENCE)
+
+        dropSelf(DesolatedPastelsBlocks.WHITE_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_RED_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.RED_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.ORANGE_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.YELLOW_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.GREEN_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.BLUE_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.PURPLE_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.MAGENTA_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.BROWN_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.GRAY_PLANK_FENCE_GATE)
+        dropSelf(DesolatedPastelsBlocks.BLACK_PLANK_FENCE_GATE)
+
+        dropSelf(DesolatedPastelsBlocks.WHITE_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_RED_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.RED_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.ORANGE_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.YELLOW_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.GREEN_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.BLUE_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.PURPLE_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.MAGENTA_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.BROWN_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.GRAY_PLANK_SLAB)
+        dropSelf(DesolatedPastelsBlocks.BLACK_PLANK_SLAB)
+
+        dropSelf(DesolatedPastelsBlocks.WHITE_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_RED_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.RED_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.ORANGE_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.YELLOW_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.GREEN_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.BLUE_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.PURPLE_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.MAGENTA_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.BROWN_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.GRAY_PLANK_STAIRS)
+        dropSelf(DesolatedPastelsBlocks.BLACK_PLANK_STAIRS)
+        
 
         add(DesolatedPastelsBlocks.LIGHT_GREEN_LEAVES) { block: Block ->
             this.createLeavesDrops(
@@ -54,6 +127,38 @@ class DesolatedPastelsLootTableProvider(
             )
         }
 
+        add(DesolatedPastelsBlocks.BRIGHTENED_LIGHT_GREEN_LEAVES) { block: Block ->
+            this.createLeavesDrops(
+                block,
+                DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING,
+                *NORMAL_LEAVES_SAPLING_CHANCES
+            )
+        }
+
+        add(DesolatedPastelsBlocks.GREEN_LEAVES) { block: Block ->
+            this.createLeavesDrops(
+                block,
+                DesolatedPastelsBlocks.GREEN_SAPLING,
+                *NORMAL_LEAVES_SAPLING_CHANCES
+            )
+        }
+
+        add(DesolatedPastelsBlocks.BRIGHTENED_GREEN_LEAVES) { block: Block ->
+            this.createLeavesDrops(
+                block,
+                DesolatedPastelsBlocks.GREEN_SAPLING,
+                *NORMAL_LEAVES_SAPLING_CHANCES
+            )
+        }
+        
+        add(DesolatedPastelsBlocks.LIGHT_BLUE_LEAVES) { block: Block ->
+            this.createLeavesDrops(
+                block,
+                DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING,
+                *NORMAL_LEAVES_SAPLING_CHANCES
+            )
+        }
+        
         add(DesolatedPastelsBlocks.BRIGHTENED_LIGHT_BLUE_LEAVES) { block: Block ->
             this.createLeavesDrops(
                 block,
@@ -62,13 +167,15 @@ class DesolatedPastelsLootTableProvider(
             )
         }
         
-        add(DesolatedPastelsBlocks.BRIGHTENED_LIGHT_GREEN_LEAVES) { block: Block ->
-            this.createLeavesDrops(
-                block,
-                DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING,
-                *NORMAL_LEAVES_SAPLING_CHANCES
-            )
-        }
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING)
+        dropSelf(DesolatedPastelsBlocks.GREEN_SAPLING)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING)
+        dropSelf(DesolatedPastelsBlocks.BLUE_SAPLING)
+
+        dropPottedContents(DesolatedPastelsBlocks.LIGHT_GREEN_SAPLING_POTTED)
+        dropPottedContents(DesolatedPastelsBlocks.GREEN_SAPLING_POTTED)
+        dropPottedContents(DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING_POTTED)
+        dropPottedContents(DesolatedPastelsBlocks.BLUE_SAPLING_POTTED)
 
         add(DesolatedPastelsBlocks.PASTEL_ORE) { block: Block ->
             this.createOreDrop(block, SofterPastelsItems.POWDER)

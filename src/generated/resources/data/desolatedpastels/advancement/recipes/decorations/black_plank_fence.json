@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_black_plank_fence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:black_plank_fence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_black_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:black_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "desolatedpastels:black_plank_fence"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stick",
+      "has_black_planks",
+      "has_black_plank_fence"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "desolatedpastels:black_plank_fence"
+    ]
+  }
+}
