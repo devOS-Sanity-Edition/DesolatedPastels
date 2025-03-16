@@ -46,6 +46,40 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.GRAY_PLANKS,
             DesolatedPastelsBlocks.BLACK_PLANKS
         )
+        addAll(
+            output,
+            DesolatedPastelsBlocks.WHITE_PLANKS_FENCE,
+            DesolatedPastelsBlocks.LIGHT_RED_PLANKS_FENCE,
+            DesolatedPastelsBlocks.RED_PLANKS_FENCE,
+            DesolatedPastelsBlocks.ORANGE_PLANKS_FENCE,
+            DesolatedPastelsBlocks.YELLOW_PLANKS_FENCE,
+            DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS_FENCE,
+            DesolatedPastelsBlocks.GREEN_PLANKS_FENCE,
+            DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS_FENCE,
+            DesolatedPastelsBlocks.BLUE_PLANKS_FENCE,
+            DesolatedPastelsBlocks.PURPLE_PLANKS_FENCE,
+            DesolatedPastelsBlocks.MAGENTA_PLANKS_FENCE,
+            DesolatedPastelsBlocks.BROWN_PLANKS_FENCE,
+            DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS_FENCE,
+            DesolatedPastelsBlocks.GRAY_PLANKS_FENCE,
+            DesolatedPastelsBlocks.BLACK_PLANKS_FENCE,
+
+            DesolatedPastelsBlocks.WHITE_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.LIGHT_RED_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.RED_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.ORANGE_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.YELLOW_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.GREEN_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.BLUE_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.PURPLE_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.MAGENTA_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.BROWN_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.GRAY_PLANKS_FENCE_GATE,
+            DesolatedPastelsBlocks.BLACK_PLANKS_FENCE_GATE
+        )
     }
 
     private fun addDecorations(output: Output) {

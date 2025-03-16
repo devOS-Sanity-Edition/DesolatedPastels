@@ -1,5 +1,6 @@
 package one.devos.nautical.desolatedpastels.datagen
 
+import com.jcraft.jorbis.Block
 import gay.asoji.innerpastels.tags.InnerPastelsBlockTags
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
@@ -63,9 +64,43 @@ class DesolatedPastelsBlockTagProvider(
             .add(DesolatedPastelsBlocks.BRIGHTENED_GRAY_LEAVES)
             .add(DesolatedPastelsBlocks.BRIGHTENED_BLACK_LEAVES)
 
+        getOrCreateTagBuilder(InnerPastelsBlockTags.FENCES)
+            .add(DesolatedPastelsBlocks.WHITE_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.LIGHT_RED_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.RED_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.ORANGE_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.YELLOW_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.GREEN_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.BLUE_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.PURPLE_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.MAGENTA_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.BROWN_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.GRAY_PLANKS_FENCE)
+            .add(DesolatedPastelsBlocks.BLACK_PLANKS_FENCE)
+
+        getOrCreateTagBuilder(InnerPastelsBlockTags.FENCE_GATES)
+            .add(DesolatedPastelsBlocks.WHITE_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.LIGHT_RED_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.RED_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.ORANGE_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.YELLOW_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.GREEN_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.BLUE_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.PURPLE_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.MAGENTA_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.BROWN_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.GRAY_PLANKS_FENCE_GATE)
+            .add(DesolatedPastelsBlocks.BLACK_PLANKS_FENCE_GATE)
+
         getOrCreateTagBuilder(BlockTags.LEAVES)
             .addTag(InnerPastelsBlockTags.LEAVES)
-        
+
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_HOE)
             .addTag(InnerPastelsBlockTags.LEAVES)
 
@@ -81,19 +116,19 @@ class DesolatedPastelsBlockTagProvider(
         getOrCreateTagBuilder(BlockTags.DIRT)
             .add(DesolatedPastelsBlocks.PASTEL_DIRT)
             .add(DesolatedPastelsBlocks.PASTEL_GRASS)
-        
+
         getOrCreateTagBuilder(BlockTags.ANIMALS_SPAWNABLE_ON)
             .add(DesolatedPastelsBlocks.PASTEL_DIRT)
             .add(DesolatedPastelsBlocks.PASTEL_GRASS)
-        
+
         getOrCreateTagBuilder(BlockTags.SNIFFER_DIGGABLE_BLOCK)
             .add(DesolatedPastelsBlocks.PASTEL_DIRT)
             .add(DesolatedPastelsBlocks.PASTEL_GRASS)
-        
+
         getOrCreateTagBuilder(BlockTags.REPLACEABLE_BY_TREES)
             .add(DesolatedPastelsBlocks.PASTEL_GRASS)
             .add(DesolatedPastelsBlocks.PASTEL_DIRT)
-        
+
         getOrCreateTagBuilder(BlockTags.PLANKS)
             .add(DesolatedPastelsBlocks.WHITE_PLANKS)
             .add(DesolatedPastelsBlocks.LIGHT_RED_PLANKS)
@@ -119,5 +154,17 @@ class DesolatedPastelsBlockTagProvider(
 
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
             .add(DesolatedPastelsBlocks.PASTEL_ORE)
+
+        getOrCreateTagBuilder(BlockTags.FENCE_GATES)
+            .addTag(InnerPastelsBlockTags.FENCE_GATES)
+
+        getOrCreateTagBuilder(BlockTags.FENCES)
+            .addTag(InnerPastelsBlockTags.FENCES)
+
+        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
+            .addTag(InnerPastelsBlockTags.FENCES)
+
+        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
+            .addTag(InnerPastelsBlockTags.FENCE_GATES)
     }
 }

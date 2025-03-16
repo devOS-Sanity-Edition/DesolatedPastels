@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.SaplingBlock
 import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.material.MapColor
 import net.minecraft.world.level.material.PushReaction
+import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.DesolatedPastels.LOGGER
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 import one.devos.nautical.desolatedpastels.common.blocks.PastelGrassBlock
@@ -63,6 +64,39 @@ object DesolatedPastelsBlocks {
     val LIGHT_GRAY_PLANKS = MapColor.COLOR_LIGHT_GRAY.registerPlanksBlock(MOD_ID, "light_gray_planks")
     val GRAY_PLANKS = MapColor.COLOR_GRAY.registerPlanksBlock(MOD_ID, "gray_planks")
     val BLACK_PLANKS = MapColor.COLOR_BLACK.registerPlanksBlock(MOD_ID, "black_planks")
+
+    val WHITE_PLANKS_FENCE: Block = DyeColor.WHITE.registerPastelFenceBlock(MOD_ID, "white_plank_fence")
+    val LIGHT_RED_PLANKS_FENCE: Block = MapColor.COLOR_PINK.registerPastelFenceBlock(MOD_ID, "light_red_plank_fence")
+    val RED_PLANKS_FENCE: Block = MapColor.COLOR_RED.registerPastelFenceBlock(MOD_ID, "red_plank_fence")
+    val ORANGE_PLANKS_FENCE: Block = MapColor.COLOR_ORANGE.registerPastelFenceBlock(MOD_ID, "orange_plank_fence")
+    val YELLOW_PLANKS_FENCE: Block = MapColor.COLOR_YELLOW.registerPastelFenceBlock(MOD_ID, "yellow_plank_fence")
+    val LIGHT_GREEN_PLANKS_FENCE: Block = MapColor.COLOR_LIGHT_GREEN.registerPastelFenceBlock(MOD_ID, "light_green_plank_fence")
+    val GREEN_PLANKS_FENCE: Block = MapColor.COLOR_GREEN.registerPastelFenceBlock(MOD_ID, "green_plank_fence")
+    val LIGHT_BLUE_PLANKS_FENCE: Block = MapColor.COLOR_LIGHT_BLUE.registerPastelFenceBlock(MOD_ID, "light_blue_plank_fence")
+    val BLUE_PLANKS_FENCE: Block = MapColor.COLOR_BLUE.registerPastelFenceBlock(MOD_ID, "blue_plank_fence")
+    val PURPLE_PLANKS_FENCE: Block = MapColor.COLOR_PURPLE.registerPastelFenceBlock(MOD_ID, "purple_plank_fence")
+    val MAGENTA_PLANKS_FENCE: Block = MapColor.COLOR_MAGENTA.registerPastelFenceBlock(MOD_ID, "magenta_plank_fence")
+    val BROWN_PLANKS_FENCE: Block = MapColor.COLOR_BROWN.registerPastelFenceBlock(MOD_ID, "brown_plank_fence")
+    val LIGHT_GRAY_PLANKS_FENCE: Block = MapColor.COLOR_LIGHT_GRAY.registerPastelFenceBlock(MOD_ID, "light_gray_plank_fence")
+    val GRAY_PLANKS_FENCE: Block = MapColor.COLOR_GRAY.registerPastelFenceBlock(MOD_ID, "gray_plank_fence")
+    val BLACK_PLANKS_FENCE: Block = MapColor.COLOR_BLACK.registerPastelFenceBlock(MOD_ID, "black_plank_fence")
+
+    val WHITE_PLANKS_FENCE_GATE: Block = DyeColor.WHITE.registerPastelFenceGateBlock(MOD_ID, "white_plank_fence_gate")
+    val LIGHT_RED_PLANKS_FENCE_GATE: Block = MapColor.COLOR_PINK.registerPastelFenceGateBlock(MOD_ID, "light_red_plank_fence_gate")
+    val RED_PLANKS_FENCE_GATE: Block = MapColor.COLOR_RED.registerPastelFenceGateBlock(MOD_ID, "red_plank_fence_gate")
+    val ORANGE_PLANKS_FENCE_GATE: Block = MapColor.COLOR_ORANGE.registerPastelFenceGateBlock(MOD_ID, "orange_plank_fence_gate")
+    val YELLOW_PLANKS_FENCE_GATE: Block = MapColor.COLOR_YELLOW.registerPastelFenceGateBlock(MOD_ID, "yellow_plank_fence_gate")
+    val LIGHT_GREEN_PLANKS_FENCE_GATE: Block = MapColor.COLOR_LIGHT_GREEN.registerPastelFenceGateBlock(MOD_ID, "light_green_plank_fence_gate")
+    val GREEN_PLANKS_FENCE_GATE: Block = MapColor.COLOR_GREEN.registerPastelFenceGateBlock(MOD_ID, "green_plank_fence_gate")
+    val LIGHT_BLUE_PLANKS_FENCE_GATE: Block = MapColor.COLOR_LIGHT_BLUE.registerPastelFenceGateBlock(MOD_ID, "light_blue_plank_fence_gate")
+    val BLUE_PLANKS_FENCE_GATE: Block = MapColor.COLOR_BLUE.registerPastelFenceGateBlock(MOD_ID, "blue_plank_fence_gate")
+    val PURPLE_PLANKS_FENCE_GATE: Block = MapColor.COLOR_PURPLE.registerPastelFenceGateBlock(MOD_ID, "purple_plank_fence_gate")
+    val MAGENTA_PLANKS_FENCE_GATE: Block = MapColor.COLOR_MAGENTA.registerPastelFenceGateBlock(MOD_ID, "magenta_plank_fence_gate")
+    val BROWN_PLANKS_FENCE_GATE: Block = MapColor.COLOR_BROWN.registerPastelFenceGateBlock(MOD_ID, "brown_plank_fence_gate")
+    val LIGHT_GRAY_PLANKS_FENCE_GATE: Block = MapColor.COLOR_LIGHT_GRAY.registerPastelFenceGateBlock(MOD_ID, "light_gray_plank_fence_gate")
+    val GRAY_PLANKS_FENCE_GATE: Block = MapColor.COLOR_GRAY.registerPastelFenceGateBlock(MOD_ID, "gray_plank_fence_gate")
+    val BLACK_PLANKS_FENCE_GATE: Block = MapColor.COLOR_BLACK.registerPastelFenceGateBlock(MOD_ID, "black_plank_fence_gate")
+
 
     val WHITE_LEAVES: Block = DyeColor.WHITE.registerLeavesBlock(MOD_ID, "white_leaves", Blocks::never)
     val LIGHT_RED_LEAVES: Block = MapColor.COLOR_PINK.registerLeavesBlock(MOD_ID, "light_red_leaves", Blocks::never)
