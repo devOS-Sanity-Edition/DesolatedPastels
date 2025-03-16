@@ -14,6 +14,7 @@ import net.minecraft.sounds.SoundEvent
 import net.minecraft.sounds.SoundEvents
 import net.minecraft.util.ByIdMap
 import net.minecraft.util.Mth
+import net.minecraft.util.StringRepresentable
 import net.minecraft.util.TimeUtil
 import net.minecraft.world.damagesource.DamageSource
 import net.minecraft.world.entity.*
@@ -36,13 +37,37 @@ import kotlin.random.Random
 class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : Animal(entityType, level) {
     var ticksUntilNextAlert: Int = 0
 
-    enum class Type(val texture: ResourceLocation, val babyTexture: ResourceLocation) {
-        NORMAL(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mallard.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mababy.png")),
-        LADY(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mallady.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mababy.png")),
-        PALLARD(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pallard.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pababy.png")),
-        PALLADY(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pallady.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pababy.png"));
+    enum class Type(val texture: ResourceLocation, val babyTexture: ResourceLocation) : StringRepresentable {
+        NORMAL(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mallard.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mababy.png")) {
+            override fun getSerializedName(): String {
+                return this.name.lowercase()
+            }
+        },
+        LADY(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mallady.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mababy.png")) {
+            override fun getSerializedName(): String {
+                return this.name.lowercase()
+            }
+        },
+        PALLARD(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pallard.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pababy.png")) {
+            override fun getSerializedName(): String {
+                return this.name.lowercase()
+            }
+        },
+        PALLADY(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pallady.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/pababy.png")) {
+            override fun getSerializedName(): String {
+                return this.name.lowercase()
+            }
+        };
 
         companion object {
+            fun getByName(name: String): Type {
+                return try {
+                    Type.valueOf(name.uppercase())
+                } catch (_: Throwable) {
+                    Type.entries.first()
+                }
+            }
+
             val STREAM_CODEC: StreamCodec<ByteBuf, Type> = ByteBufCodecs.idMapper(
                 ByIdMap.continuous(
                     Type::ordinal,
@@ -119,7 +144,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
 
     override fun readAdditionalSaveData(tag: CompoundTag) {
         super.readAdditionalSaveData(tag)
-        this.variant = MallardEntity.Type.valueOf(tag.getString("Variant"))
+        this.variant = MallardEntity.Type.getByName(tag.getString("Variant"))
     }
 
     override fun getBreedOffspring(serverLevel: ServerLevel, ageableMob: AgeableMob): MallardEntity {
