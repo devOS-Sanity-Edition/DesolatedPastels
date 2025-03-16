@@ -13,7 +13,7 @@
 		"sources": "https://github.com/devOS-Sanity-Edition/DesolatedPastels"
 	},
 	"license": "MIT",
-	"icon": "assets/template/icon.png",
+	"icon": "assets/desolatedpastels/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"fabric-datagen": [
