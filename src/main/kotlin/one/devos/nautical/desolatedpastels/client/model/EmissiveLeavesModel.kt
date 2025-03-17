@@ -26,7 +26,7 @@ class EmissiveLeavesModel(wrapped: BakedModel) : ForwardingBakedModel() {
         context: RenderContext
     ) {
         context.pushTransform { quad ->
-            quad.lightmap(LIGHT_VALUE)
+            quad.lightmap(LIGHT_VALUE, LIGHT_VALUE, LIGHT_VALUE, LIGHT_VALUE)
             true
         }
         super.emitBlockQuads(blockView, state, pos, randomSupplier, context)
