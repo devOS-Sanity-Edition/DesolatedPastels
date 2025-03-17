@@ -37,6 +37,12 @@ import kotlin.random.Random
 class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : Animal(entityType, level) {
     var ticksUntilNextAlert: Int = 0
 
+    val idleAnimationState = AnimationState()
+    val idleAnimationTimeout: Int = 0
+
+    val attackAnimationState = AnimationState()
+    val attackAnimationTimeout: Int = 0
+
     enum class Type(val texture: ResourceLocation, val babyTexture: ResourceLocation) : StringRepresentable {
         NORMAL(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mallard.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mababy.png")) {
             override fun getSerializedName(): String {
@@ -89,9 +95,9 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
     override fun registerGoals() {
         goalSelector.addGoal(0, FloatGoal(this))
         goalSelector.addGoal(1, MallardAttackGoal(this, 1.25, true))
-        goalSelector.addGoal(2, TemptGoal(this, 1.25, FOOD_ITEMS, false))
+        goalSelector.addGoal(2, BreedGoal(this, 1.0))
         goalSelector.addGoal(3, FollowParentGoal(this, 1.1))
-        goalSelector.addGoal(4, BreedGoal(this, 1.0))
+        goalSelector.addGoal(4, TemptGoal(this, 1.25, FOOD_ITEMS, false))
         goalSelector.addGoal(5, LookAtPlayerGoal(this, Player::class.java, 6.0f))
         goalSelector.addGoal(6, RandomLookAroundGoal(this))
         goalSelector.addGoal(7, RandomStrollGoal(this, 1.1))
@@ -230,12 +236,6 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         private val ALERT_INTERVAL = TimeUtil.rangeOfSeconds(4, 6)
         private val MALLARD_TYPE_SERIALIZER = EntityDataSerializer.forValueType(MallardEntity.Type.STREAM_CODEC)
         private val DATA_MALLARD_TYPE = SynchedEntityData.defineId(MallardEntity::class.java, MALLARD_TYPE_SERIALIZER)
-
-        val idleAnimationState: AnimationState = AnimationState()
-        val idleAnimationTimeout: Int = 0
-
-        val attackAnimationState: AnimationState = AnimationState()
-        val attackAnimationTimeout: Int = 0
 
         fun createAttributes(): AttributeSupplier.Builder {
             return Mob.createMobAttributes()

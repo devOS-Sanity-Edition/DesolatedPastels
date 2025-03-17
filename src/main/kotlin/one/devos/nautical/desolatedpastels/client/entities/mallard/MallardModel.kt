@@ -3,6 +3,7 @@ package one.devos.nautical.desolatedpastels.client.entities.mallard
 import com.google.common.collect.ImmutableList
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
+import net.minecraft.client.model.AgeableHierarchicalModel
 import net.minecraft.client.model.AgeableListModel
 import net.minecraft.client.model.geom.ModelLayerLocation
 import net.minecraft.client.model.geom.ModelPart
@@ -15,31 +16,22 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.util.Mth
 import net.minecraft.world.entity.LivingEntity
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
+import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
 
 @Environment(EnvType.CLIENT)
-class MallardModel<T : LivingEntity?>(root: ModelPart) : AgeableListModel<T>() {
-    private val body: ModelPart = root.getChild("body")
-    private val rear: ModelPart = root.getChild("body").getChild("rear")
-    private val tail: ModelPart = root.getChild("body").getChild("rear").getChild("tail")
-    private val neck: ModelPart = root.getChild("body").getChild("front").getChild("neck")
-    private val front: ModelPart = root.getChild("body").getChild("front")
-    private val head: ModelPart = root.getChild("body").getChild("front").getChild("neck").getChild("head")
-    private val bill: ModelPart = root.getChild("body").getChild("front").getChild("neck").getChild("head").getChild("bill")
-    private val right_wing: ModelPart = root.getChild("right_wing")
-    private val left_wing: ModelPart = root.getChild("left_wing")
-    private val right_leg: ModelPart = root.getChild("right_leg")
-    private val left_leg: ModelPart = root.getChild("left_leg")
+class MallardModel(private val root: ModelPart) : AgeableHierarchicalModel<MallardEntity>(0.5f, 24f) {
+    val neck = this.getAnyDescendantWithName("neck").orElseThrow()
+    val head = this.getAnyDescendantWithName("head").orElseThrow()
 
-    override fun headParts(): Iterable<ModelPart> {
-        return ImmutableList.of()
+    override fun root(): ModelPart {
+        return root
     }
 
-    override fun bodyParts(): Iterable<ModelPart> {
-        return ImmutableList.of(this.body, this.right_leg, this.left_leg, this.right_wing, this.left_wing)
-    }
-
-    override fun setupAnim(entity: T, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, netHeadYaw: Float, headPitch: Float) {
-
+    override fun setupAnim(entity: MallardEntity, limbSwing: Float, limbSwingAmount: Float, ageInTicks: Float, netHeadYaw: Float, headPitch: Float) {
+        this.root().allParts.forEach(ModelPart::resetPose)
+        this.head.xRot = headPitch * Mth.DEG_TO_RAD
+        this.head.yRot = netHeadYaw * Mth.DEG_TO_RAD
+        this.animateWalk(MallardAnimation.WALKING, limbSwing, limbSwingAmount, 1.5f, 5f)
     }
 
     companion object {

@@ -19,6 +19,7 @@ class DesolatedPastelsDataGenerator : DataGeneratorEntrypoint {
         pack.addProvider(::DesolatedPastelsWorldGeneratorProvider)
         pack.addProvider(::DesolatedPastelsLootTableProvider)
         pack.addProvider(::DesolatedPastelsRecipeProvider)
+        pack.addProvider(::DesolatedPastelsEntityLootTableProvider)
     }
 
     override fun buildRegistry(registryBuilder: RegistrySetBuilder) {
