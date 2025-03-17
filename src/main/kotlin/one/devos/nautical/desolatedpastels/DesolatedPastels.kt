@@ -3,10 +3,15 @@ package one.devos.nautical.desolatedpastels
 import gay.asoji.fmw.FMW
 import gay.asoji.innerpastels.InnerPastels
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelModifier
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelModifier.AfterBake
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
+import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel
+import net.minecraft.client.resources.model.BakedModel
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
