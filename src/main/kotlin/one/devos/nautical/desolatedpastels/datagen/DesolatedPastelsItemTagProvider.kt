@@ -177,5 +177,8 @@ class DesolatedPastelsItemTagProvider(
 
         getOrCreateTagBuilder(ConventionalItemTags.COBBLESTONES)
             .add(DesolatedPastelsBlocks.PASTEL_STONE.asItem())
+
+        getOrCreateTagBuilder(ItemTags.SMELTS_TO_GLASS)
+            .add(DesolatedPastelsBlocks.PASTEL_SAND.asItem())
     }
 }

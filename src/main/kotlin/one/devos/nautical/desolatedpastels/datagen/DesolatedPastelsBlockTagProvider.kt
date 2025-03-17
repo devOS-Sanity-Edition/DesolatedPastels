@@ -206,5 +206,8 @@ class DesolatedPastelsBlockTagProvider(
 
         getOrCreateTagBuilder(BlockTags.STAIRS)
             .addTag(InnerPastelsBlockTags.STAIRS)
+
+        getOrCreateTagBuilder(BlockTags.SMELTS_TO_GLASS)
+            .add(DesolatedPastelsBlocks.PASTEL_SAND)
     }
 }
