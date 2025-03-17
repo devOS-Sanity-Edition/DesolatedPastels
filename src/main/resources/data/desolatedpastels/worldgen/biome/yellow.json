@@ -39,6 +39,8 @@
     [],
     [
       "desolatedpastels:pastel_ore_placed_desolated",
+      "desolatedpastels:iron_ore_placed_desolated",
+      "desolatedpastels:coal_ore_placed_desolated",
       "minecraft:disk_sand",
       "minecraft:disk_clay",
       "minecraft:disk_gravel"
