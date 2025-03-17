@@ -1,12 +1,12 @@
 package one.devos.nautical.desolatedpastels.datagen
 
-import com.jcraft.jorbis.Block
 import gay.asoji.innerpastels.tags.InnerPastelsBlockTags
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags
 import net.minecraft.core.HolderLookup
 import net.minecraft.tags.BlockTags
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlockTags
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import java.util.concurrent.CompletableFuture
 
@@ -209,5 +209,8 @@ class DesolatedPastelsBlockTagProvider(
 
         getOrCreateTagBuilder(BlockTags.SMELTS_TO_GLASS)
             .add(DesolatedPastelsBlocks.PASTEL_SAND)
+
+        getOrCreateTagBuilder(DesolatedPastelsBlockTags.PASTEL_ORE_REPLACEABLES)
+            .add(DesolatedPastelsBlocks.PASTEL_STONE)
     }
 }
