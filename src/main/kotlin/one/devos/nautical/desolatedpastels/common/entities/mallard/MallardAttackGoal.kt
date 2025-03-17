@@ -40,7 +40,7 @@ class MallardAttackGoal(mob: PathfinderMob, speedModifier: Double, followingTarg
     }
 
     private fun isEnemyWithinAttackDistance(pEnemy: LivingEntity): Boolean {
-        return this.entity.distanceToSqr(pEnemy) <= 2f * 2f
+        return this.entity.distanceToSqr(pEnemy) <= 3f * 3f
     }
 
     override fun resetAttackCooldown() {
