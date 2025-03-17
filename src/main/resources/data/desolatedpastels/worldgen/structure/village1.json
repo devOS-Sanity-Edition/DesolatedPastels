@@ -1,6 +1,7 @@
 {
   "type": "minecraft:jigsaw",
   "biomes": [
+    "desolatedpastels:yellow",
     "desolatedpastels:green",
     "desolatedpastels:blue"
   ],
