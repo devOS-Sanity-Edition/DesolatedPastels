@@ -55,12 +55,11 @@ object DesolatedPastels : ModInitializer {
                 return@register
 
             val overworld = level.server.overworld()
-            val players = level.players().toList()
+            val entities = level.allEntities.toList()
 
-            players.forEach { player ->
-                if (player.y < level.dimensionType().minY - 32) {
-                    player.teleportTo(overworld, player.x,
-                        (overworld.dimensionType().minY + overworld.dimensionType().height).toDouble(), player.z, player.yRot, player.xRot)
+            entities.forEach { entity ->
+                if (entity.y < level.dimensionType().minY - 32) {
+                    entity.teleportTo(overworld, entity.x, (overworld.dimensionType().minY + overworld.dimensionType().height).toDouble(), entity.z, setOf(), entity.yRot, entity.xRot)
                 }
             }
         }
