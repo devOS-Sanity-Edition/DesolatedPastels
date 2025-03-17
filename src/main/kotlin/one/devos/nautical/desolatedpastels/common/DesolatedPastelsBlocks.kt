@@ -13,15 +13,10 @@ import net.minecraft.util.ColorRGBA
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Item
-import net.minecraft.world.level.block.Block
-import net.minecraft.world.level.block.Blocks
-import net.minecraft.world.level.block.FlowerPotBlock
-import net.minecraft.world.level.block.LeavesBlock
-import net.minecraft.world.level.block.SaplingBlock
+import net.minecraft.world.level.block.*
 import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.material.MapColor
 import net.minecraft.world.level.material.PushReaction
-import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.DesolatedPastels.LOGGER
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 import one.devos.nautical.desolatedpastels.common.blocks.PastelGrassBlock
@@ -145,21 +140,39 @@ object DesolatedPastelsBlocks {
     val GRAY_LEAVES: Block = MapColor.COLOR_GRAY.registerLeavesBlock(MOD_ID, "gray_leaves", Blocks::never)
     val BLACK_LEAVES: Block = MapColor.COLOR_BLACK.registerLeavesBlock(MOD_ID, "black_leaves", Blocks::never)
 
-    val BRIGHTENED_WHITE_LEAVES: Block = DyeColor.WHITE.registerBrightenedLeavesBlock(MOD_ID, "brightened_white_leaves", Blocks::always)
-    val BRIGHTENED_LIGHT_RED_LEAVES: Block = MapColor.COLOR_PINK.registerBrightenedLeavesBlock(MOD_ID, "brightened_light_red_leaves", Blocks::always)
-    val BRIGHTENED_RED_LEAVES: Block = MapColor.COLOR_RED.registerBrightenedLeavesBlock(MOD_ID, "brightened_red_leaves", Blocks::always)
-    val BRIGHTENED_ORANGE_LEAVES: Block = MapColor.COLOR_ORANGE.registerBrightenedLeavesBlock(MOD_ID, "brightened_orange_leaves", Blocks::always)
-    val BRIGHTENED_YELLOW_LEAVES: Block = MapColor.COLOR_YELLOW.registerBrightenedLeavesBlock(MOD_ID, "brightened_yellow_leaves", Blocks::always)
-    val BRIGHTENED_LIGHT_GREEN_LEAVES: Block = MapColor.COLOR_LIGHT_GREEN.registerBrightenedLeavesBlock(MOD_ID, "brightened_light_green_leaves", Blocks::always)
-    val BRIGHTENED_GREEN_LEAVES: Block = MapColor.COLOR_GREEN.registerBrightenedLeavesBlock(MOD_ID, "brightened_green_leaves", Blocks::always)
-    val BRIGHTENED_LIGHT_BLUE_LEAVES: Block = MapColor.COLOR_LIGHT_BLUE.registerBrightenedLeavesBlock(MOD_ID, "brightened_light_blue_leaves", Blocks::always)
-    val BRIGHTENED_BLUE_LEAVES: Block = MapColor.COLOR_BLUE.registerBrightenedLeavesBlock(MOD_ID, "brightened_blue_leaves", Blocks::always)
-    val BRIGHTENED_PURPLE_LEAVES: Block = MapColor.COLOR_PURPLE.registerBrightenedLeavesBlock(MOD_ID, "brightened_purple_leaves", Blocks::always)
-    val BRIGHTENED_MAGENTA_LEAVES: Block = MapColor.COLOR_MAGENTA.registerBrightenedLeavesBlock(MOD_ID, "brightened_magenta_leaves", Blocks::always)
-    val BRIGHTENED_BROWN_LEAVES: Block = MapColor.COLOR_BROWN.registerBrightenedLeavesBlock(MOD_ID, "brightened_brown_leaves", Blocks::always)
-    val BRIGHTENED_LIGHT_GRAY_LEAVES: Block = MapColor.COLOR_LIGHT_GRAY.registerBrightenedLeavesBlock(MOD_ID, "brightened_light_gray_leaves", Blocks::always)
-    val BRIGHTENED_GRAY_LEAVES: Block = MapColor.COLOR_GRAY.registerBrightenedLeavesBlock(MOD_ID, "brightened_gray_leaves", Blocks::always)
-    val BRIGHTENED_BLACK_LEAVES: Block = MapColor.COLOR_BLACK.registerBrightenedLeavesBlock(MOD_ID, "brightened_black_leaves", Blocks::always)
+    val BRIGHTENED_WHITE_LEAVES: Block = DyeColor.WHITE.registerBrightenedLeavesBlock(MOD_ID, "brightened_white_leaves", Blocks::never)
+    val BRIGHTENED_LIGHT_RED_LEAVES: Block = MapColor.COLOR_PINK.registerBrightenedLeavesBlock(MOD_ID, "brightened_light_red_leaves", Blocks::never)
+    val BRIGHTENED_RED_LEAVES: Block = MapColor.COLOR_RED.registerBrightenedLeavesBlock(MOD_ID, "brightened_red_leaves", Blocks::never)
+    val BRIGHTENED_ORANGE_LEAVES: Block = MapColor.COLOR_ORANGE.registerBrightenedLeavesBlock(MOD_ID, "brightened_orange_leaves", Blocks::never)
+    val BRIGHTENED_YELLOW_LEAVES: Block = MapColor.COLOR_YELLOW.registerBrightenedLeavesBlock(MOD_ID, "brightened_yellow_leaves", Blocks::never)
+    val BRIGHTENED_LIGHT_GREEN_LEAVES: Block = MapColor.COLOR_LIGHT_GREEN.registerBrightenedLeavesBlock(MOD_ID, "brightened_light_green_leaves", Blocks::never)
+    val BRIGHTENED_GREEN_LEAVES: Block = MapColor.COLOR_GREEN.registerBrightenedLeavesBlock(MOD_ID, "brightened_green_leaves", Blocks::never)
+    val BRIGHTENED_LIGHT_BLUE_LEAVES: Block = MapColor.COLOR_LIGHT_BLUE.registerBrightenedLeavesBlock(MOD_ID, "brightened_light_blue_leaves", Blocks::never)
+    val BRIGHTENED_BLUE_LEAVES: Block = MapColor.COLOR_BLUE.registerBrightenedLeavesBlock(MOD_ID, "brightened_blue_leaves", Blocks::never)
+    val BRIGHTENED_PURPLE_LEAVES: Block = MapColor.COLOR_PURPLE.registerBrightenedLeavesBlock(MOD_ID, "brightened_purple_leaves", Blocks::never)
+    val BRIGHTENED_MAGENTA_LEAVES: Block = MapColor.COLOR_MAGENTA.registerBrightenedLeavesBlock(MOD_ID, "brightened_magenta_leaves", Blocks::never)
+    val BRIGHTENED_BROWN_LEAVES: Block = MapColor.COLOR_BROWN.registerBrightenedLeavesBlock(MOD_ID, "brightened_brown_leaves", Blocks::never)
+    val BRIGHTENED_LIGHT_GRAY_LEAVES: Block = MapColor.COLOR_LIGHT_GRAY.registerBrightenedLeavesBlock(MOD_ID, "brightened_light_gray_leaves", Blocks::never)
+    val BRIGHTENED_GRAY_LEAVES: Block = MapColor.COLOR_GRAY.registerBrightenedLeavesBlock(MOD_ID, "brightened_gray_leaves", Blocks::never)
+    val BRIGHTENED_BLACK_LEAVES: Block = MapColor.COLOR_BLACK.registerBrightenedLeavesBlock(MOD_ID, "brightened_black_leaves", Blocks::never)
+
+    val BRIGHTENED_LEAVES = listOf(
+        BRIGHTENED_WHITE_LEAVES,
+        BRIGHTENED_LIGHT_RED_LEAVES,
+        BRIGHTENED_RED_LEAVES,
+        BRIGHTENED_ORANGE_LEAVES,
+        BRIGHTENED_YELLOW_LEAVES,
+        BRIGHTENED_LIGHT_GREEN_LEAVES,
+        BRIGHTENED_GREEN_LEAVES,
+        BRIGHTENED_LIGHT_BLUE_LEAVES,
+        BRIGHTENED_BLUE_LEAVES,
+        BRIGHTENED_PURPLE_LEAVES,
+        BRIGHTENED_MAGENTA_LEAVES,
+        BRIGHTENED_BROWN_LEAVES,
+        BRIGHTENED_LIGHT_GRAY_LEAVES,
+        BRIGHTENED_GRAY_LEAVES,
+        BRIGHTENED_BLACK_LEAVES,
+    )
 
     val PASTEL_ORE: Block = MapColor.COLOR_GRAY.registerOreBlock(MOD_ID, "pastel_ore")
     val PASTEL_STONE: Block = MapColor.COLOR_GRAY.registerStoneBlock(MOD_ID, "pastel_stone")
