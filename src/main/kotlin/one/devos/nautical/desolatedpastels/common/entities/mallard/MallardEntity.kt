@@ -13,7 +13,6 @@ import net.minecraft.server.level.ServerLevel
 import net.minecraft.sounds.SoundEvent
 import net.minecraft.sounds.SoundEvents
 import net.minecraft.util.ByIdMap
-import net.minecraft.util.Mth
 import net.minecraft.util.StringRepresentable
 import net.minecraft.util.TimeUtil
 import net.minecraft.world.damagesource.DamageSource
@@ -23,6 +22,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.entity.ai.goal.*
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal
 import net.minecraft.world.entity.animal.Animal
+import net.minecraft.world.entity.item.ItemEntity
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
@@ -31,10 +31,12 @@ import net.minecraft.world.level.Level
 import net.minecraft.world.phys.AABB
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
+import java.util.function.Predicate
 import kotlin.random.Random
 
 
 class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : Animal(entityType, level) {
+    val ALLOWED_ITEMS: Predicate<ItemEntity> = Predicate { itemEntity: ItemEntity -> !itemEntity.hasPickUpDelay() && itemEntity.isAlive }
     var ticksUntilNextAlert: Int = 0
 
     val idleAnimationState = AnimationState()
@@ -86,6 +88,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
 
     init {
         this.health = 6f
+        this.setCanPickUpLoot(true)
     }
 
     override fun causeFallDamage(f: Float, g: Float, damageSource: DamageSource): Boolean {
@@ -101,6 +104,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         goalSelector.addGoal(5, LookAtPlayerGoal(this, Player::class.java, 6.0f))
         goalSelector.addGoal(6, RandomLookAroundGoal(this))
         goalSelector.addGoal(7, RandomStrollGoal(this, 1.1))
+        goalSelector.addGoal(8, MallardSearchForItemsGoal(this))
         targetSelector.addGoal(1, HurtByTargetGoal(this))
         targetSelector.addGoal(2, MallardNightTargetGoal(this, Player::class.java))
     }
