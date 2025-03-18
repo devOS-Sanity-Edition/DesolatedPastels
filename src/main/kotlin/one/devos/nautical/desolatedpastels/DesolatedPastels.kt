@@ -21,6 +21,7 @@ import net.minecraft.world.level.Level
 import net.minecraft.world.level.levelgen.Heightmap
 import one.devos.nautical.desolatedpastels.common.*
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
+import one.devos.nautical.desolatedpastels.common.items.MallardEggEntity
 import one.devos.nautical.desolatedpastels.world.gen.DesolatedPastelsWorldGeneration
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -35,8 +36,19 @@ object DesolatedPastels : ModInitializer {
         Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             ResourceLocation.fromNamespaceAndPath(MOD_ID, "mallard"),
-            FabricEntityTypeBuilder.create(MobCategory.CREATURE, ::MallardEntity)
-                .dimensions(EntityDimensions.scalable(0.65f, 0.65f))
+            EntityType.Builder.of(::MallardEntity, MobCategory.CREATURE)
+                .sized(0.65f, 0.65f)
+                .build()
+        )
+
+    val MALLARD_EGG_ENTITY: EntityType<MallardEggEntity> =
+        Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "mallard_egg"),
+            EntityType.Builder.of(::MallardEggEntity, MobCategory.MISC)
+                .sized(0.25f, 0.25f)
+                .clientTrackingRange(4)
+                .updateInterval(10)
                 .build()
         )
 
@@ -76,7 +88,7 @@ object DesolatedPastels : ModInitializer {
 
         DesolatedPastelsWorldGeneration.doTheWorldGenMrKrabs()
 
-        LOGGER.info("[${MOD_NAME}] ${MOD_NAME} Version ${MOD_VERSION}, paired with ${FMW.getName("softerpastels")} Version ${FMW.getVersionString("softerpastels")}, has been loaded.")
+        LOGGER.info("[${MOD_NAME}] $MOD_NAME Version $MOD_VERSION, paired with ${FMW.getName("softerpastels")} Version ${FMW.getVersionString("softerpastels")}, has been loaded.")
         LOGGER.info("[${MOD_NAME}] Internal Library Version ${FMW.getVersionString("innerpastels")} loaded. Please include this when reporting bugs!!!")
         LOGGER.info("[${MOD_NAME}] Turning your days inside out...")
     }

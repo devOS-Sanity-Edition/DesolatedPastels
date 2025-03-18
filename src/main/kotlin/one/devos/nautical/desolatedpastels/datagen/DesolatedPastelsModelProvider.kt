@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
 import net.minecraft.data.models.BlockModelGenerators
 import net.minecraft.data.models.ItemModelGenerators
+import net.minecraft.data.models.model.ModelTemplates
 import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.data.models.model.TexturedModel
 import net.minecraft.resources.ResourceLocation
@@ -164,5 +165,7 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerators) {
         itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM, createCustomItemModel("minecraft", "template_spawn_egg"))
+        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_EGG_ITEM, ModelTemplates.FLAT_ITEM)
+        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.ROTTEN_MALLARD_EGG_ITEM, ModelTemplates.FLAT_ITEM)
     }
 }

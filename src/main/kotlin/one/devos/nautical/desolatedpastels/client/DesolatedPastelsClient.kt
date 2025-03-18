@@ -16,6 +16,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft
+import net.minecraft.client.renderer.entity.ThrownItemRenderer
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardModel
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardRenderer
@@ -79,6 +80,7 @@ class DesolatedPastelsClient : ClientModInitializer {
         DesolatedPastelsRendering.init()
         DevDisclaimer.init()
         EntityRendererRegistry.register(DesolatedPastels.MALLARD_ENTITY, ::MallardRenderer)
+        EntityRendererRegistry.register(DesolatedPastels.MALLARD_EGG_ENTITY, ::ThrownItemRenderer)
         EntityModelLayerRegistry.registerModelLayer(MallardModel.LAYER_LOCATION, MallardModel.Companion::createBodyLayer)
     }
 }
