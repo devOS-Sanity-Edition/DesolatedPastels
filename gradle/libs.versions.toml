@@ -10,6 +10,8 @@ continuity_version = "3.0.0+1.21"
 mod_menu_version = "11.0.3"
 emi_version = "1.1.20+1.21.1+fabric"
 #joml_version = "1.10.5"
+worldgen_devtools_version = "1.1.0+1.21.1"
+debugutils_version = "1.21-1.0.6"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -22,10 +24,12 @@ continuity = { module = "maven.modrinth:continuity", version.ref = "continuity_v
 #joml = { module = "org.joml:joml", version.ref = "joml_version" }
 mod_menu = { module = "com.terraformersmc:modmenu", version.ref = "mod_menu_version" }
 emi = { module = "maven.modrinth:emi", version.ref = "emi_version" }
+worldgen_devtools = { module = "maven.modrinth:worldgen-devtools", version.ref = "worldgen_devtools_version" }
+debugutils = { module = "maven.modrinth:debugutils", version.ref = "debugutils_version" }
 
 # If you have multiple similar dependencies, you can declare a dependency bundle and reference it on the build script with "libs.bundles.example".
 [bundles]
-dev_mods = [ "sodium", "emi" ]
+dev_mods = [ "sodium", "emi", "worldgen_devtools", "debugutils" ]
 dependencies = [ "mod_menu", "softer_pastels", "continuity" ]
 
 [plugins]
