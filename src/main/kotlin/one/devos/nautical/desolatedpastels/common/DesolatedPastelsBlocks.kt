@@ -26,8 +26,6 @@ import one.devos.nautical.desolatedpastels.world.DesolatedPastelsSaplingGenerato
 object DesolatedPastelsBlocks {
     @JvmField
 
-    // val GRASS_BLOCK = registerTempBlock("grass_block", GrassBlock()) // i am forgetting things
-
     val WHITE_LOG = DyeColor.WHITE.registerLogBlock(MOD_ID, "white_log")
     val LIGHT_RED_LOG = MapColor.COLOR_PINK.registerLogBlock(MOD_ID, "light_red_log")
     val RED_LOG = MapColor.COLOR_RED.registerLogBlock(MOD_ID, "red_log")
