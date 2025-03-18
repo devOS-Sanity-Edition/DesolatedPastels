@@ -6,7 +6,7 @@
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",
-  "start_pool": "desolatedpastels:temple_window_ruins",
+  "start_pool": "desolatedpastels:temple_ruins_green",
   "size": 1,
   "start_height": {
     "absolute": 0
