@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "desolatedpastels:temple_buttress_ruins_green",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 25,
+    "separation": 10,
+    "salt": 1632641280
+  }
+}
