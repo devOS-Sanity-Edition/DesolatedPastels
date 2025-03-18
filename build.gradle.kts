@@ -45,8 +45,8 @@ dependencies {
     }
     modLocalRuntime(libs.bundles.dev.mods)
 
-    include(modImplementation("gay.asoji:innerpastels:1.3.14+rev.3ea8037-branch.kt.1.21.main")!!)
-    include(modImplementation("net.kyrptonaught:customportalapi:0.0.1-beta68-1.21")!!) // using custom from devOS repos
+    include(modImplementation("gay.asoji:innerpastels:1.3.16+rev.14e7ddb-branch.kt.1.21.main")!!)
+    include(modImplementation("net.kyrptonaught:customportalapi:0.0.1-beta68-1.21")!!)
 }
 
 // Write the version to the fabric.mod.json

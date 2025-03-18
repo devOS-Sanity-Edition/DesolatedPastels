@@ -1,6 +1,7 @@
 package one.devos.nautical.desolatedpastels.client
 
 import com.mojang.blaze3d.platform.InputConstants
+import gay.asoji.innerpastels.InnerPastels
 import gay.asoji.innerpastels.client.ImGuiClient.panels
 import gay.asoji.innerpastels.client.imgui.ImGuiPanel
 import gay.asoji.innerpastels.misc.DevDisclaimer
