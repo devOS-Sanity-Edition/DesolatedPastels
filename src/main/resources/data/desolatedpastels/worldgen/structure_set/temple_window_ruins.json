@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "desolatedpastels:temple_window_ruins",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 50,
+    "separation": 5,
+    "salt": 1632641280
+  }
+}
