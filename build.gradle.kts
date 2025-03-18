@@ -1,3 +1,4 @@
+
 plugins {
     kotlin("jvm") version "2.1.10"
     `maven-publish`
@@ -45,7 +46,7 @@ dependencies {
     }
     modLocalRuntime(libs.bundles.dev.mods)
 
-    include(modImplementation("gay.asoji:innerpastels:1.3.15+rev.99f453c-branch.kt.1.21.main")!!)
+    include(modImplementation("gay.asoji:innerpastels:1.3.16+rev.14e7ddb-branch.kt.1.21.main")!!)
     include(modImplementation("net.kyrptonaught:customportalapi:0.0.1-beta67-1.21")!!)
 }
 
