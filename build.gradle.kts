@@ -20,7 +20,7 @@ repositories {
     maven("https://ueaj.dev/maven")
     maven("https://jitpack.io")
     maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
-    maven("https://maven.kyrptonaught.dev")
+//    maven("https://maven.kyrptonaught.dev")
 }
 
 
@@ -46,7 +46,7 @@ dependencies {
     modLocalRuntime(libs.bundles.dev.mods)
 
     include(modImplementation("gay.asoji:innerpastels:1.3.14+rev.3ea8037-branch.kt.1.21.main")!!)
-    include(modImplementation("net.kyrptonaught:customportalapi:0.0.1-beta67-1.21")!!)
+    include(modImplementation("net.kyrptonaught:customportalapi:0.0.1-beta68-1.21")!!) // using custom from devOS repos
 }
 
 // Write the version to the fabric.mod.json
