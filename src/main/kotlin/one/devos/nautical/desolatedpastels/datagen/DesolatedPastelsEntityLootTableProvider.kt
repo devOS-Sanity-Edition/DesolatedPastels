@@ -18,6 +18,7 @@ import net.minecraft.world.level.storage.loot.functions.SmeltItemFunction
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator
 import one.devos.nautical.desolatedpastels.DesolatedPastels
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import java.util.concurrent.CompletableFuture
 import java.util.function.BiConsumer
 
@@ -47,7 +48,7 @@ class DesolatedPastelsEntityLootTableProvider(
                     LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1.0f))
                         .add(
-                            LootItem.lootTableItem(Items.CHICKEN)
+                            LootItem.lootTableItem(DesolatedPastelsItems.RAW_MALLARD)
                                 .apply(SmeltItemFunction.smelted().`when`(this.shouldSmeltLoot()))
                                 .apply(
                                     EnchantedCountIncreaseFunction.lootingMultiplier(

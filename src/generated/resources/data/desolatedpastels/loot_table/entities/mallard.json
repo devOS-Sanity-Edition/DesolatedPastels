@@ -83,7 +83,7 @@
               "function": "minecraft:enchanted_count_increase"
             }
           ],
-          "name": "minecraft:chicken"
+          "name": "desolatedpastels:raw_mallard"
         }
       ],
       "rolls": 1.0

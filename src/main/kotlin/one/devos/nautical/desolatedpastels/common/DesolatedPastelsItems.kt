@@ -49,7 +49,7 @@ object DesolatedPastelsItems {
                 .build()
             )
     ))
-    val MALLARD_EGG_SOUP: Item = registerItem(DesolatedPastels.MOD_ID, "mallard_egg_soup", Item(
+    val MALLARD_SOUP: Item = registerItem(DesolatedPastels.MOD_ID, "mallard_egg_soup", Item(
         Item.Properties()
             .food(FoodProperties.Builder()
                 .nutrition(12)

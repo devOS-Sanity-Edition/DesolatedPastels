@@ -1,5 +1,6 @@
 package one.devos.nautical.desolatedpastels.datagen
 
+import gay.asoji.innerpastels.datagen.RecipeGenerators
 import gay.asoji.innerpastels.datagen.RecipeGenerators.registerCraftingPastelFenceBlock
 import gay.asoji.innerpastels.datagen.RecipeGenerators.registerCraftingPastelFenceGateBlock
 import gay.asoji.innerpastels.datagen.RecipeGenerators.registerCraftingPastelSlabBlock
@@ -8,8 +9,10 @@ import gay.asoji.innerpastels.datagen.RecipeGenerators.registerPastelPlanksItem
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.minecraft.core.HolderLookup
+import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import java.util.concurrent.CompletableFuture
 
 class DesolatedPastelsRecipeProvider(output: FabricDataOutput, registriesFuture: CompletableFuture<HolderLookup.Provider>) : FabricRecipeProvider(output, registriesFuture) {

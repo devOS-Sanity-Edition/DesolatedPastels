@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-19T09:48:52.6258562	Desolated Pastels/Tags for minecraft:block
+// 1.21.1	2025-03-20T11:08:47.1383087	Desolated Pastels/Tags for minecraft:block
 762db5c5b1f8cc4e393f95116a77e2a47a522844 data\innerpastels\tags\block\fences.json
 e3fb7c6bf3352d71a75d02cf22134e4bb1bd1c7c data\innerpastels\tags\block\ores.json
 7ca8f275f1ac53e9f1a23741014e63aa488e0149 data\minecraft\tags\block\mineable\hoe.json
@@ -22,5 +22,5 @@ b51423a1425123483d80de90a494850383a40864 data\innerpastels\tags\block\leaves.jso
 87854eed7c17595d5fbbb9cbad9a2d5cabccfc9c data\minecraft\tags\block\fences.json
 5b4510c59db14f1fa07428c3bb99d64f59839513 data\minecraft\tags\block\mineable\pickaxe.json
 01aba45f835398f9c75478fc46a2a75a82980281 data\minecraft\tags\block\stairs.json
-f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\animals_spawnable_on.json
 39f05a88237ae12d16f83572d4d0dfe4ec4d6a93 data\minecraft\tags\block\replaceable_by_trees.json
+f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\animals_spawnable_on.json

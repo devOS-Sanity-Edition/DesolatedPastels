@@ -156,7 +156,7 @@ class DesolatedPastelsEnglishLanguageProvider(dataGenerator: FabricDataOutput, r
         translationBuilder.add(DesolatedPastelsItems.ROTTEN_MALLARD_EGG_ITEM, "Rotten Mallard Egg")
         translationBuilder.add(DesolatedPastelsItems.RAW_MALLARD, "Raw Mallard")
         translationBuilder.add(DesolatedPastelsItems.COOKED_MALLARD, "Cooked Mallard")
-        translationBuilder.add(DesolatedPastelsItems.MALLARD_EGG_SOUP, "Mallard Soup")
+        translationBuilder.add(DesolatedPastelsItems.MALLARD_SOUP, "Mallard Soup")
 
         translationBuilder.add("itemGroup.desolatedpastels", "Desolated Pastels")
     }

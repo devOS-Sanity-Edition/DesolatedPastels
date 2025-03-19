@@ -170,7 +170,9 @@ object DesolatedPastelsTab {
 
             DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM,
             DesolatedPastelsItems.MALLARD_EGG_ITEM,
-            DesolatedPastelsItems.ROTTEN_MALLARD_EGG_ITEM
+            DesolatedPastelsItems.ROTTEN_MALLARD_EGG_ITEM,
+            DesolatedPastelsItems.RAW_MALLARD,
+            DesolatedPastelsItems.COOKED_MALLARD
         )
     }
 
