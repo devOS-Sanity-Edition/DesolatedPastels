@@ -79,6 +79,12 @@
         "maxCount": 6,
         "minCount": 4,
         "weight": 10
+      },
+      {
+        "type": "desolatedpastels:pastelmon",
+        "maxCount": 10,
+        "minCount": 5,
+        "weight": 15
       }
     ],
     "water_ambient": [],

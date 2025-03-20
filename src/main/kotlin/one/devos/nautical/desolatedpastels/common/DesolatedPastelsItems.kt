@@ -22,6 +22,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MALLARD_EGG_ENTITY
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MALLARD_ENTITY
+import one.devos.nautical.desolatedpastels.DesolatedPastels.PASTELMON_ENTITY
 import one.devos.nautical.desolatedpastels.common.items.MallardEggItem
 
 
@@ -29,6 +30,7 @@ object DesolatedPastelsItems {
     @JvmField
     val TEST_ITEM: Item = registerItem(DesolatedPastels.MOD_ID, "test_item", Item(Item.Properties()))
     val MALLARD_SPAWN_EGG_ITEM: Item = registerItem(DesolatedPastels.MOD_ID, "mallard_spawn_egg", SpawnEggItem(MALLARD_ENTITY, 0xdad1ca, 0x22af6a, Item.Properties()))
+    val PASTELMON_SPAWN_EGG_ITEM: Item = registerItem(DesolatedPastels.MOD_ID, "pastelmon_spawn_egg", SpawnEggItem(PASTELMON_ENTITY, 0x85ccd3, 0xa681cd, Item.Properties()))
 
     val MALLARD_EGG_ITEM: Item = registerItem(DesolatedPastels.MOD_ID, "mallard_egg", MallardEggItem(Item.Properties().stacksTo(16), MALLARD_EGG_ENTITY, MALLARD_ENTITY))
     val ROTTEN_MALLARD_EGG_ITEM: Item = registerItem(DesolatedPastels.MOD_ID, "rotten_mallard_egg", Item(Item.Properties()
