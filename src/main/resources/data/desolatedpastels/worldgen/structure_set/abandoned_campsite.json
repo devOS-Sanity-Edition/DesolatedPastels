@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "desolatedpastels:abandoned_campsite",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 50,
+    "separation": 25,
+    "salt": 1632641280
+  }
+}

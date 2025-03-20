@@ -34,9 +34,9 @@
             "continentalness": 0,
             "depth": 0,
             "erosion": 0,
-            "humidity": 0.1,
+            "humidity": 0,
             "offset": 0,
-            "temperature": 0.7,
+            "temperature": 0.8,
             "weirdness": 0
           }
         }
