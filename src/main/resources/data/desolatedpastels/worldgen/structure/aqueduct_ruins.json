@@ -2,13 +2,13 @@
   "type": "minecraft:jigsaw",
   "biomes": [
     "desolatedpastels:yellow",
-    "desolatedpastels:green",
-    "desolatedpastels:blue"
+    "desolatedpastels:blue",
+    "desolatedpastels:green"
   ],
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",
-  "start_pool": "desolatedpastels:temple_window_ruins",
+  "start_pool": "desolatedpastels:aqueduct_ruins",
   "size": 1,
   "start_height": {
     "absolute": 0

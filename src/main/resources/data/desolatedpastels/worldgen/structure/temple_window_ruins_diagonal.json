@@ -8,7 +8,7 @@
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",
-  "start_pool": "desolatedpastels:village1",
+  "start_pool": "desolatedpastels:temple_window_ruins_diagonal",
   "size": 1,
   "start_height": {
     "absolute": 0

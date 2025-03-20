@@ -1,14 +1,12 @@
 {
   "type": "minecraft:jigsaw",
   "biomes": [
-    "desolatedpastels:yellow",
-    "desolatedpastels:green",
-    "desolatedpastels:blue"
+    "desolatedpastels:yellow"
   ],
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",
-  "start_pool": "desolatedpastels:temple_window_ruins",
+  "start_pool": "desolatedpastels:gravity_islands_yellow",
   "size": 1,
   "start_height": {
     "absolute": 0

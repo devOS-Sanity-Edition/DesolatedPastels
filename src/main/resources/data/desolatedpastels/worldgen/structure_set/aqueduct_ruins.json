@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "desolatedpastels:gravity_column_ruin_blue",
+      "structure": "desolatedpastels:aqueduct_ruins",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 20,
-    "separation": 5,
+    "spacing": 23,
+    "separation": 10,
     "salt": 1632641280
   }
 }

@@ -1,13 +1,13 @@
 {
   "structures": [
     {
-      "structure": "desolatedpastels:gravity_column_ruin_blue",
+      "structure": "desolatedpastels:temple_window_ruins_diagonal",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 20,
+    "spacing": 50,
     "separation": 5,
     "salt": 1632641280
   }

@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "desolatedpastels:gravity_column_ruin_blue",
+      "structure": "desolatedpastels:gravity_islands_yellow",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 20,
-    "separation": 5,
+    "spacing": 30,
+    "separation": 10,
     "salt": 1632641280
   }
 }
