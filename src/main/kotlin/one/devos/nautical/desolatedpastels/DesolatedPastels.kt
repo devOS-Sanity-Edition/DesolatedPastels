@@ -6,21 +6,25 @@ import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
-import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceKey
 import net.minecraft.resources.ResourceLocation
-import net.minecraft.world.entity.*
+import net.minecraft.world.entity.EntityType
+import net.minecraft.world.entity.MobCategory
+import net.minecraft.world.entity.SpawnPlacementTypes
+import net.minecraft.world.entity.SpawnPlacements
 import net.minecraft.world.entity.animal.Animal
+import net.minecraft.world.entity.animal.Squid
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.levelgen.Heightmap
 import one.devos.nautical.desolatedpastels.common.*
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
+import one.devos.nautical.desolatedpastels.common.entities.pastelmon.PastelmonEntity
 import one.devos.nautical.desolatedpastels.common.items.MallardEggEntity
 import one.devos.nautical.desolatedpastels.world.gen.DesolatedPastelsWorldGeneration
 import org.slf4j.Logger
@@ -51,6 +55,17 @@ object DesolatedPastels : ModInitializer {
                 .updateInterval(10)
                 .build()
         )
+
+    val PASTELMON_ENTITY: EntityType<PastelmonEntity> =
+        Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "pastelmon"),
+            EntityType.Builder.of(::PastelmonEntity, MobCategory.UNDERGROUND_WATER_CREATURE)
+                .sized(0.7f, 0.4f)
+                .eyeHeight(0.26f)
+                .clientTrackingRange(4)
+                .build()
+    )
 
     val DP_ITEM_GROUP: CreativeModeTab = FabricItemGroup.builder()
         .icon { ItemStack(DesolatedPastelsBlocks.LIGHT_GREEN_LEAVES) }
@@ -83,7 +98,9 @@ object DesolatedPastels : ModInitializer {
 
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MOD_ID, "main"), DP_ITEM_GROUP)
         FabricDefaultAttributeRegistry.register(MALLARD_ENTITY, MallardEntity.createAttributes())
+        FabricDefaultAttributeRegistry.register(PASTELMON_ENTITY, PastelmonEntity.createAttributes())
         SpawnPlacements.register(MALLARD_ENTITY, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules)
+        SpawnPlacements.register(PASTELMON_ENTITY, SpawnPlacementTypes.IN_WATER, Heightmap.Types.OCEAN_FLOOR, Squid::checkSurfaceWaterAnimalSpawnRules)
         InnerPastels.registerMods(MOD_ID)
 
         DesolatedPastelsWorldGeneration.doTheWorldGenMrKrabs()

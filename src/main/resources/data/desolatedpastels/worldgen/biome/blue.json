@@ -76,9 +76,14 @@
                 "maxCount": 6,
                 "minCount": 4,
                 "weight": 10
+            },
+            {
+                "type": "desolatedpastels:pastelmon",
+                "maxCount": 5,
+                "minCount": 1,
+                "weight": 5
             }
         ],
-        "water_ambient": [],
         "water_creature": []
     },
     "temperature": 0.7

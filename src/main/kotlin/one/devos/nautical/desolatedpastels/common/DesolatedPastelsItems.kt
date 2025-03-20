@@ -3,10 +3,17 @@ package one.devos.nautical.desolatedpastels.common
 import gay.asoji.innerpastels.misc.secondsToTicks
 import gay.asoji.innerpastels.register.RegisterItems.registerItem
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents
+import net.minecraft.core.component.DataComponents
+import net.minecraft.sounds.SoundEvents
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.food.FoodProperties
-import net.minecraft.world.item.*
+import net.minecraft.world.item.Item
+import net.minecraft.world.item.Items
+import net.minecraft.world.item.MobBucketItem
+import net.minecraft.world.item.SpawnEggItem
+import net.minecraft.world.item.component.CustomData
+import net.minecraft.world.level.material.Fluids
 import net.minecraft.world.level.storage.loot.BuiltInLootTables
 import net.minecraft.world.level.storage.loot.entries.LootItem
 import one.devos.nautical.desolatedpastels.DesolatedPastels
@@ -61,6 +68,16 @@ object DesolatedPastelsItems {
                 .build()
             )
     ))
+
+    val PASTELMON_BUCKET: Item = Items.registerItem(
+        "pastelmon_bucket",
+        MobBucketItem(
+            DesolatedPastels.PASTELMON_ENTITY,
+            Fluids.WATER,
+            SoundEvents.BUCKET_EMPTY_FISH,
+            Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY)
+        )
+    )
     
 //    fun registerItem(name: String, item: Item): Item {
 //        return Registry.register(

@@ -20,6 +20,8 @@ import net.minecraft.client.renderer.entity.ThrownItemRenderer
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardModel
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardRenderer
+import one.devos.nautical.desolatedpastels.client.entities.pastelmon.PastelmonModel
+import one.devos.nautical.desolatedpastels.client.entities.pastelmon.PastelmonRenderer
 import one.devos.nautical.desolatedpastels.client.panels.*
 import org.lwjgl.glfw.GLFW
 
@@ -81,6 +83,8 @@ class DesolatedPastelsClient : ClientModInitializer {
         DevDisclaimer.init()
         EntityRendererRegistry.register(DesolatedPastels.MALLARD_ENTITY, ::MallardRenderer)
         EntityRendererRegistry.register(DesolatedPastels.MALLARD_EGG_ENTITY, ::ThrownItemRenderer)
+        EntityRendererRegistry.register(DesolatedPastels.PASTELMON_ENTITY, ::PastelmonRenderer)
         EntityModelLayerRegistry.registerModelLayer(MallardModel.LAYER_LOCATION, MallardModel.Companion::createBodyLayer)
+        EntityModelLayerRegistry.registerModelLayer(PastelmonModel.LAYER_LOCATION, PastelmonModel.Companion::createBodyLayer)
     }
 }
