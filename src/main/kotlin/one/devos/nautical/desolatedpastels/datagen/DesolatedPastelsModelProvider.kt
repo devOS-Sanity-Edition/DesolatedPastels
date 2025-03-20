@@ -14,7 +14,6 @@ import net.minecraft.data.models.model.ModelTemplates
 import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.data.models.model.TexturedModel
 import net.minecraft.resources.ResourceLocation
-import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.RotatedPillarBlock
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
@@ -167,5 +166,8 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
         itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM, createCustomItemModel("minecraft", "template_spawn_egg"))
         itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_EGG_ITEM, ModelTemplates.FLAT_ITEM)
         itemModelGenerator.generateFlatItem(DesolatedPastelsItems.ROTTEN_MALLARD_EGG_ITEM, ModelTemplates.FLAT_ITEM)
+        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.RAW_MALLARD, ModelTemplates.FLAT_ITEM)
+        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.COOKED_MALLARD, ModelTemplates.FLAT_ITEM)
+        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_SOUP, ModelTemplates.FLAT_ITEM)
     }
 }
