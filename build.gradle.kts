@@ -46,7 +46,7 @@ dependencies {
     }
     modLocalRuntime(libs.bundles.dev.mods)
 
-    include(modImplementation("gay.asoji:innerpastels:1.3.16+rev.14e7ddb-branch.kt.1.21.main")!!)
+    include(modImplementation("gay.asoji:innerpastels:1.3.17+rev.45403a4-branch.kt.1.21.main")!!)
     include(modImplementation("net.kyrptonaught:customportalapi:0.0.1-beta68-1.21")!!)
 }
 
