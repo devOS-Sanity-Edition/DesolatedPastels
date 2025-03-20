@@ -112,7 +112,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : T
         goalSelector.addGoal(5, LookAtPlayerGoal(this, Player::class.java, 6.0f))
         goalSelector.addGoal(6, RandomLookAroundGoal(this))
         goalSelector.addGoal(7, RandomStrollGoal(this, 1.1))
-        if (variant == Type.PALLARD || variant == Type.PALLADY) goalSelector.addGoal(8, MallardSearchForItemsGoal(this))
+        goalSelector.addGoal(8, MallardSearchForItemsGoal(this))
         targetSelector.addGoal(1, HurtByTargetGoal(this))
         targetSelector.addGoal(2, MallardNightTargetGoal(this, Player::class.java))
     }
