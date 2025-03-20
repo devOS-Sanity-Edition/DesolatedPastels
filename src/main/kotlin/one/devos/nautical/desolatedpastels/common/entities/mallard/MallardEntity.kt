@@ -104,7 +104,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         goalSelector.addGoal(5, LookAtPlayerGoal(this, Player::class.java, 6.0f))
         goalSelector.addGoal(6, RandomLookAroundGoal(this))
         goalSelector.addGoal(7, RandomStrollGoal(this, 1.1))
-        goalSelector.addGoal(8, MallardSearchForItemsGoal(this))
+        if (variant == Type.PALLARD || variant == Type.PALLADY) goalSelector.addGoal(8, MallardSearchForItemsGoal(this))
         targetSelector.addGoal(1, HurtByTargetGoal(this))
         targetSelector.addGoal(2, MallardNightTargetGoal(this, Player::class.java))
     }
@@ -114,9 +114,9 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         builder.define(ATTACKING, false)
 
         if (this.commandSenderWorld.dimension().location().namespace == "desolatedpastels") {
-            builder.define(DATA_MALLARD_TYPE, if (Random.nextInt(2) == 0) MallardEntity.Type.PALLARD else MallardEntity.Type.PALLADY)
+            builder.define(DATA_MALLARD_TYPE, if (Random.nextInt(2) == 0) Type.PALLARD else Type.PALLADY)
         } else {
-            builder.define(DATA_MALLARD_TYPE, if (Random.nextInt(2) == 0) MallardEntity.Type.NORMAL else MallardEntity.Type.LADY)
+            builder.define(DATA_MALLARD_TYPE, if (Random.nextInt(2) == 0) Type.NORMAL else Type.LADY)
         }
     }
 
@@ -133,7 +133,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         return super.getDefaultDimensions(pose)
     }
 
-    var variant: MallardEntity.Type
+    var variant: Type
         get() = entityData.get(DATA_MALLARD_TYPE)
         set(variant) {
             entityData.set(DATA_MALLARD_TYPE, variant)
@@ -154,7 +154,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
 
     override fun readAdditionalSaveData(tag: CompoundTag) {
         super.readAdditionalSaveData(tag)
-        this.variant = MallardEntity.Type.getByName(tag.getString("Variant"))
+        this.variant = Type.getByName(tag.getString("Variant"))
     }
 
     override fun getBreedOffspring(serverLevel: ServerLevel, ageableMob: AgeableMob): MallardEntity {
@@ -238,7 +238,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         private val ATTACKING: EntityDataAccessor<Boolean> =
             SynchedEntityData.defineId(MallardEntity::class.java, EntityDataSerializers.BOOLEAN)
         private val ALERT_INTERVAL = TimeUtil.rangeOfSeconds(4, 6)
-        private val MALLARD_TYPE_SERIALIZER = EntityDataSerializer.forValueType(MallardEntity.Type.STREAM_CODEC)
+        private val MALLARD_TYPE_SERIALIZER = EntityDataSerializer.forValueType(Type.STREAM_CODEC)
         private val DATA_MALLARD_TYPE = SynchedEntityData.defineId(MallardEntity::class.java, MALLARD_TYPE_SERIALIZER)
 
         fun createAttributes(): AttributeSupplier.Builder {
