@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "desolatedpastels:fountain",
+      "structure": "desolatedpastels:village_ruins_yellow",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 25,
-    "separation": 5,
+    "spacing": 50,
+    "separation": 7,
     "salt": 1632641280
   }
 }

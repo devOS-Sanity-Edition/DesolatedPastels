@@ -3,13 +3,13 @@ package one.devos.nautical.desolatedpastels.common
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.CreativeModeTab.Output
 import net.minecraft.world.level.ItemLike
-import one.devos.nautical.desolatedpastels.DesolatedPastels
 
 object DesolatedPastelsTab {
     fun build(params: CreativeModeTab.ItemDisplayParameters, output: Output) {
         addBlocks(output)
         addDecorations(output)
         addNature(output)
+        addFood(output)
     }
 
     private fun addBlocks(output: Output) {
@@ -169,10 +169,20 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.BLUE_SAPLING,
 
             DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM,
+            DesolatedPastelsItems.PASTELMON_SPAWN_EGG_ITEM,
+
             DesolatedPastelsItems.MALLARD_EGG_ITEM,
             DesolatedPastelsItems.ROTTEN_MALLARD_EGG_ITEM,
+        )
+    }
+
+    private fun addFood(output: Output) {
+        addAll(
+            output,
             DesolatedPastelsItems.RAW_MALLARD,
-            DesolatedPastelsItems.COOKED_MALLARD
+            DesolatedPastelsItems.COOKED_MALLARD,
+            DesolatedPastelsItems.RAW_PASTELMON,
+            DesolatedPastelsItems.COOKED_PASTELMON
         )
     }
 

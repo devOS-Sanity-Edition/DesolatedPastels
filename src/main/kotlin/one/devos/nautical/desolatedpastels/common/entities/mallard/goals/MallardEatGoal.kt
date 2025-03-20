@@ -2,7 +2,7 @@ package one.devos.nautical.desolatedpastels.common.entities.mallard.goals
 
 import net.minecraft.world.entity.ai.goal.Goal
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
-import java.util.EnumSet
+import java.util.*
 
 class MallardEatGoal(val mallard: MallardEntity) : Goal() {
     private var animationTime = 0

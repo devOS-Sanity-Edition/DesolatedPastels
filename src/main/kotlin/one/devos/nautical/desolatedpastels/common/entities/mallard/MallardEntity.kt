@@ -26,13 +26,12 @@ import net.minecraft.world.entity.ai.goal.*
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal
 import net.minecraft.world.entity.item.ItemEntity
 import net.minecraft.world.entity.player.Player
-import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.Level
 import net.minecraft.world.phys.AABB
-import one.devos.nautical.desolatedpastels.DesolatedPastels
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsEntities.MALLARD_ENTITY
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
 import one.devos.nautical.desolatedpastels.common.entities.mallard.goals.MallardAttackGoal
@@ -223,7 +222,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : T
     }
 
     override fun getBreedOffspring(serverLevel: ServerLevel, ageableMob: AgeableMob): MallardEntity {
-        return DesolatedPastels.MALLARD_ENTITY.create(serverLevel)!!
+        return MALLARD_ENTITY.create(serverLevel)!!
     }
 
     override fun hurt(source: DamageSource, amount: Float): Boolean {

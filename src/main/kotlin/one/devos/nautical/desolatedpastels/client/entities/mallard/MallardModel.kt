@@ -1,10 +1,8 @@
 package one.devos.nautical.desolatedpastels.client.entities.mallard
 
-import com.google.common.collect.ImmutableList
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
 import net.minecraft.client.model.AgeableHierarchicalModel
-import net.minecraft.client.model.AgeableListModel
 import net.minecraft.client.model.geom.ModelLayerLocation
 import net.minecraft.client.model.geom.ModelPart
 import net.minecraft.client.model.geom.PartPose
@@ -14,7 +12,6 @@ import net.minecraft.client.model.geom.builders.LayerDefinition
 import net.minecraft.client.model.geom.builders.MeshDefinition
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.util.Mth
-import net.minecraft.world.entity.LivingEntity
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
 

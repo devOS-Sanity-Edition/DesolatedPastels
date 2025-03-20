@@ -1,10 +1,6 @@
 package one.devos.nautical.desolatedpastels.world
 
-import net.minecraft.world.level.levelgen.placement.BiomeFilter
-import net.minecraft.world.level.levelgen.placement.CountPlacement
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement
-import net.minecraft.world.level.levelgen.placement.PlacementModifier
-import net.minecraft.world.level.levelgen.placement.RarityFilter
+import net.minecraft.world.level.levelgen.placement.*
 
 
 object DesolatedPastelsOrePlacement {

@@ -4,7 +4,6 @@ import gay.asoji.innerpastels.client.imgui.ImGuiPanel
 import imgui.ImGui
 import imgui.ImGui.*
 import imgui.flag.ImGuiCond
-import imgui.flag.ImGuiWindowFlags
 import imgui.type.ImBoolean
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.world.level.block.state.properties.BlockStateProperties

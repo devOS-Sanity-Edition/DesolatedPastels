@@ -130,10 +130,12 @@
   "block.desolatedpastels.yellow_planks": "Yellow Pastel Planks",
   "entity.desolatedpastels.mallard": "Mallard",
   "item.desolatedpastels.cooked_mallard": "Cooked Mallard",
+  "item.desolatedpastels.cooked_pastelmon": "Cooked Pastelmon",
+  "item.desolatedpastels.mallard": "Raw Mallard",
   "item.desolatedpastels.mallard_egg": "Mallard Egg",
   "item.desolatedpastels.mallard_soup": "Mallard Soup",
   "item.desolatedpastels.mallard_spawn_egg": "Mallard Spawn Egg",
-  "item.desolatedpastels.raw_mallard": "Raw Mallard",
+  "item.desolatedpastels.pastelmon": "Raw Pastelmon",
   "item.desolatedpastels.rotten_mallard_egg": "Rotten Mallard Egg",
   "itemGroup.desolatedpastels": "Desolated Pastels"
 }

@@ -6,10 +6,7 @@ import imgui.ImGui
 import imgui.ImGui.*
 import imgui.flag.ImGuiCol
 import imgui.flag.ImGuiCond
-import imgui.flag.ImGuiConfigFlags
-import imgui.flag.ImGuiWindowFlags
 import imgui.type.ImBoolean
-import net.minecraft.client.Minecraft
 import net.minecraft.util.Mth
 import one.devos.nautical.desolatedpastels.client.panels.Constants.clientCamera
 

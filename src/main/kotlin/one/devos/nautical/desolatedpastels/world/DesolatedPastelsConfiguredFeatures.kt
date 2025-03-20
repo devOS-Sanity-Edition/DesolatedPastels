@@ -1,6 +1,5 @@
 package one.devos.nautical.desolatedpastels.world
 
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstrapContext
 import net.minecraft.resources.ResourceKey

@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "desolatedpastels:fountain",
+      "structure": "desolatedpastels:knight_statue_yellow",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 25,
-    "separation": 5,
+    "spacing": 50,
+    "separation": 20,
     "salt": 1632641280
   }
 }

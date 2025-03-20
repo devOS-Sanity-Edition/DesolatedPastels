@@ -1,22 +1,14 @@
 package one.devos.nautical.desolatedpastels.client.panels
 
-import gay.asoji.fmw.FMW
 import gay.asoji.innerpastels.client.imgui.ImGuiPanel
 import imgui.ImGui
-import imgui.ImGui.*
-import imgui.ImGui.inputFloat2
-import imgui.ImGui.inputFloat3
+import imgui.ImGui.begin
+import imgui.ImGui.end
 import imgui.ImGuiIO
 import imgui.type.ImBoolean
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
 import net.minecraft.client.Minecraft
-import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.util.Mth
-import net.minecraft.world.level.block.state.properties.BlockStateProperties
-import net.minecraft.world.phys.BlockHitResult
-import net.minecraft.world.phys.HitResult
-import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 
 
 @Environment(EnvType.CLIENT)

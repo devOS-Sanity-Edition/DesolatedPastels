@@ -17,12 +17,14 @@ import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.entity.ThrownItemRenderer
-import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardModel
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardRenderer
 import one.devos.nautical.desolatedpastels.client.entities.pastelmon.PastelmonModel
 import one.devos.nautical.desolatedpastels.client.entities.pastelmon.PastelmonRenderer
 import one.devos.nautical.desolatedpastels.client.panels.*
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsEntities.MALLARD_EGG_ENTITY
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsEntities.MALLARD_ENTITY
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsEntities.PASTELMON_ENTITY
 import org.lwjgl.glfw.GLFW
 
 @Environment(EnvType.CLIENT)
@@ -81,9 +83,9 @@ class DesolatedPastelsClient : ClientModInitializer {
 
         DesolatedPastelsRendering.init()
         DevDisclaimer.init()
-        EntityRendererRegistry.register(DesolatedPastels.MALLARD_ENTITY, ::MallardRenderer)
-        EntityRendererRegistry.register(DesolatedPastels.MALLARD_EGG_ENTITY, ::ThrownItemRenderer)
-        EntityRendererRegistry.register(DesolatedPastels.PASTELMON_ENTITY, ::PastelmonRenderer)
+        EntityRendererRegistry.register(MALLARD_ENTITY, ::MallardRenderer)
+        EntityRendererRegistry.register(MALLARD_EGG_ENTITY, ::ThrownItemRenderer)
+        EntityRendererRegistry.register(PASTELMON_ENTITY, ::PastelmonRenderer)
         EntityModelLayerRegistry.registerModelLayer(MallardModel.LAYER_LOCATION, MallardModel.Companion::createBodyLayer)
         EntityModelLayerRegistry.registerModelLayer(PastelmonModel.LAYER_LOCATION, PastelmonModel.Companion::createBodyLayer)
     }

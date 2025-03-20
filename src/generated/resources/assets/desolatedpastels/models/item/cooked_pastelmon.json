@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "desolatedpastels:item/raw_mallard"
+    "layer0": "desolatedpastels:item/cooked_pastelmon"
   }
 }

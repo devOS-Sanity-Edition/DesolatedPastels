@@ -1,6 +1,5 @@
 package one.devos.nautical.desolatedpastels.datagen
 
-import gay.asoji.innerpastels.datagen.RecipeGenerators
 import gay.asoji.innerpastels.datagen.RecipeGenerators.registerCraftingPastelFenceBlock
 import gay.asoji.innerpastels.datagen.RecipeGenerators.registerCraftingPastelFenceGateBlock
 import gay.asoji.innerpastels.datagen.RecipeGenerators.registerCraftingPastelSlabBlock
@@ -9,8 +8,12 @@ import gay.asoji.innerpastels.datagen.RecipeGenerators.registerPastelPlanksItem
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.minecraft.core.HolderLookup
-import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
+import net.minecraft.world.item.crafting.CampfireCookingRecipe
+import net.minecraft.world.item.crafting.RecipeSerializer
+import net.minecraft.world.item.crafting.SmokingRecipe
+import net.minecraft.world.level.ItemLike
+import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import java.util.concurrent.CompletableFuture
@@ -96,6 +99,37 @@ class DesolatedPastelsRecipeProvider(output: FabricDataOutput, registriesFuture:
         registerCraftingPastelStairBlock(exporter, DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_STAIRS)
         registerCraftingPastelStairBlock(exporter, DesolatedPastelsBlocks.GRAY_PLANKS, DesolatedPastelsBlocks.GRAY_PLANK_STAIRS)
         registerCraftingPastelStairBlock(exporter, DesolatedPastelsBlocks.BLACK_PLANKS, DesolatedPastelsBlocks.BLACK_PLANK_STAIRS)
+
+        registerGenericCooking(exporter, DesolatedPastelsItems.RAW_MALLARD, DesolatedPastelsItems.COOKED_MALLARD)
+        registerGenericCooking(exporter, DesolatedPastelsItems.RAW_PASTELMON, DesolatedPastelsItems.COOKED_PASTELMON)
+    }
+
+    fun registerGenericCooking(
+        exporter: RecipeOutput,
+        input: ItemLike,
+        output: ItemLike,
+    ) {
+        simpleCookingRecipe(
+            exporter,
+            "smoking",
+            RecipeSerializer.SMOKING_RECIPE,
+            ::SmokingRecipe,
+            100,
+            input,
+            output,
+            0.7f
+        )
+
+        simpleCookingRecipe(
+            exporter,
+            "campfire_cooking",
+            RecipeSerializer.CAMPFIRE_COOKING_RECIPE,
+            ::CampfireCookingRecipe,
+            600,
+            input,
+            output,
+            0.7f
+        )
     }
 
 }

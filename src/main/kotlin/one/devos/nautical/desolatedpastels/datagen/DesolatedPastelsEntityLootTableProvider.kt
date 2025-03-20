@@ -2,11 +2,7 @@ package one.devos.nautical.desolatedpastels.datagen
 
 import gay.asoji.innerpastels.datagen.FabricEntityLootTableProvider
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricLootTableProvider
 import net.minecraft.core.HolderLookup
-import net.minecraft.data.loot.EntityLootSubProvider
-import net.minecraft.resources.ResourceKey
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.storage.loot.LootPool
@@ -15,12 +11,13 @@ import net.minecraft.world.level.storage.loot.entries.LootItem
 import net.minecraft.world.level.storage.loot.functions.EnchantedCountIncreaseFunction
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction
 import net.minecraft.world.level.storage.loot.functions.SmeltItemFunction
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator
-import one.devos.nautical.desolatedpastels.DesolatedPastels
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsEntities
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
+import one.devos.nautical.softerpastels.common.SofterPastelsItems
 import java.util.concurrent.CompletableFuture
-import java.util.function.BiConsumer
 
 class DesolatedPastelsEntityLootTableProvider(
     dataOutput: FabricDataOutput,
@@ -28,7 +25,7 @@ class DesolatedPastelsEntityLootTableProvider(
 ) : FabricEntityLootTableProvider(dataOutput, registryLookup) {
     override fun generate() {
         this.add(
-            DesolatedPastels.MALLARD_ENTITY,
+            DesolatedPastelsEntities.MALLARD_ENTITY,
             LootTable.lootTable()
                 .withPool(
                     LootPool.lootPool()
@@ -57,6 +54,25 @@ class DesolatedPastelsEntityLootTableProvider(
                                     )
                                 )
                         )
+                )
+        )
+
+        this.add(
+            DesolatedPastelsEntities.PASTELMON_ENTITY,
+            LootTable.lootTable()
+                .withPool(
+                    LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1.0f))
+                        .add(
+                            LootItem.lootTableItem(DesolatedPastelsItems.RAW_PASTELMON)
+                                .apply(SmeltItemFunction.smelted().`when`(this.shouldSmeltLoot()))
+                        )
+                )
+                .withPool(
+                    LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1.0f))
+                        .add(LootItem.lootTableItem(SofterPastelsItems.RED_POWDER))
+                        .`when`(LootItemRandomChanceCondition.randomChance(0.05f))
                 )
         )
     }

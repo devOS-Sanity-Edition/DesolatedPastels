@@ -7,12 +7,11 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.animal.Animal
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile
-import net.minecraft.world.entity.projectile.ThrownEgg
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.Level
 import net.minecraft.world.phys.EntityHitResult
 import net.minecraft.world.phys.HitResult
-import one.devos.nautical.desolatedpastels.DesolatedPastels.MALLARD_ENTITY
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsEntities.MALLARD_ENTITY
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 
 class MallardEggEntity : ThrowableItemProjectile {
