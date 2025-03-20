@@ -1,6 +1,7 @@
 package one.devos.nautical.desolatedpastels.common.entities.mallard
 
 import io.netty.buffer.ByteBuf
+import net.minecraft.core.component.DataComponents
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.codec.ByteBufCodecs
 import net.minecraft.network.codec.StreamCodec
@@ -15,28 +16,33 @@ import net.minecraft.sounds.SoundEvents
 import net.minecraft.util.ByIdMap
 import net.minecraft.util.StringRepresentable
 import net.minecraft.util.TimeUtil
+import net.minecraft.world.InteractionHand
+import net.minecraft.world.InteractionResult
 import net.minecraft.world.damagesource.DamageSource
 import net.minecraft.world.entity.*
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier
 import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.entity.ai.goal.*
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal
-import net.minecraft.world.entity.animal.Animal
 import net.minecraft.world.entity.item.ItemEntity
 import net.minecraft.world.entity.player.Player
+import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.Level
 import net.minecraft.world.phys.AABB
 import one.devos.nautical.desolatedpastels.DesolatedPastels
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsSoundEvents
+import one.devos.nautical.desolatedpastels.common.entities.mallard.goals.MallardAttackGoal
+import one.devos.nautical.desolatedpastels.common.entities.mallard.goals.MallardNightTargetGoal
+import one.devos.nautical.desolatedpastels.common.entities.mallard.goals.MallardSearchForItemsGoal
 import java.util.function.Predicate
 import kotlin.random.Random
 
 
-class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : Animal(entityType, level) {
-    val ALLOWED_ITEMS: Predicate<ItemEntity> = Predicate { itemEntity: ItemEntity -> !itemEntity.hasPickUpDelay() && itemEntity.isAlive }
+class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : TamableAnimal(entityType, level) {
     var ticksUntilNextAlert: Int = 0
 
     val idleAnimationState = AnimationState()
@@ -44,6 +50,8 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
 
     val attackAnimationState = AnimationState()
     val attackAnimationTimeout: Int = 0
+
+    var eggLayTime = random.nextInt(MIN_EGG_LAY_TIME) + (MAX_EGG_LAY_TIME - MIN_EGG_LAY_TIME)
 
     enum class Type(val texture: ResourceLocation, val babyTexture: ResourceLocation) : StringRepresentable {
         NORMAL(ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mallard.png"), ResourceLocation.fromNamespaceAndPath("desolatedpastels", "textures/entity/mallard/mababy.png")) {
@@ -79,7 +87,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
             val STREAM_CODEC: StreamCodec<ByteBuf, Type> = ByteBufCodecs.idMapper(
                 ByIdMap.continuous(
                     Type::ordinal,
-                    Type.values(),
+                    Type.entries.toTypedArray(),
                     ByIdMap.OutOfBoundsStrategy.WRAP
                 ), Type::ordinal
             )
@@ -87,7 +95,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
     }
 
     init {
-        this.health = 6f
+        this.health = BASE_HEALTH.toFloat()
         this.setCanPickUpLoot(true)
     }
 
@@ -150,11 +158,68 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
     override fun addAdditionalSaveData(tag: CompoundTag) {
         super.addAdditionalSaveData(tag)
         tag.putString("Variant", this.variant.name)
+        tag.putInt("EggLayTime", eggLayTime)
     }
 
     override fun readAdditionalSaveData(tag: CompoundTag) {
         super.readAdditionalSaveData(tag)
         this.variant = Type.getByName(tag.getString("Variant"))
+        if (tag.contains("EggLayTime")) {
+            this.eggLayTime = tag.getInt("EggLayTime")
+        }
+    }
+
+    override fun setTame(tame: Boolean, applyTamingSideEffects: Boolean) {
+        super.setTame(tame, applyTamingSideEffects)
+        if (tame) {
+            getAttribute(Attributes.MAX_HEALTH)?.baseValue = 20.0
+        } else {
+            getAttribute(Attributes.MAX_HEALTH)?.baseValue = BASE_HEALTH.toDouble()
+        }
+    }
+
+    override fun mobInteract(player: Player, hand: InteractionHand): InteractionResult {
+        val stack = player.getItemInHand(hand)
+
+        if (level().isClientSide && (!isBaby || !isFood(stack))) {
+            return if (isTame && isOwnedBy(player)) {
+                InteractionResult.SUCCESS
+            } else {
+                if (!isFood(stack) || !(health < maxHealth) && isTame) InteractionResult.PASS else InteractionResult.SUCCESS
+            }
+        } else {
+            if (isTame && isOwnedBy(player)) {
+                if (isFood(stack) && health < maxHealth) {
+                    val food = stack.get(DataComponents.FOOD)
+                    eat(level(), stack, food!!)
+                    heal(food?.nutrition?.toFloat() ?: 1f)
+                    return InteractionResult.CONSUME
+                }
+                val interactionResult = super.mobInteract(player, hand)
+                if (!interactionResult.consumesAction() || isBaby) {
+                    // @todo this is where we would toggle sitting state, because we don't have an animation yet, it does nothing
+//                    jumping = false
+//                    navigation.stop()
+//                    target = null
+//                    isInSittingPose = true
+                }
+                return interactionResult
+            } else if (isFood(stack) && !isTame) {
+                if (!player.abilities.instabuild) stack.count--
+                if (random.nextInt(3) == 0) {
+                    tame(player)
+                    navigation.stop()
+                    target = null
+                    isInSittingPose = false
+                    level().broadcastEntityEvent(this, EntityEvent.TAMING_SUCCEEDED)
+                } else {
+                    level().broadcastEntityEvent(this, EntityEvent.TAMING_FAILED)
+                }
+                return InteractionResult.CONSUME
+            } else {
+                return super.mobInteract(player, hand)
+            }
+        }
     }
 
     override fun getBreedOffspring(serverLevel: ServerLevel, ageableMob: AgeableMob): MallardEntity {
@@ -209,7 +274,7 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         if (this.ticksUntilNextAlert > 0) {
             --ticksUntilNextAlert
         } else {
-            if (this.sensing.hasLineOfSight(this.target)) {
+            if (this.target !== null && this.sensing.hasLineOfSight(this.target!!)) {
                 this.alertOthers()
             }
 
@@ -221,10 +286,41 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         val range = this.getAttributeValue(Attributes.FOLLOW_RANGE)
         val box = AABB.unitCubeFromLowerCorner(this.position()).inflate(range, 10.0, range)
         this.level().getEntitiesOfClass(MallardEntity::class.java, box, EntitySelector.NO_SPECTATORS)
-            .filter { it != this && it.target == null && !it.isAlliedTo(this.target) }
+            .filter { it != this && it.target == null && !it.isAlliedTo(this.target!!) }
             .forEach {
                 it.target = this.target
             }
+    }
+
+    fun isHungry() = health <= maxHealth - 0.5f
+
+    fun tryEating() {
+        assert(!level().isClientSide)
+
+        val stack = mainHandItem
+        if (FOOD_ITEMS.items.contains(stack)) {
+            stack.count--
+            playSound(SoundEvents.GENERIC_EAT, 0.5F + 0.5F * random.nextInt(2), (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F)
+            if (stack.isEmpty) {
+                setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY)
+            }
+            if (isHungry()) {
+                val food = stack.get(DataComponents.FOOD)
+                heal(food?.nutrition?.toFloat() ?: 1f)
+            }
+        }
+    }
+
+    override fun tick() {
+        super.tick()
+
+        if (!level().isClientSide) {
+            if (isAlive && !isBaby && --eggLayTime <= 0) {
+                playSound(SoundEvents.CHICKEN_EGG, 1f, (random.nextFloat() - random.nextFloat()) * 0.2F + 1f)
+                spawnAtLocation(if (random.nextFloat() < 0.2) DesolatedPastelsItems.ROTTEN_MALLARD_EGG_ITEM else DesolatedPastelsItems.MALLARD_EGG_ITEM)
+                this.eggLayTime = random.nextInt(MIN_EGG_LAY_TIME) + (MAX_EGG_LAY_TIME - MIN_EGG_LAY_TIME)
+            }
+        }
     }
 
     companion object {
@@ -240,6 +336,10 @@ class MallardEntity(entityType: EntityType<out MallardEntity>, level: Level) : A
         private val ALERT_INTERVAL = TimeUtil.rangeOfSeconds(4, 6)
         private val MALLARD_TYPE_SERIALIZER = EntityDataSerializer.forValueType(Type.STREAM_CODEC)
         private val DATA_MALLARD_TYPE = SynchedEntityData.defineId(MallardEntity::class.java, MALLARD_TYPE_SERIALIZER)
+        val ALLOWED_ITEMS: Predicate<ItemEntity> = Predicate { itemEntity: ItemEntity -> !itemEntity.hasPickUpDelay() && itemEntity.isAlive }
+        private const val MIN_EGG_LAY_TIME = 6000
+        private const val MAX_EGG_LAY_TIME = 12000
+        private const val BASE_HEALTH = 6
 
         fun createAttributes(): AttributeSupplier.Builder {
             return Mob.createMobAttributes()

@@ -1,10 +1,11 @@
-package one.devos.nautical.desolatedpastels.common.entities.mallard
+package one.devos.nautical.desolatedpastels.common.entities.mallard.goals
 
 import gay.asoji.innerpastels.misc.secondsToTicks
 import net.minecraft.world.InteractionHand
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.PathfinderMob
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal
+import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
 
 class MallardAttackGoal(mob: PathfinderMob, speedModifier: Double, followingTargetEvenIfNotSeen: Boolean) : MeleeAttackGoal(mob, speedModifier, followingTargetEvenIfNotSeen) {
     private val entity = mob as MallardEntity

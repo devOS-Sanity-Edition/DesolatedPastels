@@ -3,10 +3,12 @@ package one.devos.nautical.desolatedpastels.common
 import gay.asoji.innerpastels.misc.secondsToTicks
 import gay.asoji.innerpastels.register.RegisterItems.registerItem
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents
+import net.minecraft.core.dispenser.ProjectileDispenseBehavior
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.*
+import net.minecraft.world.level.block.DispenserBlock
 import net.minecraft.world.level.storage.loot.BuiltInLootTables
 import net.minecraft.world.level.storage.loot.entries.LootItem
 import one.devos.nautical.desolatedpastels.DesolatedPastels
@@ -79,5 +81,7 @@ object DesolatedPastelsItems {
                 }
             }
         }
+
+        DispenserBlock.registerBehavior(MALLARD_EGG_ITEM, ProjectileDispenseBehavior(MALLARD_EGG_ITEM))
     }
 }
