@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "textures": {
+    "bottom": "desolatedpastels:block/light_blue_plank_door_bottom",
+    "top": "desolatedpastels:block/light_blue_plank_door_top"
+  }
+}

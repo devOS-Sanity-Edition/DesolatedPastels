@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "desolatedpastels:item/black_plank_door"
+  }
+}

@@ -9,8 +9,6 @@ import net.minecraft.advancements.critereon.ChangeDimensionTrigger
 import net.minecraft.core.HolderLookup
 import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceLocation
-import net.minecraft.world.level.Level
-import net.minecraft.world.level.block.Blocks
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import java.util.concurrent.CompletableFuture

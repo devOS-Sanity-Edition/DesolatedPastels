@@ -115,6 +115,41 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.GRAY_PLANK_STAIRS,
             DesolatedPastelsBlocks.BLACK_PLANK_STAIRS,
         )
+
+        addAll(
+            output,
+            DesolatedPastelsBlocks.WHITE_PLANK_DOOR,
+            DesolatedPastelsBlocks.LIGHT_RED_PLANK_DOOR,
+            DesolatedPastelsBlocks.RED_PLANK_DOOR,
+            DesolatedPastelsBlocks.ORANGE_PLANK_DOOR,
+            DesolatedPastelsBlocks.YELLOW_PLANK_DOOR,
+            DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_DOOR,
+            DesolatedPastelsBlocks.GREEN_PLANK_DOOR,
+            DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_DOOR,
+            DesolatedPastelsBlocks.BLUE_PLANK_DOOR,
+            DesolatedPastelsBlocks.PURPLE_PLANK_DOOR,
+            DesolatedPastelsBlocks.MAGENTA_PLANK_DOOR,
+            DesolatedPastelsBlocks.BROWN_PLANK_DOOR,
+            DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_DOOR,
+            DesolatedPastelsBlocks.GRAY_PLANK_DOOR,
+            DesolatedPastelsBlocks.BLACK_PLANK_DOOR,
+
+            DesolatedPastelsBlocks.WHITE_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.LIGHT_RED_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.RED_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.ORANGE_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.YELLOW_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.GREEN_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.BLUE_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.PURPLE_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.MAGENTA_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.BROWN_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.GRAY_PLANK_TRAPDOOR,
+            DesolatedPastelsBlocks.BLACK_PLANK_TRAPDOOR,
+        )
     }
 
     private fun addDecorations(output: Output) {
@@ -135,7 +170,7 @@ object DesolatedPastelsTab {
             DesolatedPastelsBlocks.LIGHT_GRAY_LEAVES,
             DesolatedPastelsBlocks.GRAY_LEAVES,
             DesolatedPastelsBlocks.BLACK_LEAVES,
-            
+
             DesolatedPastelsBlocks.BRIGHTENED_WHITE_LEAVES,
             DesolatedPastelsBlocks.BRIGHTENED_LIGHT_RED_LEAVES,
             DesolatedPastelsBlocks.BRIGHTENED_RED_LEAVES,

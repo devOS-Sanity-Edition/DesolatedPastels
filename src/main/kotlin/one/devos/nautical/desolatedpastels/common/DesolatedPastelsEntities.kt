@@ -8,9 +8,9 @@ import net.minecraft.world.entity.*
 import net.minecraft.world.entity.animal.Animal
 import net.minecraft.world.level.levelgen.Heightmap
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
+import one.devos.nautical.desolatedpastels.common.entities.egg.MallardEggEntity
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
 import one.devos.nautical.desolatedpastels.common.entities.pastelmon.PastelmonEntity
-import one.devos.nautical.desolatedpastels.common.entities.egg.MallardEggEntity
 
 object DesolatedPastelsEntities {
     val MALLARD_ENTITY: EntityType<MallardEntity> =

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_trapdoor_bottom",
+  "textures": {
+    "texture": "desolatedpastels:block/light_green_plank_trapdoor"
+  }
+}

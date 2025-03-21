@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blue_plank_door": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:blue_plank_door"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_blue_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "desolatedpastels:blue_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "desolatedpastels:blue_plank_door"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blue_planks",
+      "has_blue_plank_door"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "desolatedpastels:blue_plank_door"
+    ]
+  }
+}

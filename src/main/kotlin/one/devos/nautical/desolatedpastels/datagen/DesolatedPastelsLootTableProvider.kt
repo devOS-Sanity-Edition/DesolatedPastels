@@ -108,7 +108,39 @@ class DesolatedPastelsLootTableProvider(
         dropSelf(DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_STAIRS)
         dropSelf(DesolatedPastelsBlocks.GRAY_PLANK_STAIRS)
         dropSelf(DesolatedPastelsBlocks.BLACK_PLANK_STAIRS)
-        
+
+        dropSelf(DesolatedPastelsBlocks.WHITE_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_RED_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.RED_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.ORANGE_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.YELLOW_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.GREEN_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.BLUE_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.PURPLE_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.MAGENTA_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.BROWN_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.GRAY_PLANK_TRAPDOOR)
+        dropSelf(DesolatedPastelsBlocks.BLACK_PLANK_TRAPDOOR)
+
+        add(DesolatedPastelsBlocks.WHITE_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.LIGHT_RED_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.RED_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.ORANGE_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.YELLOW_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.GREEN_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.BLUE_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.PURPLE_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.MAGENTA_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.BROWN_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.GRAY_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+        add(DesolatedPastelsBlocks.BLACK_PLANK_DOOR) { block: Block -> this.createDoorTable(block) }
+
 
         add(DesolatedPastelsBlocks.LIGHT_GREEN_LEAVES) { block: Block ->
             this.createLeavesDrops(

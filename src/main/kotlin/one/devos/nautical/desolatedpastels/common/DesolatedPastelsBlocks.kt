@@ -15,11 +15,14 @@ import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.*
 import net.minecraft.world.level.block.state.BlockBehaviour
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument
 import net.minecraft.world.level.material.MapColor
 import net.minecraft.world.level.material.PushReaction
 import one.devos.nautical.desolatedpastels.DesolatedPastels.LOGGER
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 import one.devos.nautical.desolatedpastels.common.blocks.PastelGrassBlock
+import one.devos.nautical.desolatedpastels.common.blocks.extended.PastelWoodDoorBlock
+import one.devos.nautical.desolatedpastels.common.blocks.extended.PastelWoodTrapdoorBlock
 import one.devos.nautical.desolatedpastels.world.DesolatedPastelsSaplingGenerators
 
 
@@ -172,6 +175,38 @@ object DesolatedPastelsBlocks {
         BRIGHTENED_BLACK_LEAVES,
     )
 
+    val WHITE_PLANK_DOOR = DyeColor.WHITE.registerDoorBlock(MOD_ID, "white_plank_door")
+    val LIGHT_RED_PLANK_DOOR = MapColor.COLOR_PINK.registerDoorBlock(MOD_ID, "light_red_plank_door")
+    val RED_PLANK_DOOR = MapColor.COLOR_RED.registerDoorBlock(MOD_ID, "red_plank_door")
+    val ORANGE_PLANK_DOOR = MapColor.COLOR_ORANGE.registerDoorBlock(MOD_ID, "orange_plank_door")
+    val YELLOW_PLANK_DOOR = MapColor.COLOR_YELLOW.registerDoorBlock(MOD_ID, "yellow_plank_door")
+    val LIGHT_GREEN_PLANK_DOOR = MapColor.COLOR_LIGHT_GREEN.registerDoorBlock(MOD_ID, "light_green_plank_door")
+    val GREEN_PLANK_DOOR = MapColor.COLOR_GREEN.registerDoorBlock(MOD_ID, "green_plank_door")
+    val LIGHT_BLUE_PLANK_DOOR = MapColor.COLOR_LIGHT_BLUE.registerDoorBlock(MOD_ID, "light_blue_plank_door")
+    val BLUE_PLANK_DOOR = MapColor.COLOR_BLUE.registerDoorBlock(MOD_ID, "blue_plank_door")
+    val PURPLE_PLANK_DOOR = MapColor.COLOR_PURPLE.registerDoorBlock(MOD_ID, "purple_plank_door")
+    val MAGENTA_PLANK_DOOR = MapColor.COLOR_MAGENTA.registerDoorBlock(MOD_ID, "magenta_plank_door")
+    val BROWN_PLANK_DOOR = MapColor.COLOR_BROWN.registerDoorBlock(MOD_ID, "brown_plank_door")
+    val LIGHT_GRAY_PLANK_DOOR = MapColor.COLOR_LIGHT_GRAY.registerDoorBlock(MOD_ID, "light_gray_plank_door")
+    val GRAY_PLANK_DOOR = MapColor.COLOR_GRAY.registerDoorBlock(MOD_ID, "gray_plank_door")
+    val BLACK_PLANK_DOOR = MapColor.COLOR_BLACK.registerDoorBlock(MOD_ID, "black_plank_door")
+
+    val WHITE_PLANK_TRAPDOOR = DyeColor.WHITE.registerTrapdoorBlock(MOD_ID, "white_plank_trapdoor")
+    val LIGHT_RED_PLANK_TRAPDOOR = MapColor.COLOR_PINK.registerTrapdoorBlock(MOD_ID, "light_red_plank_trapdoor")
+    val RED_PLANK_TRAPDOOR = MapColor.COLOR_RED.registerTrapdoorBlock(MOD_ID, "red_plank_trapdoor")
+    val ORANGE_PLANK_TRAPDOOR = MapColor.COLOR_ORANGE.registerTrapdoorBlock(MOD_ID, "orange_plank_trapdoor")
+    val YELLOW_PLANK_TRAPDOOR = MapColor.COLOR_YELLOW.registerTrapdoorBlock(MOD_ID, "yellow_plank_trapdoor")
+    val LIGHT_GREEN_PLANK_TRAPDOOR = MapColor.COLOR_LIGHT_GREEN.registerTrapdoorBlock(MOD_ID, "light_green_plank_trapdoor")
+    val GREEN_PLANK_TRAPDOOR = MapColor.COLOR_GREEN.registerTrapdoorBlock(MOD_ID, "green_plank_trapdoor")
+    val LIGHT_BLUE_PLANK_TRAPDOOR = MapColor.COLOR_LIGHT_BLUE.registerTrapdoorBlock(MOD_ID, "light_blue_plank_trapdoor")
+    val BLUE_PLANK_TRAPDOOR = MapColor.COLOR_BLUE.registerTrapdoorBlock(MOD_ID, "blue_plank_trapdoor")
+    val PURPLE_PLANK_TRAPDOOR = MapColor.COLOR_PURPLE.registerTrapdoorBlock(MOD_ID, "purple_plank_trapdoor")
+    val MAGENTA_PLANK_TRAPDOOR = MapColor.COLOR_MAGENTA.registerTrapdoorBlock(MOD_ID, "magenta_plank_trapdoor")
+    val BROWN_PLANK_TRAPDOOR = MapColor.COLOR_BROWN.registerTrapdoorBlock(MOD_ID, "brown_plank_trapdoor")
+    val LIGHT_GRAY_PLANK_TRAPDOOR = MapColor.COLOR_LIGHT_GRAY.registerTrapdoorBlock(MOD_ID, "light_gray_plank_trapdoor")
+    val GRAY_PLANK_TRAPDOOR = MapColor.COLOR_GRAY.registerTrapdoorBlock(MOD_ID, "gray_plank_trapdoor")
+    val BLACK_PLANK_TRAPDOOR = MapColor.COLOR_BLACK.registerTrapdoorBlock(MOD_ID, "black_plank_trapdoor")
+
     val PASTEL_ORE: Block = MapColor.COLOR_GRAY.registerOreBlock(MOD_ID, "pastel_ore")
     val PASTEL_STONE: Block = MapColor.COLOR_GRAY.registerStoneBlock(MOD_ID, "pastel_stone")
     val PASTEL_DIRT: Block = MapColor.COLOR_BROWN.registerDirtBlock(MOD_ID, "pastel_dirt")
@@ -242,6 +277,54 @@ object DesolatedPastelsBlocks {
 
     fun DyeColor.registerPlanksBlock(modID: String, name: String): Block =
         Block(pastelPlanks().mapColor(this)).registerBlockWithItem(modID, name)
+
+    fun MapColor.registerDoorBlock(modID: String, name: String): Block {
+        return PastelWoodDoorBlock(
+            BlockBehaviour.Properties.of()
+                .instrument(NoteBlockInstrument.BASS)
+                .strength(3.0f)
+                .noOcclusion()
+                .ignitedByLava()
+                .pushReaction(PushReaction.DESTROY)
+                .mapColor(this)
+        ).registerBlockWithItem(modID, name)
+    }
+
+    fun DyeColor.registerDoorBlock(modID: String, name: String): Block {
+        return PastelWoodDoorBlock(
+            BlockBehaviour.Properties.of()
+                .instrument(NoteBlockInstrument.BASS)
+                .strength(3.0f)
+                .noOcclusion()
+                .ignitedByLava()
+                .pushReaction(PushReaction.DESTROY)
+                .mapColor(this)
+        ).registerBlockWithItem(modID, name)
+    }
+
+    fun MapColor.registerTrapdoorBlock(modID: String, name: String): Block {
+        return PastelWoodTrapdoorBlock(
+            BlockBehaviour.Properties.of()
+                .instrument(NoteBlockInstrument.BASS)
+                .strength(3.0F)
+                .noOcclusion()
+                .isValidSpawn(Blocks::never)
+                .ignitedByLava()
+                .mapColor(this)
+        ).registerBlockWithItem(modID, name)
+    }
+
+    fun DyeColor.registerTrapdoorBlock(modID: String, name: String): Block {
+        return PastelWoodTrapdoorBlock(
+            BlockBehaviour.Properties.of()
+                .instrument(NoteBlockInstrument.BASS)
+                .strength(3.0F)
+                .noOcclusion()
+                .isValidSpawn(Blocks::never)
+                .ignitedByLava()
+                .mapColor(this)
+        ).registerBlockWithItem(modID, name)
+    }
 
     fun init() { }
 }

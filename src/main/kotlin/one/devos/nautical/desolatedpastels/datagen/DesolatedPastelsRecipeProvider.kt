@@ -8,15 +8,16 @@ import gay.asoji.innerpastels.datagen.RecipeGenerators.registerPastelPlanksItem
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.minecraft.core.HolderLookup
+import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
+import net.minecraft.data.recipes.RecipeProvider
+import net.minecraft.data.recipes.ShapedRecipeBuilder
 import net.minecraft.world.item.crafting.*
 import net.minecraft.world.level.ItemLike
-import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
 import one.devos.nautical.softerpastels.common.SofterPastelsItems
 import java.util.concurrent.CompletableFuture
-import kotlin.math.exp
 
 class DesolatedPastelsRecipeProvider(output: FabricDataOutput, registriesFuture: CompletableFuture<HolderLookup.Provider>) : FabricRecipeProvider(output, registriesFuture) {
     override fun buildRecipes(exporter: RecipeOutput) {
@@ -99,6 +100,38 @@ class DesolatedPastelsRecipeProvider(output: FabricDataOutput, registriesFuture:
         registerCraftingPastelStairBlock(exporter, DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_STAIRS)
         registerCraftingPastelStairBlock(exporter, DesolatedPastelsBlocks.GRAY_PLANKS, DesolatedPastelsBlocks.GRAY_PLANK_STAIRS)
         registerCraftingPastelStairBlock(exporter, DesolatedPastelsBlocks.BLACK_PLANKS, DesolatedPastelsBlocks.BLACK_PLANK_STAIRS)
+
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.WHITE_PLANKS, DesolatedPastelsBlocks.WHITE_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.LIGHT_RED_PLANKS, DesolatedPastelsBlocks.LIGHT_RED_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.RED_PLANKS, DesolatedPastelsBlocks.RED_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.ORANGE_PLANKS, DesolatedPastelsBlocks.ORANGE_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.YELLOW_PLANKS, DesolatedPastelsBlocks.YELLOW_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS, DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.GREEN_PLANKS, DesolatedPastelsBlocks.GREEN_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS, DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.BLUE_PLANKS, DesolatedPastelsBlocks.BLUE_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.PURPLE_PLANKS, DesolatedPastelsBlocks.PURPLE_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.MAGENTA_PLANKS, DesolatedPastelsBlocks.MAGENTA_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.BROWN_PLANKS, DesolatedPastelsBlocks.BROWN_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.GRAY_PLANKS, DesolatedPastelsBlocks.GRAY_PLANK_DOOR)
+        registerCraftingPastelPlankDoorBlock(exporter, DesolatedPastelsBlocks.BLACK_PLANKS, DesolatedPastelsBlocks.BLACK_PLANK_DOOR)
+
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.WHITE_PLANKS, DesolatedPastelsBlocks.WHITE_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.LIGHT_RED_PLANKS, DesolatedPastelsBlocks.LIGHT_RED_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.RED_PLANKS, DesolatedPastelsBlocks.RED_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.ORANGE_PLANKS, DesolatedPastelsBlocks.ORANGE_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.YELLOW_PLANKS, DesolatedPastelsBlocks.YELLOW_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.LIGHT_GREEN_PLANKS, DesolatedPastelsBlocks.LIGHT_GREEN_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.GREEN_PLANKS, DesolatedPastelsBlocks.GREEN_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.LIGHT_BLUE_PLANKS, DesolatedPastelsBlocks.LIGHT_BLUE_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.BLUE_PLANKS, DesolatedPastelsBlocks.BLUE_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.PURPLE_PLANKS, DesolatedPastelsBlocks.PURPLE_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.MAGENTA_PLANKS, DesolatedPastelsBlocks.MAGENTA_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.BROWN_PLANKS, DesolatedPastelsBlocks.BROWN_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.LIGHT_GRAY_PLANKS, DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.GRAY_PLANKS, DesolatedPastelsBlocks.GRAY_PLANK_TRAPDOOR)
+        registerCraftingPastelPlankTrapdoorBlock(exporter, DesolatedPastelsBlocks.BLACK_PLANKS, DesolatedPastelsBlocks.BLACK_PLANK_TRAPDOOR)
 
         registerGenericCooking(exporter, DesolatedPastelsItems.RAW_MALLARD, DesolatedPastelsItems.COOKED_MALLARD)
         registerGenericCooking(exporter, DesolatedPastelsItems.RAW_PASTELMON, DesolatedPastelsItems.COOKED_PASTELMON)
@@ -190,4 +223,32 @@ class DesolatedPastelsRecipeProvider(output: FabricDataOutput, registriesFuture:
         )
     }
 
+    fun registerCraftingPastelPlankTrapdoorBlock(
+        exporter: RecipeOutput,
+        inputPastelPlank: ItemLike,
+        outputPastelPlankTrapdoor: ItemLike
+    ) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, outputPastelPlankTrapdoor, 2)
+            .pattern("AAA")
+            .pattern("AAA")
+            .define('A', inputPastelPlank)
+            .unlockedBy(RecipeProvider.getHasName(inputPastelPlank), RecipeProvider.has(inputPastelPlank))
+            .unlockedBy(RecipeProvider.getHasName(outputPastelPlankTrapdoor), RecipeProvider.has(outputPastelPlankTrapdoor))
+            .save(exporter)
+    }
+
+    fun registerCraftingPastelPlankDoorBlock(
+        exporter: RecipeOutput,
+        inputPastelPlank: ItemLike,
+        outputPastelPlankDoor: ItemLike
+    ) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, outputPastelPlankDoor, 3)
+            .pattern("AA")
+            .pattern("AA")
+            .pattern("AA")
+            .define('A', inputPastelPlank)
+            .unlockedBy(RecipeProvider.getHasName(inputPastelPlank), RecipeProvider.has(inputPastelPlank))
+            .unlockedBy(RecipeProvider.getHasName(outputPastelPlankDoor), RecipeProvider.has(outputPastelPlankDoor))
+            .save(exporter)
+    }
 }

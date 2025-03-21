@@ -3,6 +3,8 @@
     "#innerpastels:fences",
     "#innerpastels:fence_gates",
     "#innerpastels:stairs",
-    "#innerpastels:slabs"
+    "#innerpastels:slabs",
+    "#desolatedpastels:doors",
+    "#desolatedpastels:trapdoors"
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "A": {
+      "item": "desolatedpastels:light_blue_planks"
+    }
+  },
+  "pattern": [
+    "AA",
+    "AA",
+    "AA"
+  ],
+  "result": {
+    "count": 3,
+    "id": "desolatedpastels:light_blue_plank_door"
+  }
+}

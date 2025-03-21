@@ -3,7 +3,6 @@ package one.devos.nautical.desolatedpastels.datagen
 import gay.asoji.innerpastels.datagen.FabricEntityLootTableProvider
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.minecraft.core.HolderLookup
-import net.minecraft.world.entity.EntityType
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.storage.loot.LootPool
 import net.minecraft.world.level.storage.loot.LootTable

@@ -9,6 +9,8 @@ import one.devos.nautical.desolatedpastels.DesolatedPastels
 object DesolatedPastelsBlockTags {
     @JvmField
     val PASTEL_ORE_REPLACEABLES = create("pastel_ore_replaceables")
+    val DOORS = create("doors")
+    val TRAPDOORS = create("trapdoors")
 
     private fun create(name: String): TagKey<Block> {
         return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DesolatedPastels.MOD_ID, name))
