@@ -15,6 +15,7 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.ProjectileItem
 import net.minecraft.world.level.Level
+import one.devos.nautical.desolatedpastels.common.entities.egg.MallardEggEntity
 import one.devos.nautical.desolatedpastels.common.entities.mallard.MallardEntity
 
 

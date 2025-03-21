@@ -1,4 +1,4 @@
-package one.devos.nautical.desolatedpastels.common.items
+package one.devos.nautical.desolatedpastels.common.entities.egg
 
 import net.minecraft.core.particles.ItemParticleOption
 import net.minecraft.core.particles.ParticleTypes

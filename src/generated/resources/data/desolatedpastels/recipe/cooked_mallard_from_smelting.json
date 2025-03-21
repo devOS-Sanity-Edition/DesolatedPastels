@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "desolatedpastels:mallard"
+  },
+  "result": {
+    "id": "desolatedpastels:cooked_mallard"
+  }
+}

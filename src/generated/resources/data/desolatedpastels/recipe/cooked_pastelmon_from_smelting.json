@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "desolatedpastels:pastelmon"
+  },
+  "result": {
+    "id": "desolatedpastels:cooked_pastelmon"
+  }
+}

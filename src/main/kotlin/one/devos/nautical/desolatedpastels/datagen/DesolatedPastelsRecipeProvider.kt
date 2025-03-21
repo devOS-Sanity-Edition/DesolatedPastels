@@ -9,14 +9,14 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.minecraft.core.HolderLookup
 import net.minecraft.data.recipes.RecipeOutput
-import net.minecraft.world.item.crafting.CampfireCookingRecipe
-import net.minecraft.world.item.crafting.RecipeSerializer
-import net.minecraft.world.item.crafting.SmokingRecipe
+import net.minecraft.world.item.crafting.*
 import net.minecraft.world.level.ItemLike
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsItems
+import one.devos.nautical.softerpastels.common.SofterPastelsItems
 import java.util.concurrent.CompletableFuture
+import kotlin.math.exp
 
 class DesolatedPastelsRecipeProvider(output: FabricDataOutput, registriesFuture: CompletableFuture<HolderLookup.Provider>) : FabricRecipeProvider(output, registriesFuture) {
     override fun buildRecipes(exporter: RecipeOutput) {
@@ -102,6 +102,53 @@ class DesolatedPastelsRecipeProvider(output: FabricDataOutput, registriesFuture:
 
         registerGenericCooking(exporter, DesolatedPastelsItems.RAW_MALLARD, DesolatedPastelsItems.COOKED_MALLARD)
         registerGenericCooking(exporter, DesolatedPastelsItems.RAW_PASTELMON, DesolatedPastelsItems.COOKED_PASTELMON)
+
+        registerOreProcessing(exporter, DesolatedPastelsBlocks.PASTEL_ORE, SofterPastelsItems.POWDER)
+    }
+
+    fun registerOreProcessing(
+        exporter: RecipeOutput,
+        input: ItemLike,
+        output: ItemLike
+    ) {
+        simpleCookingRecipe(
+            exporter,
+            "smelting",
+            RecipeSerializer.SMELTING_RECIPE,
+            ::SmeltingRecipe,
+            200,
+            input,
+            output,
+            0.1f,
+        )
+
+        simpleCookingRecipe(
+            exporter,
+            "blasting",
+            RecipeSerializer.BLASTING_RECIPE,
+            ::BlastingRecipe,
+            200,
+            input,
+            output,
+            0.1f,
+        )
+    }
+
+    fun registerGenericSmelting(
+        exporter: RecipeOutput,
+        input: ItemLike,
+        output: ItemLike
+    ) {
+        simpleCookingRecipe(
+            exporter,
+            "smelting",
+            RecipeSerializer.SMELTING_RECIPE,
+            ::SmeltingRecipe,
+            200,
+            input,
+            output,
+            0.7f,
+        )
     }
 
     fun registerGenericCooking(
@@ -109,6 +156,17 @@ class DesolatedPastelsRecipeProvider(output: FabricDataOutput, registriesFuture:
         input: ItemLike,
         output: ItemLike,
     ) {
+        simpleCookingRecipe(
+            exporter,
+            "smelting",
+            RecipeSerializer.SMELTING_RECIPE,
+            ::SmeltingRecipe,
+            200,
+            input,
+            output,
+            0.7f
+        )
+
         simpleCookingRecipe(
             exporter,
             "smoking",

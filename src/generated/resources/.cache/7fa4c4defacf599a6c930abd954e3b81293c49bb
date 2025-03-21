@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-19T23:15:12.0865475	Desolated Pastels/Tags for minecraft:block
+// 1.21.1	2025-03-20T18:27:50.2012454	Desolated Pastels/Tags for minecraft:block
 d2cb75e6699c67ef1a024c2b1a078ca3f74f6649 data\innerpastels\tags\block\slabs.json
 1311aba0a0aff39a80ce56d5fba02d795674cdbd data\minecraft\tags\block\fence_gates.json
 762db5c5b1f8cc4e393f95116a77e2a47a522844 data\innerpastels\tags\block\fences.json
@@ -6,6 +6,7 @@ d2cb75e6699c67ef1a024c2b1a078ca3f74f6649 data\innerpastels\tags\block\slabs.json
 abe5c3b8f9170b739825d310aceb9074f9769527 data\minecraft\tags\block\slabs.json
 b51423a1425123483d80de90a494850383a40864 data\innerpastels\tags\block\leaves.json
 f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\dirt.json
+7a5e6c06cf7a74d81830da46ddc7e2fa971f14d1 data\c\tags\block\ores.json
 6fe20dc2da809af9bf9701af1dd98827b561f6a9 data\minecraft\tags\block\logs.json
 99fda7e1b3104c06599a590187837285ee8a12f4 data\desolatedpastels\tags\block\pastel_ore_replaceables.json
 5b4510c59db14f1fa07428c3bb99d64f59839513 data\minecraft\tags\block\mineable\pickaxe.json

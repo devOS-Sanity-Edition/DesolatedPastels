@@ -152,6 +152,9 @@ class DesolatedPastelsEnglishLanguageProvider(dataGenerator: FabricDataOutput, r
         translationBuilder.add(DesolatedPastelsItems.MALLARD_SPAWN_EGG_ITEM, "Mallard Spawn Egg")
         translationBuilder.add(DesolatedPastelsEntities.MALLARD_ENTITY, "Mallard")
 
+        translationBuilder.add(DesolatedPastelsItems.PASTELMON_SPAWN_EGG_ITEM, "Pastelmon Spawn Egg")
+        translationBuilder.add(DesolatedPastelsEntities.PASTELMON_ENTITY, "Pastelmon")
+
         translationBuilder.add(DesolatedPastelsItems.MALLARD_EGG_ITEM, "Mallard Egg")
         translationBuilder.add(DesolatedPastelsItems.ROTTEN_MALLARD_EGG_ITEM, "Rotten Mallard Egg")
         translationBuilder.add(DesolatedPastelsItems.RAW_MALLARD, "Raw Mallard")
@@ -161,5 +164,10 @@ class DesolatedPastelsEnglishLanguageProvider(dataGenerator: FabricDataOutput, r
         translationBuilder.add(DesolatedPastelsItems.COOKED_PASTELMON, "Cooked Pastelmon")
 
         translationBuilder.add("itemGroup.desolatedpastels", "Desolated Pastels")
+
+        translationBuilder.add("advancements.desolatedpastels.root.title", "Desolated Pastels")
+        translationBuilder.add("advancements.desolatedpastels.root.description", "...wait a second, isn't this dimension supposed to be Desolated?")
+
+
     }
 }

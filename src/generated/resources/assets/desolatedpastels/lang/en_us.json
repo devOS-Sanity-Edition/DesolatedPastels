@@ -1,4 +1,6 @@
 {
+  "advancements.desolatedpastels.root.description": "...wait a second, isn't this dimension supposed to be Desolated?",
+  "advancements.desolatedpastels.root.title": "Desolated Pastels",
   "block.desolatedpastels.black_leaves": "Black Pastel Leaves",
   "block.desolatedpastels.black_log": "Black Pastel Log",
   "block.desolatedpastels.black_plank_fence": "Black Planks Fence",
@@ -129,6 +131,7 @@
   "block.desolatedpastels.yellow_plank_stairs": "Yellow Planks Stairs",
   "block.desolatedpastels.yellow_planks": "Yellow Pastel Planks",
   "entity.desolatedpastels.mallard": "Mallard",
+  "entity.desolatedpastels.pastelmon": "Pastelmon",
   "item.desolatedpastels.cooked_mallard": "Cooked Mallard",
   "item.desolatedpastels.cooked_pastelmon": "Cooked Pastelmon",
   "item.desolatedpastels.mallard": "Raw Mallard",
@@ -136,6 +139,7 @@
   "item.desolatedpastels.mallard_soup": "Mallard Soup",
   "item.desolatedpastels.mallard_spawn_egg": "Mallard Spawn Egg",
   "item.desolatedpastels.pastelmon": "Raw Pastelmon",
+  "item.desolatedpastels.pastelmon_spawn_egg": "Pastelmon Spawn Egg",
   "item.desolatedpastels.rotten_mallard_egg": "Rotten Mallard Egg",
   "itemGroup.desolatedpastels": "Desolated Pastels"
 }

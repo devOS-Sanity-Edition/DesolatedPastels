@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "entered_desolated": {
+      "conditions": {
+        "to": "desolatedpastels:desolated"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "background": "desolatedpastels:textures/block/pastel_dirt.png",
+    "description": {
+      "translate": "advancements.desolatedpastels.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "desolatedpastels:pastel_grass"
+    },
+    "title": {
+      "translate": "advancements.desolatedpastels.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "entered_desolated"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

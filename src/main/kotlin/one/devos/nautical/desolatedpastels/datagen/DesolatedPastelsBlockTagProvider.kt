@@ -212,5 +212,8 @@ class DesolatedPastelsBlockTagProvider(
 
         getOrCreateTagBuilder(DesolatedPastelsBlockTags.PASTEL_ORE_REPLACEABLES)
             .add(DesolatedPastelsBlocks.PASTEL_STONE)
+
+        getOrCreateTagBuilder(ConventionalBlockTags.ORES)
+            .addTag(InnerPastelsBlockTags.ORES)
     }
 }
