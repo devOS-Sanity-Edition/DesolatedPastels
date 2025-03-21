@@ -44,7 +44,7 @@
 		"java": ">=21",
 		"fabric-api": "*",
 		"fabric-language-kotlin": "*",
-		"softerpastels": ">=0.9.1-rev.2b2764d",
+		"softerpastels": ">=0.9.3-rev.9f22720",
 		"innerpastels": ">=1.3.13+rev.e7bb3c8-branch.kt.1.21.main"
 	}
 }
