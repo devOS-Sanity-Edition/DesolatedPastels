@@ -11,9 +11,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
 import net.minecraft.data.models.BlockModelGenerators
 import net.minecraft.data.models.ItemModelGenerators
 import net.minecraft.data.models.model.ModelTemplates
+import net.minecraft.data.models.model.TextureMapping
 import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.data.models.model.TexturedModel
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.RotatedPillarBlock
 import one.devos.nautical.desolatedpastels.DesolatedPastels
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
@@ -192,6 +194,17 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
         blockStateModelGenerator.createDoor(DesolatedPastelsBlocks.LIGHT_GRAY_PLANK_DOOR)
         blockStateModelGenerator.createDoor(DesolatedPastelsBlocks.GRAY_PLANK_DOOR)
         blockStateModelGenerator.createDoor(DesolatedPastelsBlocks.BLACK_PLANK_DOOR)
+
+        val shardCreatorTextureMapping = TextureMapping()
+            .put(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(DesolatedPastelsBlocks.SHARD_CREATOR, "_side"))
+            .put(TextureSlot.UP, TextureMapping.getBlockTexture(DesolatedPastelsBlocks.SHARD_CREATOR, "_top"))
+            .put(TextureSlot.DOWN, TextureMapping.getBlockTexture(DesolatedPastelsBlocks.SHARD_CREATOR, "_bottom"))
+            .put(TextureSlot.NORTH, TextureMapping.getBlockTexture(DesolatedPastelsBlocks.SHARD_CREATOR, "_side"))
+            .put(TextureSlot.SOUTH, TextureMapping.getBlockTexture(DesolatedPastelsBlocks.SHARD_CREATOR, "_side"))
+            .put(TextureSlot.EAST, TextureMapping.getBlockTexture(DesolatedPastelsBlocks.SHARD_CREATOR, "_side_reverse"))
+            .put(TextureSlot.WEST, TextureMapping.getBlockTexture(DesolatedPastelsBlocks.SHARD_CREATOR, "_side_reverse"))
+
+        blockStateModelGenerator.createTrivialBlock(DesolatedPastelsBlocks.SHARD_CREATOR, shardCreatorTextureMapping, ModelTemplates.CUBE)
     }
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerators) {

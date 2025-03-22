@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "desolatedpastels:block/shard_creator_bottom",
+    "east": "desolatedpastels:block/shard_creator_side_reverse",
+    "north": "desolatedpastels:block/shard_creator_side",
+    "particle": "desolatedpastels:block/shard_creator_side",
+    "south": "desolatedpastels:block/shard_creator_side",
+    "up": "desolatedpastels:block/shard_creator_top",
+    "west": "desolatedpastels:block/shard_creator_side_reverse"
+  }
+}
