@@ -208,6 +208,9 @@ object DesolatedPastelsTab {
 
             DesolatedPastelsItems.MALLARD_EGG_ITEM,
             DesolatedPastelsItems.ROTTEN_MALLARD_EGG_ITEM,
+
+            DesolatedPastelsItems.PASTEL_SHARD,
+            DesolatedPastelsBlocks.SHARD_CREATOR
         )
     }
 

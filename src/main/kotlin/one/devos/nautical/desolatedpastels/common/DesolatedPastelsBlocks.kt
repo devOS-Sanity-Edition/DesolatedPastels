@@ -21,6 +21,7 @@ import net.minecraft.world.level.material.PushReaction
 import one.devos.nautical.desolatedpastels.DesolatedPastels.LOGGER
 import one.devos.nautical.desolatedpastels.DesolatedPastels.MOD_ID
 import one.devos.nautical.desolatedpastels.common.blocks.PastelGrassBlock
+import one.devos.nautical.desolatedpastels.common.blocks.entities.shardcreator.ShardCreatorBlock
 import one.devos.nautical.desolatedpastels.common.blocks.extended.PastelWoodDoorBlock
 import one.devos.nautical.desolatedpastels.common.blocks.extended.PastelWoodTrapdoorBlock
 import one.devos.nautical.desolatedpastels.world.DesolatedPastelsSaplingGenerators
@@ -231,12 +232,13 @@ object DesolatedPastelsBlocks {
     val BLUE_SAPLING_POTTED: Block = MapColor.COLOR_BLUE.registerTempBlock("blue_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.BLUE_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
     val LIGHT_BLUE_SAPLING_POTTED: Block = MapColor.COLOR_LIGHT_BLUE.registerTempBlock("light_blue_sapling_potted", FlowerPotBlock(DesolatedPastelsBlocks.LIGHT_BLUE_SAPLING as Block, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
 
+    val SHARD_CREATOR: Block = DyeColor.WHITE.registerTempBlock("shard_creator", ShardCreatorBlock(BlockBehaviour.Properties.of()))
+
     fun DyeColor.registerBrightenedLeavesBlock(modID: String, name: String, emissiveRenderingState: BlockBehaviour.StatePredicate): Block =
         LeavesBlock(Properties.pastelBrightenedLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
 
     fun MapColor.registerBrightenedLeavesBlock(modID: String, name: String, emissiveRenderingState: BlockBehaviour.StatePredicate): Block =
         LeavesBlock(Properties.pastelBrightenedLeaves().mapColor(this).hasPostProcess(emissiveRenderingState).emissiveRendering(emissiveRenderingState)).registerBlockWithItem(modID, name).apply { FlammableBlockRegistry.getDefaultInstance().add(this, 30, 60) }
-
 
     fun DyeColor.registerTempBlock(name: String, block: Block): Block {
         LOGGER.debug("${name.replace("_", " ").replaceFirstChar(Char::uppercaseChar)} is registered as a Temp Block, please make a dedicated register for this block eventually! If you're seeing this in production, let asoji know.")

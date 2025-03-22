@@ -204,5 +204,6 @@ class DesolatedPastelsModelProvider(generator: FabricDataOutput) : FabricModelPr
         itemModelGenerator.generateFlatItem(DesolatedPastelsItems.MALLARD_SOUP, ModelTemplates.FLAT_ITEM)
         itemModelGenerator.generateFlatItem(DesolatedPastelsItems.RAW_PASTELMON, ModelTemplates.FLAT_ITEM)
         itemModelGenerator.generateFlatItem(DesolatedPastelsItems.COOKED_PASTELMON, ModelTemplates.FLAT_ITEM)
+        itemModelGenerator.generateFlatItem(DesolatedPastelsItems.PASTEL_SHARD, ModelTemplates.FLAT_ITEM)
     }
 }

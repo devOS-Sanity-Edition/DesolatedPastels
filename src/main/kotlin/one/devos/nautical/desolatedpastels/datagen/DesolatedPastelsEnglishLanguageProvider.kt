@@ -195,6 +195,8 @@ class DesolatedPastelsEnglishLanguageProvider(dataGenerator: FabricDataOutput, r
         translationBuilder.add(DesolatedPastelsItems.RAW_PASTELMON, "Raw Pastelmon")
         translationBuilder.add(DesolatedPastelsItems.COOKED_PASTELMON, "Cooked Pastelmon")
 
+        translationBuilder.add(DesolatedPastelsItems.PASTEL_SHARD, "Pastel Shard")
+
         translationBuilder.add("itemGroup.desolatedpastels", "Desolated Pastels")
 
         translationBuilder.add("advancements.desolatedpastels.root.title", "Desolated Pastels")

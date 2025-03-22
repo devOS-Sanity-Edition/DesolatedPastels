@@ -28,6 +28,7 @@ import one.devos.nautical.desolatedpastels.common.items.MallardEggItem
 object DesolatedPastelsItems {
     @JvmField
     val TEST_ITEM: Item = registerItem(DesolatedPastels.MOD_ID, "test_item", Item(Item.Properties()))
+    val PASTEL_SHARD: Item = registerItem(DesolatedPastels.MOD_ID, "pastel_shard", Item(Item.Properties()))
     val MALLARD_SPAWN_EGG_ITEM: Item = registerItem(DesolatedPastels.MOD_ID, "mallard_spawn_egg", SpawnEggItem(MALLARD_ENTITY, 0xdad1ca, 0x22af6a, Item.Properties()))
     val PASTELMON_SPAWN_EGG_ITEM: Item = registerItem(DesolatedPastels.MOD_ID, "pastelmon_spawn_egg", SpawnEggItem(PASTELMON_ENTITY, 0x85ccd3, 0xa681cd, Item.Properties()))
 

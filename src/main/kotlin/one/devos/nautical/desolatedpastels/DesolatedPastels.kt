@@ -51,6 +51,7 @@ object DesolatedPastels : ModInitializer {
 
         DesolatedPastelsItems.init()
         DesolatedPastelsBlocks.init()
+        DesolatedPastelsBlockEntities.init()
         DesolatedPastelsSoundEvents.init()
         DesolatedPastelsPortals.init()
         DesolatedPastelsEntities.init()
