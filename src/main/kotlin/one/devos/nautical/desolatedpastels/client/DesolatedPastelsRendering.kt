@@ -7,7 +7,7 @@ import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelModifier
 import net.minecraft.client.renderer.RenderType
 import net.minecraft.core.registries.BuiltInRegistries
-import one.devos.nautical.desolatedpastels.client.model.EmissiveLeavesModel
+import one.devos.nautical.desolatedpastels.client.models.EmissiveLeavesModel
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlocks
 
 @Environment(EnvType.CLIENT)

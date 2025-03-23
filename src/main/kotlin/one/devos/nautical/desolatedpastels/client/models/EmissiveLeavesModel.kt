@@ -1,4 +1,4 @@
-package one.devos.nautical.desolatedpastels.client.model
+package one.devos.nautical.desolatedpastels.client.models
 
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext

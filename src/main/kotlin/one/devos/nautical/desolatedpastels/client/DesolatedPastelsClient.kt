@@ -16,15 +16,18 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft
+import net.minecraft.client.gui.screens.MenuScreens
 import net.minecraft.client.renderer.entity.ThrownItemRenderer
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardModel
 import one.devos.nautical.desolatedpastels.client.entities.mallard.MallardRenderer
 import one.devos.nautical.desolatedpastels.client.entities.pastelmon.PastelmonModel
 import one.devos.nautical.desolatedpastels.client.entities.pastelmon.PastelmonRenderer
 import one.devos.nautical.desolatedpastels.client.panels.*
+import one.devos.nautical.desolatedpastels.client.screens.ShardCreatorScreen
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsEntities.MALLARD_EGG_ENTITY
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsEntities.MALLARD_ENTITY
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsEntities.PASTELMON_ENTITY
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsMenus
 import org.lwjgl.glfw.GLFW
 
 @Environment(EnvType.CLIENT)
@@ -80,6 +83,8 @@ class DesolatedPastelsClient : ClientModInitializer {
             // initialize dearimgui panels
             imGuiInitialization()
         }
+
+        MenuScreens.register(DesolatedPastelsMenus.SHARD_CREATOR_MENU_TYPE, ::ShardCreatorScreen)
 
         DesolatedPastelsRendering.init()
         DevDisclaimer.init()
