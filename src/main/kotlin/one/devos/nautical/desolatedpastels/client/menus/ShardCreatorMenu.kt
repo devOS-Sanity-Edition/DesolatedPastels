@@ -31,8 +31,8 @@ class ShardCreatorMenu(
         this.addSlot(Slot(container, 2, 8, 52))
         this.addSlot(Slot(container, 3, 26, 25))
         this.addSlot(Slot(container, 4, 26, 43))
-        this.addSlot(Slot(container, 5,  80, 25)) // diamond slot
-        this.addSlot(Slot(container, 6, 80, 43)) // fuel slot
+        this.addSlot(Slot(container, 5,  80, 16)) // diamond slot
+        this.addSlot(Slot(container, 6, 80, 52)) // fuel slot
         this.addSlot(Slot(container, 7, 152, 34)) // result slot
 
         this.addDataSlots(containerData)
@@ -116,5 +116,5 @@ class ShardCreatorMenu(
         return this.container.stillValid(player)
     }
 
-    
+
 }
