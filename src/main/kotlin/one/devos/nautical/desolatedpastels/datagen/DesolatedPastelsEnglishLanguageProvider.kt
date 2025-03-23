@@ -196,6 +196,7 @@ class DesolatedPastelsEnglishLanguageProvider(dataGenerator: FabricDataOutput, r
         translationBuilder.add(DesolatedPastelsItems.COOKED_PASTELMON, "Cooked Pastelmon")
 
         translationBuilder.add(DesolatedPastelsItems.PASTEL_SHARD, "Pastel Shard")
+        translationBuilder.add(DesolatedPastelsBlocks.SHARD_CREATOR, "Shard Creator")
         translationBuilder.add("desolatedpastels.container.shardcreator", "Shard Creator")
 
         translationBuilder.add("itemGroup.desolatedpastels", "Desolated Pastels")

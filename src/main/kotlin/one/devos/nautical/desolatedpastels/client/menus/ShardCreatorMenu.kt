@@ -1,5 +1,6 @@
 package one.devos.nautical.desolatedpastels.client.menus
 
+import gay.asoji.innerpastels.tags.InnerPastelsItemTags
 import net.fabricmc.fabric.api.registry.FuelRegistry
 import net.minecraft.world.Container
 import net.minecraft.world.SimpleContainer
@@ -81,7 +82,7 @@ class ShardCreatorMenu(
                 }
                 slot.onQuickCraft(itemStack, itemStackCopy)
             } else if (index >= playerInvStart && index < playerInvEnd) {
-                if (itemStack.`is`(SofterPastelsItems.POWDER)) {
+                if (itemStack.`is`(InnerPastelsItemTags.POWDERS)) {
                     if (!this.moveItemStackTo(itemStack, powderSlotStart, powderSlotEnd + 1, false)) {
                         return ItemStack.EMPTY
                     }
@@ -92,8 +93,9 @@ class ShardCreatorMenu(
                         return ItemStack.EMPTY
                     }
                 }
+                val fuelRegistry = FuelRegistry.INSTANCE.get(itemStack.item)
+                if (fuelRegistry != null && fuelRegistry >= 2400 ) {
 
-                if (FuelRegistry.INSTANCE.get(itemStack.item) >= 2400) {
                     if (!this.moveItemStackTo(itemStack, fuelSlot, fuelSlot + 1, false)) {
                         return ItemStack.EMPTY
                     }
