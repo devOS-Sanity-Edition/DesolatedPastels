@@ -5,8 +5,8 @@ import net.minecraft.world.Container
 import net.minecraft.world.inventory.Slot
 import net.minecraft.world.item.ItemStack
 
-class PowderSlot(container: Container, slot: Int, x: Int, y: Int) : Slot(container, slot, x, y) {
+class PowderSlot(container: Container, slot: Int, x: Int, y: Int, val powderSlots: List<PowderSlot>) : Slot(container, slot, x, y) {
     override fun mayPlace(stack: ItemStack): Boolean {
-        return stack.`is`(InnerPastelsItemTags.POWDERS)
+        return stack.`is`(InnerPastelsItemTags.POWDERS) && powderSlots.none { it.item.item == stack.item }
     }
 }

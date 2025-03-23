@@ -26,17 +26,18 @@ class ShardCreatorMenu(
     AbstractContainerMenu(menuType, containerId) {
     private val container: Container
     private val containerData: ContainerData
+    val uniquePowderSlots: MutableList<PowderSlot> = mutableListOf()
 
     init {
         checkContainerSize(container, 8)
         this.container = container
         this.containerData = containerData
 
-        this.addSlot(PowderSlot(container, 0, 8, 16)) // pastel powder slots
-        this.addSlot(PowderSlot(container, 1, 8, 34))
-        this.addSlot(PowderSlot(container, 2, 8, 52))
-        this.addSlot(PowderSlot(container, 3, 26, 25))
-        this.addSlot(PowderSlot(container, 4, 26, 43))
+        this.addSlot(PowderSlot(container, 0, 8, 16, uniquePowderSlots).apply(uniquePowderSlots::add)) // pastel powder slots
+        this.addSlot(PowderSlot(container, 1, 8, 34, uniquePowderSlots).apply(uniquePowderSlots::add))
+        this.addSlot(PowderSlot(container, 2, 8, 52, uniquePowderSlots).apply(uniquePowderSlots::add))
+        this.addSlot(PowderSlot(container, 3, 26, 25, uniquePowderSlots).apply(uniquePowderSlots::add))
+        this.addSlot(PowderSlot(container, 4, 26, 43, uniquePowderSlots).apply(uniquePowderSlots::add))
         this.addSlot(DiamondSlot(container, 5,  80, 16)) // diamond slot
         this.addSlot(FuelSlot(container, 6, 80, 52)) // fuel slot
         this.addSlot(ResultSlot(container, 7, 152, 34)) // result slot
@@ -82,7 +83,7 @@ class ShardCreatorMenu(
                 }
                 slot.onQuickCraft(itemStack, itemStackCopy)
             } else if (index >= playerInvStart && index < playerInvEnd) {
-                if (itemStack.`is`(InnerPastelsItemTags.POWDERS)) {
+                if (itemStack.`is`(InnerPastelsItemTags.POWDERS) && uniquePowderSlots.none { it.item.item == itemStack.item }) {
                     if (!this.moveItemStackTo(itemStack, powderSlotStart, powderSlotEnd + 1, false)) {
                         return ItemStack.EMPTY
                     }
