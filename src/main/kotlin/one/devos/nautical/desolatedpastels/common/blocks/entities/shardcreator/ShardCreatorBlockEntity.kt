@@ -55,13 +55,6 @@ class ShardCreatorBlockEntity(pos: BlockPos, blockState: BlockState) :
         }
     }
 
-    var clicks: Int = 0
-
-    fun incrementClicks() {
-        clicks++
-        setChanged()
-    }
-
     override fun saveAdditional(tag: CompoundTag, registries: HolderLookup.Provider) {
         super.saveAdditional(tag, registries)
 

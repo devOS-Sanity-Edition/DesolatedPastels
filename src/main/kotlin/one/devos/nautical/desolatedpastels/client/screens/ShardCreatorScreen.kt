@@ -19,6 +19,7 @@ class ShardCreatorScreen(menu: ShardCreatorMenu, playerInventory: Inventory, tit
         renderBg(guiGraphics, partialTick, mouseX, mouseY)
 
         super.render(guiGraphics, mouseX, mouseY, partialTick)
+        this.renderTooltip(guiGraphics, mouseX, mouseY)
     }
     override fun renderBg(guiGraphics: GuiGraphics, partialTick: Float, mouseX: Int, mouseY: Int) {
         val x = (this.width - this.imageWidth) / 2

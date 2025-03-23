@@ -1,5 +1,6 @@
 package one.devos.nautical.desolatedpastels.client.menus
 
+import net.fabricmc.fabric.api.registry.FuelRegistry
 import net.minecraft.world.Container
 import net.minecraft.world.SimpleContainer
 import net.minecraft.world.entity.player.Inventory
@@ -7,6 +8,10 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.inventory.*
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
+import one.devos.nautical.desolatedpastels.client.menus.slots.DiamondSlot
+import one.devos.nautical.desolatedpastels.client.menus.slots.FuelSlot
+import one.devos.nautical.desolatedpastels.client.menus.slots.PowderSlot
+import one.devos.nautical.desolatedpastels.client.menus.slots.ResultSlot
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsMenus
 import one.devos.nautical.softerpastels.common.SofterPastelsItems
 
@@ -26,14 +31,14 @@ class ShardCreatorMenu(
         this.container = container
         this.containerData = containerData
 
-        this.addSlot(Slot(container, 0, 8, 16)) // pastel powder slots
-        this.addSlot(Slot(container, 1, 8, 34))
-        this.addSlot(Slot(container, 2, 8, 52))
-        this.addSlot(Slot(container, 3, 26, 25))
-        this.addSlot(Slot(container, 4, 26, 43))
-        this.addSlot(Slot(container, 5,  80, 16)) // diamond slot
-        this.addSlot(Slot(container, 6, 80, 52)) // fuel slot
-        this.addSlot(Slot(container, 7, 152, 34)) // result slot
+        this.addSlot(PowderSlot(container, 0, 8, 16)) // pastel powder slots
+        this.addSlot(PowderSlot(container, 1, 8, 34))
+        this.addSlot(PowderSlot(container, 2, 8, 52))
+        this.addSlot(PowderSlot(container, 3, 26, 25))
+        this.addSlot(PowderSlot(container, 4, 26, 43))
+        this.addSlot(DiamondSlot(container, 5,  80, 16)) // diamond slot
+        this.addSlot(FuelSlot(container, 6, 80, 52)) // fuel slot
+        this.addSlot(ResultSlot(container, 7, 152, 34)) // result slot
 
         this.addDataSlots(containerData)
 
@@ -88,7 +93,7 @@ class ShardCreatorMenu(
                     }
                 }
 
-                if (itemStack.`is`(Items.LAVA_BUCKET)) {
+                if (FuelRegistry.INSTANCE.get(itemStack.item) >= 2400) {
                     if (!this.moveItemStackTo(itemStack, fuelSlot, fuelSlot + 1, false)) {
                         return ItemStack.EMPTY
                     }
