@@ -21,6 +21,9 @@ repositories {
     maven("https://ueaj.dev/maven")
     maven("https://jitpack.io")
     maven("https://raw.githubusercontent.com/kotlin-graphics/mary/master")
+    maven("https://dl.cloudsmith.io/public/klikli-dev/mods/maven/")
+    maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven/")
+    maven("https://maven.createmod.net/")
 //    maven("https://maven.kyrptonaught.dev")
 }
 
@@ -45,9 +48,19 @@ dependencies {
         exclude(module = "innerpastels") // temp, mainly for dearimgui overriding below
     }
     modLocalRuntime(libs.bundles.dev.mods)
+    modImplementation(libs.modonomicon) {
+        exclude(group = "mezz.jei", module = "jei-1.21.1-common-api")
+        exclude(group = "mezz.jei", module = "jei-1.21.1-fabric-api")
+        exclude(group = "mezz.jei", module = "jei-1.21.1-fabric")
+//        isTransitive = false // if this fails at any point according to the docs, comment this out and uncomment the 3 lines above [well it failed bc of another dep, so.. shit lol]
+    }
 
     include(modImplementation("gay.asoji:innerpastels:1.3.17+rev.45403a4-branch.kt.1.21.main")!!)
     include(modImplementation("net.kyrptonaught:customportalapi:0.0.1-beta68-1.21")!!)
+    include(modImplementation(files("libs/Ponder-Fabric-1.21.1-1.0.0.jar"))!!) // using max's fork of ponder for the time being https://github.com/maximumpower55/Ponder/tree/mc1.21.1/dev
+    modRuntimeOnly(libs.fcapi)
+    modApi(libs.flywheel.api)
+    modImplementation(libs.flywheel)
 }
 
 // Write the version to the fabric.mod.json

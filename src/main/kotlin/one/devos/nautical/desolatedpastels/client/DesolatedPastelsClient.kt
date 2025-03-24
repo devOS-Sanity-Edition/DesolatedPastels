@@ -6,6 +6,7 @@ import gay.asoji.innerpastels.client.imgui.ImGuiPanel
 import gay.asoji.innerpastels.misc.DevDisclaimer
 import imgui.ImGui
 import imgui.type.ImBoolean
+import net.createmod.ponder.foundation.PonderIndex
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
@@ -88,6 +89,7 @@ class DesolatedPastelsClient : ClientModInitializer {
 
         DesolatedPastelsRendering.init()
         DevDisclaimer.init()
+        PonderIndex.addPlugin(DesolatedPastelsPonderPlugin())
         EntityRendererRegistry.register(MALLARD_ENTITY, ::MallardRenderer)
         EntityRendererRegistry.register(MALLARD_EGG_ENTITY, ::ThrownItemRenderer)
         EntityRendererRegistry.register(PASTELMON_ENTITY, ::PastelmonRenderer)
