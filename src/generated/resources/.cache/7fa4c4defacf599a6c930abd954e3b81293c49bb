@@ -1,6 +1,6 @@
-// 1.21.1	2025-03-23T22:01:03.8206035	Desolated Pastels/Tags for minecraft:block
-d2cb75e6699c67ef1a024c2b1a078ca3f74f6649 data\innerpastels\tags\block\slabs.json
+// 1.21.1	2025-03-25T18:43:00.2629984	Desolated Pastels/Tags for minecraft:block
 1311aba0a0aff39a80ce56d5fba02d795674cdbd data\minecraft\tags\block\fence_gates.json
+d2cb75e6699c67ef1a024c2b1a078ca3f74f6649 data\innerpastels\tags\block\slabs.json
 762db5c5b1f8cc4e393f95116a77e2a47a522844 data\innerpastels\tags\block\fences.json
 6cee9d30835a6b3e8ea08fa50be256bc0df23219 data\innerpastels\tags\block\stairs.json
 043237a6c1c48afb805ac41380faa655010965c7 data\minecraft\tags\block\trapdoors.json
@@ -23,8 +23,8 @@ e3fb7c6bf3352d71a75d02cf22134e4bb1bd1c7c data\innerpastels\tags\block\ores.json
 8935b0674fc61fad69ea339f2a1ba26af23299f2 data\minecraft\tags\block\smelts_to_glass.json
 39f05a88237ae12d16f83572d4d0dfe4ec4d6a93 data\minecraft\tags\block\replaceable_by_trees.json
 99fda7e1b3104c06599a590187837285ee8a12f4 data\c\tags\block\stones.json
-f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\sniffer_diggable_block.json
 f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\animals_spawnable_on.json
+f720ddf24a66c094de97a27f6e98b228668ddb6c data\minecraft\tags\block\sniffer_diggable_block.json
 01aba45f835398f9c75478fc46a2a75a82980281 data\minecraft\tags\block\stairs.json
 87854eed7c17595d5fbbb9cbad9a2d5cabccfc9c data\minecraft\tags\block\fences.json
 c8591d72ba75c58e89db5bacc51cfd1e588db5a6 data\minecraft\tags\block\mineable\axe.json

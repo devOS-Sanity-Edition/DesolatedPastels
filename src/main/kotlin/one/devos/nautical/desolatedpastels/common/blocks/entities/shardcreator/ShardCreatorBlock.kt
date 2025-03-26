@@ -1,6 +1,7 @@
 package one.devos.nautical.desolatedpastels.common.blocks.entities.shardcreator
 
 import com.mojang.serialization.MapCodec
+import net.createmod.ponder.command.SimplePonderActions
 import net.minecraft.core.BlockPos
 import net.minecraft.network.chat.Component
 import net.minecraft.server.level.ServerLevel
@@ -68,8 +69,8 @@ class ShardCreatorBlock(properties: Properties) : BaseEntityBlock(properties) {
             return super.useWithoutItem(state, level, pos, player, hitResult)
         }
 
-        openContainer(level, pos, player)
-
+        SimplePonderActions.openPonder("desolatedpastels:shard_creator")
+//        openContainer(level, pos, player)
         return InteractionResult.CONSUME
     }
 

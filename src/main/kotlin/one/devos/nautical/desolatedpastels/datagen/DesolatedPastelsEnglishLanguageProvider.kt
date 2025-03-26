@@ -205,7 +205,7 @@ class DesolatedPastelsEnglishLanguageProvider(dataGenerator: FabricDataOutput, r
         translationBuilder.add("advancements.desolatedpastels.root.description", "...wait a second, isn't this dimension supposed to be Desolated?")
 
         translationBuilder.add("desolatedpastels.ponder.powder_intro.header", "Using Pastel Powder Blocks")
-        translationBuilder.add("desolatedpastels.ponder.powder_intro.text_1", "Hello, this is a test scene for Powder Blocks!")
-        translationBuilder.add("desolatedpastels.ponder.powder_intro.text_2", "Thingy")
+        translationBuilder.add("desolatedpastels.ponder.powder_intro.text_1", "Just like normal Concrete Powder, if your Pastel Powder interacts with Water, it turns into hardened version of the block")
+        translationBuilder.add("desolatedpastels.ponder.powder_intro.text_2", "Just place your powder in water, and it becomes a Pastel block")
     }
 }
