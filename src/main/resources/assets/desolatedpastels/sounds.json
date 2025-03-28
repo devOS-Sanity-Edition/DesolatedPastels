@@ -4,7 +4,6 @@
     "sounds": [
       {
         "name": "desolatedpastels:entity/mallard/death",
-        "category": "neutral",
         "stream": "false"
       }
     ]
@@ -14,17 +13,59 @@
     "sounds": [
       {
         "name": "desolatedpastels:entity/mallard/quack_1",
-        "category": "neutral",
         "stream": "false"
       },
       {
         "name": "desolatedpastels:entity/mallard/quack_2",
-        "category": "neutral",
         "stream": "false"
       },
       {
         "name": "desolatedpastels:entity/mallard/quack_3",
-        "category": "neutral",
+        "stream": "false"
+      }
+    ]
+  },
+  "entity.tanuki.squeaks": {
+    "subtitle": "Tanuki squeaks",
+    "sounds": [
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_1",
+        "stream": "false"
+      },
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_2",
+        "stream": "false"
+      },
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_3",
+        "stream": "false"
+      },
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_4",
+        "stream": "false"
+      },
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_5",
+        "stream": "false"
+      },
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_6",
+        "stream": "false"
+      },
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_7",
+        "stream": "false"
+      },
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_8",
+        "stream": "false"
+      },
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_9",
+        "stream": "false"
+      },
+      {
+        "name": "desolatedpastels:entity/tanuki/squeak_10",
         "stream": "false"
       }
     ]

@@ -6,8 +6,9 @@ import one.devos.nautical.desolatedpastels.DesolatedPastels
 
 object DesolatedPastelsSoundEvents {
     val MALLARD_DEATH: SoundEvent = RegisterSounds.registerSoundEvent(DesolatedPastels.MOD_ID, "entity.mallard.death")
-
     val MALLARD_QUACKS: SoundEvent = RegisterSounds.registerSoundEvent(DesolatedPastels.MOD_ID, "entity.mallard.quacks")
+
+    val TANUKI_SQUEAKS: SoundEvent = RegisterSounds.registerSoundEvent(DesolatedPastels.MOD_ID, "entity.tanuki.squeaks")
 
     fun init() { }
 }
