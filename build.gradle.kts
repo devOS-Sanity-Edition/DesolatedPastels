@@ -13,6 +13,10 @@ version = getModVersion()
 group = project.property("maven_group")!!
 
 repositories {
+    flatDir {
+        dirs = setOf(file("libs"))
+    }
+
     mavenLocal()
     maven("https://api.modrinth.com/maven")
     maven("https://maven.terraformersmc.com/")
@@ -57,7 +61,8 @@ dependencies {
 
     include(modImplementation("gay.asoji:innerpastels:1.3.17+rev.45403a4-branch.kt.1.21.main")!!)
     include(modImplementation("net.kyrptonaught:customportalapi:0.0.1-beta68-1.21")!!)
-    include(modImplementation(files("libs/Ponder-Fabric-1.21.1-1.0.0.jar"))!!) // using max's fork of ponder for the time being https://github.com/maximumpower55/Ponder/tree/mc1.21.1/dev
+//    include(modImplementation(files("libs/Ponder-Fabric-1.21.1-1.0.0.jar"))!!) // using max's fork of ponder for the time being https://github.com/maximumpower55/Ponder/tree/mc1.21.1/dev
+    include(modImplementation(":Ponder-Fabric:1.21.1-1.0.0")!!) // using max's fork of ponder for the time being https://github.com/maximumpower55/Ponder/tree/mc1.21.1/dev
     modRuntimeOnly(libs.fcapi)
     modApi(libs.flywheel.api)
     modImplementation(libs.flywheel)

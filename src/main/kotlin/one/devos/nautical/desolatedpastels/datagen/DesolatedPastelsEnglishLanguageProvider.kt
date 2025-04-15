@@ -207,5 +207,11 @@ class DesolatedPastelsEnglishLanguageProvider(dataGenerator: FabricDataOutput, r
         translationBuilder.add("desolatedpastels.ponder.powder_intro.header", "Using Pastel Powder Blocks")
         translationBuilder.add("desolatedpastels.ponder.powder_intro.text_1", "Just like normal Concrete Powder, if your Pastel Powder interacts with Water, it turns into hardened version of the block")
         translationBuilder.add("desolatedpastels.ponder.powder_intro.text_2", "Just place your powder in water, and it becomes a Pastel block")
+
+        translationBuilder.add("desolatedpastels.ponder.shard_creator.header", "Using Shard Creator")
+        translationBuilder.add("desolatedpastels.ponder.shard_creator.text_1", "You can make a Pastel Shard by using a Shard Creator")
+        translationBuilder.add("desolatedpastels.ponder.shard_creator.text_2", "First, put 5 different colored Pastel Powders into the Shard Creator")
+        translationBuilder.add("desolatedpastels.ponder.shard_creator.text_3", "Next, provide a Diamond")
+        translationBuilder.add("desolatedpastels.ponder.shard_creator.text_3", "Finally, provide a heat source that will last at least 2 minutes")
     }
 }

@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
 import net.minecraft.core.particles.BlockParticleOption
 import net.minecraft.core.particles.ParticleTypes
+import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.phys.Vec3
 import one.devos.nautical.softerpastels.common.SofterPastelsBlocks
 import one.devos.nautical.softerpastels.common.SofterPastelsItems
@@ -26,13 +27,14 @@ object BlockScenes {
         scene.debug()
         scene.title("powder_intro", "")
         scene.configureBasePlate(0, 0, 5)
-        scene.world().showSection(util.select().layers(0, 2), Direction.DOWN)
+        scene.world().showSection(util.select().layer(0), Direction.DOWN)
         scene.setNextUpEnabled(false)
         scene.overlay().showText(80).text("")
         scene.idle(20)
 
         // Moving the pastel powder into the water
 //        scene.addKeyframe()
+        scene.world().showSection(util.select().layer(1), Direction.DOWN)
         val powderContraption = scene.world().showIndependentSection(util.select().position(powder), Direction.DOWN)
         val powderContraption2 = scene.world().showIndependentSection(util.select().position(powder2), Direction.DOWN)
         val powderDestination = doubleArrayOf(0.0, -2.0, 0.0)
@@ -58,11 +60,12 @@ object BlockScenes {
 //        scene.addKeyframe()
         scene.title("portal", "")
         scene.configureBasePlate(0, 0, 6)
-        scene.world().showSection(util.select().layers(0, 6), Direction.DOWN)
+        scene.world().showSection(util.select().layer(0), Direction.DOWN)
         scene.setNextUpEnabled(false)
         scene.overlay().showText(80).text("")
-        scene.idle(40)
+        scene.idle(20)
 
+        scene.world().showSection(util.select().layers(1, 6), Direction.DOWN)
         scene.overlay().showControls(util.vector().topOf(portalInteractPos), Pointing.DOWN, 40)
             .rightClick()
             .withItem(SofterPastelsItems.LIGHT_RED_POWDER.defaultInstance)
@@ -73,11 +76,13 @@ object BlockScenes {
 
         scene.title("shard_creator", "")
         scene.configureBasePlate(0, 0, 5)
-        scene.world().showSection(util.select().layers(0, 2), Direction.DOWN)
+        scene.world().showSection(util.select().layer(0), Direction.DOWN)
         scene.setNextUpEnabled(false)
         scene.overlay().showText(80).text("")
-        scene.idle(20)
+        scene.idle(10)
 
+        scene.world().showSection(util.select().layer(1), Direction.DOWN)
+        scene.idle(20)
         scene.overlay().showControls(util.vector().topOf(shardCreatorInteractPos), Pointing.DOWN, 20)
             .rightClick()
             .withItem(SofterPastelsItems.RED_POWDER.defaultInstance)
@@ -97,6 +102,5 @@ object BlockScenes {
         scene.overlay().showControls(util.vector().topOf(shardCreatorInteractPos), Pointing.DOWN, 20)
             .rightClick()
             .withItem(SofterPastelsItems.BLUE_POWDER.defaultInstance)
-
     }
 }

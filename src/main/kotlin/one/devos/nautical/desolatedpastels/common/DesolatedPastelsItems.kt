@@ -111,6 +111,8 @@ object DesolatedPastelsItems {
 //    }
 
     fun init() {
+        DesolatedPastelsPonderItems.init()
+
         LootTableEvents.MODIFY.register { key, builder, source, registries ->
             if (key === BuiltInLootTables.SNIFFER_DIGGING && source.isBuiltin) {
                 builder.modifyPools { 
