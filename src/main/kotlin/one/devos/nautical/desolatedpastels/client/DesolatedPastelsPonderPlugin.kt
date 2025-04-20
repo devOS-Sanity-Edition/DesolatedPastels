@@ -2,6 +2,8 @@ package one.devos.nautical.desolatedpastels.client
 
 import net.createmod.ponder.api.registration.PonderPlugin
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper
+import net.createmod.ponder.foundation.ui.PonderUI
+import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.ResourceLocation
 import one.devos.nautical.desolatedpastels.DesolatedPastels

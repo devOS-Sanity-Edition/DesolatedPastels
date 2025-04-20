@@ -5,7 +5,8 @@
   "mixins": [
   ],
   "client": [
-    "client.DevEnvDebugScreenOverlayMixin"
+    "client.DevEnvDebugScreenOverlayMixin",
+    "client.ponder.ScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

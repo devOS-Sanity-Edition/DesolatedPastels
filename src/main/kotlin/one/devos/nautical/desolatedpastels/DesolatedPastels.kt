@@ -55,6 +55,7 @@ object DesolatedPastels : ModInitializer {
         DesolatedPastelsSoundEvents.init()
         DesolatedPastelsPortals.init()
         DesolatedPastelsEntities.init()
+        DesolatedPastelsAttachments.init()
 
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MOD_ID, "main"), DP_ITEM_GROUP)
 

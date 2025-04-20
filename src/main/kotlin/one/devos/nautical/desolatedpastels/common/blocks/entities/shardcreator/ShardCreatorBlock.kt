@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker
 import net.minecraft.world.level.block.entity.BlockEntityType
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.phys.BlockHitResult
+import one.devos.nautical.desolatedpastels.common.DesolatedPastelsAttachments
 import one.devos.nautical.desolatedpastels.common.DesolatedPastelsBlockEntities
 
 
@@ -59,9 +60,8 @@ class ShardCreatorBlock(properties: Properties) : BaseEntityBlock(properties) {
         player: Player,
         hitResult: BlockHitResult
     ): InteractionResult {
-        if (level.isClientSide) {
+        if (level.isClientSide)
             return InteractionResult.SUCCESS
-        }
 
         val blockEntity = level.getBlockEntity(pos)
 
@@ -69,8 +69,24 @@ class ShardCreatorBlock(properties: Properties) : BaseEntityBlock(properties) {
             return super.useWithoutItem(state, level, pos, player, hitResult)
         }
 
-        SimplePonderActions.openPonder("desolatedpastels:shard_creator")
-//        openContainer(level, pos, player)
+        // 0 - Never pondered
+        // 1 - First open
+        // >=2 - Definitely pondered
+        when (player.getAttachedOrSet(DesolatedPastelsAttachments.CURRENT_PONDER_SHARD_CREATOR_STATE, 0)) {
+            0 -> {
+                player.setAttached(DesolatedPastelsAttachments.CURRENT_PONDER_SHARD_CREATOR_STATE, 1)
+            }
+
+            1 -> {
+                player.setAttached(DesolatedPastelsAttachments.HAS_PONDERED_SHARD_CREATOR, true)
+                player.setAttached(DesolatedPastelsAttachments.CURRENT_PONDER_SHARD_CREATOR_STATE, 2)
+            }
+
+            else -> {}
+        }
+
+        openContainer(level, pos, player)
+
         return InteractionResult.CONSUME
     }
 
